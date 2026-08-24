@@ -209,22 +209,76 @@ button {
     box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
 }
 
-.hero-right-content {
+.hero-right-link {
     position: absolute;
-
     right: 25px;
     bottom: 25px;
 
     z-index: 10;
 
+    text-decoration: none;
+}
+
+.hero-right-content {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+    border-radius: 50%;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+.instagram-icon {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+/* ================================
+   INSTAGRAM EXPANSÃO AO PASSAR O MOUSE
+   ================================ */
+
+.instagram-expand {
+    position: absolute;
+
+    inset: 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: scale(.8);
+
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
 }
 
 .hero-image-right {
-    width: 180px;
-    height: auto;
+    width: 150px;
+    height: 160px;
+
     object-fit: contain;
 }
 
@@ -233,17 +287,179 @@ button {
 
     padding: 5px 10px;
 
-    font-family: "Inter", Arial, sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-
     color: var(--white);
 
-    background-image: url("img/Fundo\ instagram.png");
+    font-family: "Inter", Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    background-image: url("img/Fundo instagram.png");
     background-size: cover;
     background-position: center;
 
     border-radius: 5px;
+}
+
+/* ================================
+   WHATSAPP EXPANSÃO AO PASSAR O MOUSE
+   ================================ */
+
+.hero-left-link {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+
+    z-index: 10;
+
+    text-decoration: none;
+}
+
+.hero-left-content {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--white);
+    border-radius: 50%;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+
+/* Ícone normal */
+
+.WhatsApp-icon {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+
+/* Conteúdo expandido */
+
+.WhatsApp-expand {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: scale(.8);
+
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* QR Code */
+
+.hero-image-left {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+}
+
+
+/* Texto */
+
+.hero-left-text {
+    margin-top: 8px;
+
+    padding: 5px 10px;
+
+    color: var(--white);
+
+    font-family: Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    background: #25D366;
+
+    border-radius: 5px;
+}
+
+
+/* ================================
+   EXPANSÃO
+   ================================ */
+
+.hero-left-link:hover .hero-left-content {
+    width: 190px;
+    height: 220px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+
+/* Esconde o ícone */
+
+.hero-left-link:hover .WhatsApp-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+
+/* Mostra QR + texto */
+
+.hero-left-link:hover .WhatsApp-expand {
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: scale(1);
+}
+
+/* ================================
+   EXPANSÃO AO PASSAR O MOUSE
+   ================================ */
+
+.hero-right-link:hover .hero-right-content {
+    width: 190px;
+    height: 220px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+.hero-right-link:hover .instagram-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+.hero-right-link:hover .instagram-expand {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
 }
 
 /* ---------- Header ---------- */
@@ -579,7 +795,7 @@ button {
 
 .products-section {
     padding-top: 50px;
-    padding-bottom: 300px;
+    padding-bottom: 370px;
     background: var(--cream);
 }
 

@@ -9,6 +9,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let pagina = 1;
 
+const descricaoKit = document.getElementById("descricaoKit");
+
+const nomesKits = [
+    "oi",
+    "oioi",
+    "oioioi",
+    "oioioioi",
+    "oioioioioi"
+];
+
+if (descricaoKit) {
+    descricaoKit.textContent = nomesKits[pagina - 1];
+}
+
+    
+
+    
+
 
     function atualizarFotos() {
 
@@ -30,11 +48,17 @@ imagem.src = imagem.dataset.terceira;
 if (pagina === 4) {
     imagem.src = imagem.dataset.quarta;
 }
+if (pagina === 5) {
+    imagem.src = imagem.dataset.quinta;
+}
 
         });
 
         // Atualiza o número da página
         paginaAtual.textContent = pagina;
+
+        // Atualiza nome do kit
+descricaoKit.textContent = nomesKits[pagina - 1];
     }
 
 
@@ -42,7 +66,7 @@ if (pagina === 4) {
 
         pagina++;
 
-        if (pagina > 4) {
+        if (pagina > 5) {
             pagina = 1;
         }
 
@@ -56,7 +80,7 @@ if (pagina === 4) {
         pagina--;
 
         if (pagina < 1) {
-            pagina = 4;
+            pagina = 5;
         }
 
         atualizarFotos();
