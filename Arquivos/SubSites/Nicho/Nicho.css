@@ -122,7 +122,7 @@ header p {
     grid-template-columns: repeat(8, 200px);
 
     column-gap: 5px;
-    row-gap: 0px;
+    row-gap: 15px;
 
     width: max-content;
 

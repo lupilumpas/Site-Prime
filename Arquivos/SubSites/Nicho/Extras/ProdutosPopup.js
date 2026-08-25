@@ -1,3 +1,22 @@
+const precosProdutos = [
+    "R$ 289,99",
+    "R$ 219,99",
+    "R$ 199,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ 214,99",
+    "R$ 214,99",
+    "R$ 199,99",
+    "R$ 199,99",
+    "R$ 209,99",
+    "R$ 199,99",
+    "R$ 199,99",
+    "R$ 199,99",
+    "R$ 199,99"
+];
+
 const produtos = [
     "Branco",
     "Camurça",
@@ -15,6 +34,25 @@ const produtos = [
     "Pastel",
     "Rosê",
     "Safari"
+];
+
+const linksComprar = [
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Branco.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Camurça.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Envelhecido.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Cerejeira Claro.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Cerejeira Escuro.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Cinza Claro.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Cinza Escuro.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Imbuia.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Mogno.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Cru/Natural.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Por%20do%20sôl.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Preto.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Caramelo.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Pastel.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Rosê.",
+    "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Safari."
 ];
 
 const descricaoProduto = `
@@ -48,7 +86,7 @@ FAZEMOS EM OUTRAS MEDIDAS CONFORME A ABERTURA DA SUA CHURRASQUEIRA DE ATÉ 90X90
 PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
 <br>
 <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610" target="_blank">
-Acessar loja no Mercado Livre
+Acessar loja
 </a>
 `;
 
@@ -62,6 +100,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (popup) {
             popup.classList.remove("ativo");
+        }
+
+    });
+
+});
+
+// ==========================================
+// FECHAR CLICANDO FORA DO POPUP
+// ==========================================
+
+document.querySelectorAll(".popup-fundo").forEach((popup) => {
+
+    popup.addEventListener("click", (evento) => {
+
+        // Só fecha se clicou no fundo
+        if (evento.target === popup) {
+
+            const botaoFechar = popup.querySelector(".popup-fechar");
+
+            if (botaoFechar) {
+                botaoFechar.click();
+            }
+
         }
 
     });
@@ -114,6 +175,14 @@ const indice = Array.from(imagens).indexOf(imagem);
 const popup =
     document.getElementById(`popup-${indice + 1}`);
 
+const botaoComprar =
+    popup.querySelector(".popup-comprar");
+
+if (botaoComprar) {
+    botaoComprar.href = linksComprar[indice];
+    botaoComprar.target = "_blank";
+}
+
 if (!popup) return;
 
 const nomeProduto = produtos[indice];
@@ -132,6 +201,13 @@ const descricao =
 
 if (descricao) {
     descricao.innerHTML = descricaoProduto;
+}
+
+const preco =
+    popup.querySelector(".popup-preco");
+
+if (preco) {
+    preco.textContent = precosProdutos[indice];
 }
 
             // ==========================================

@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 const descricaoKit = document.getElementById("descricaoKit");
 
 const nomesKits = [
-    "oi",
-    "oioi",
-    "oioioi",
-    "oioioioi",
-    "oioioioioi"
+    "Imagens de antigos clientes",
+    "Imagens antes e depois",
+    "Imagens da comparação de nichos com fundo mdf e pinus",
+    "Foto com ia de cada cor, diferentes nichos no mesmo espaço/churrasqueira",
+    "Foto com ia de cada cor, com um zoom"
 ];
 
 if (descricaoKit) {
