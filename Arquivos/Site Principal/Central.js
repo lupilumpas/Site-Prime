@@ -1,8 +1,37 @@
+
+
 /* =========================================================
    JARDINS DE MADEIRA — SCRIPT.JS
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+document.addEventListener("click", function (event) {
+
+    const card = event.target.closest(".product-card");
+
+    if (!card) return;
+
+    // Impede o href de ser executado automaticamente
+    event.preventDefault();
+
+    const caminhoLocal = card.dataset.local;
+    const caminhoOnline = card.getAttribute("href");
+
+    // Se estiver rodando pelo computador
+    if (window.location.protocol === "file:") {
+
+        window.location.href = caminhoLocal;
+
+    } else {
+
+        // Se estiver hospedado
+        window.location.href = caminhoOnline;
+
+    }
+
+});
+
 
     /* ---------------------------------------------------------
        1. CONTADOR DA LISTA DE ORÇAMENTO
