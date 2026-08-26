@@ -17,17 +17,22 @@ document.addEventListener("click", function (event) {
     const caminhoLocal = card.dataset.local;
     const caminhoOnline = card.getAttribute("href");
 
-    // Se estiver rodando diretamente pelo computador
-    if (window.location.protocol === "file:") {
+    const caminho = window.location.protocol === "file:"
+        ? caminhoLocal
+        : caminhoOnline;
 
-        window.open(caminhoLocal, "_blank");
+    // Cria um link temporário
+    const novoLink = document.createElement("a");
 
-    } else {
+    novoLink.href = caminho;
+    novoLink.target = "_blank";
+    novoLink.rel = "noopener noreferrer";
 
-        // Se estiver hospedado
-        window.open(caminhoOnline, "_blank");
+    document.body.appendChild(novoLink);
 
-    }
+    novoLink.click();
+
+    novoLink.remove();
 
 });
 
