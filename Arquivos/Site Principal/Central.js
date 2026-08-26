@@ -12,21 +12,20 @@ document.addEventListener("click", function (event) {
 
     if (!card) return;
 
-    // Impede o href de ser executado automaticamente
     event.preventDefault();
 
     const caminhoLocal = card.dataset.local;
     const caminhoOnline = card.getAttribute("href");
 
-    // Se estiver rodando pelo computador
+    // Se estiver rodando diretamente pelo computador
     if (window.location.protocol === "file:") {
 
-        window.location.href = caminhoLocal;
+        window.open(caminhoLocal, "_blank");
 
     } else {
 
         // Se estiver hospedado
-        window.location.href = caminhoOnline;
+        window.open(caminhoOnline, "_blank");
 
     }
 
