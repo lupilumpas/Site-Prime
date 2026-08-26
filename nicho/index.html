@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Carregando...</title>
+</head>
+
+<body>
+
+<script>
+
+fetch("../Arquivos/SubSites/Nicho/Nicho.html")
+    .then(resposta => resposta.text())
+    .then(html => {
+
+        // Coloca uma base para que CSS, JS e imagens
+        // continuem funcionando a partir da pasta original
+        html = html.replace(
+            "<head>",
+            `<head>
+            <base href="/Arquivos/SubSites/Nicho/">`
+        );
+
+        // Carrega a página inteira
+        document.open();
+        document.write(html);
+        document.close();
+
+    })
+    .catch(erro => {
+
+        document.body.innerHTML = `
+            <h1>Erro ao carregar a página</h1>
+            <p>Não foi possível carregar o conteúdo.</p>
+        `;
+
+        console.error(erro);
+
+    });
+
+</script>
+
+</body>
+
+</html>
