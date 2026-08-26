@@ -1,0 +1,370 @@
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #1c1c1c;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+
+/* =========================================================
+   PAINEL
+========================================================= */
+
+.painel {
+
+    position: relative;
+
+    width: 100%;
+
+    /*
+        Troque "painel.png" pela imagem real
+        do seu painel.
+    */
+
+    background-image: url("img/painel.png");
+
+    background-size: 100% auto;
+
+    background-position: top center;
+
+    background-repeat: repeat-y;
+
+    /*
+        Isso deixa o painel bastante comprido.
+        Depois podemos adaptar exatamente
+        ao tamanho da sua imagem.
+    */
+
+    min-height: 3200px;
+
+    padding-top: 100px;
+    padding-bottom: 150px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   INTRODUÇÃO
+========================================================= */
+
+.introducao {
+
+    width: 700px;
+    max-width: 90%;
+
+    margin: 0 auto 400px auto;
+
+    text-align: center;
+
+    padding: 35px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(5px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.introducao h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.introducao p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CACHEPÔ
+========================================================= */
+
+.cachepo {
+
+    position: absolute;
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 25px;
+
+    /*
+        Fundo temporário para enxergarmos
+        claramente o cachepô.
+
+        Depois podemos substituir por
+        uma imagem real de cachepô.
+    */
+
+    background: rgba(85, 52, 28, 0.92);
+
+    border-radius: 20px;
+
+    border: 4px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.5),
+        inset 0 2px 0 rgba(255,255,255,0.1);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   POSIÇÃO DOS CACHEPÔS
+========================================================= */
+
+.cachepo-1 {
+    top: 650px;
+}
+
+.cachepo-2 {
+    top: 1500px;
+}
+
+.cachepo-3 {
+    top: 2350px;
+}
+
+
+/* =========================================================
+   TÍTULO DO CACHEPÔ
+========================================================= */
+
+.cachepo-titulo {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.cachepo-titulo h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 6px;
+}
+
+.cachepo-titulo p {
+
+    font-size: 15px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================================
+   PRODUTOS
+========================================================= */
+
+.produtos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.produto {
+
+    background: white;
+
+    color: #222;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.3);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.produto:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.4);
+}
+
+
+/* =========================================================
+   IMAGEM DO PRODUTO
+========================================================= */
+
+.produto img {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: contain;
+
+    display: block;
+
+    background: #eeeeee;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
+.produto-info {
+
+    padding: 18px;
+
+    text-align: center;
+}
+
+.produto-info h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.produto-info p {
+
+    color: #666;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+.produto button {
+
+    border: none;
+
+    background: #5b351f;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.produto button:hover {
+
+    background: #3f2415;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final {
+
+    position: absolute;
+
+    top: 3050px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 700px;
+
+    max-width: 90%;
+
+    text-align: center;
+
+    padding: 40px;
+
+    background: rgba(0,0,0,0.7);
+
+    border-radius: 20px;
+
+    z-index: 10;
+}
+
+.final h2 {
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .produtos {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .cachepo {
+
+        width: 92%;
+    }
+
+    .produto img {
+
+        height: 200px;
+    }
+
+    .introducao h1 {
+
+        font-size: 36px;
+    }
+}

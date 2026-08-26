@@ -168,10 +168,8 @@
 
     left: 50%;
 
-    width: auto;
-    max-width: 700px;
-    height: auto;
-    max-height: 340px;
+    width: 300px;
+    height: 340px;
 
     transform:
         translate(-50%, -50%)
