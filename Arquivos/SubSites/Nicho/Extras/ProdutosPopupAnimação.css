@@ -129,6 +129,41 @@
 }
 
 /* ========================================= */
+/* AeD participa da animação (como se fosse a central) */
+/* ========================================= */
+
+.popup-imagens .aed-container {
+    transition:
+        left 0.7s ease-in-out,
+        width 0.7s ease-in-out,
+        height 0.7s ease-in-out,
+        transform 0.7s ease-in-out,
+        opacity 0.7s ease-in-out;
+
+    will-change: left, width, height, transform, opacity;
+}
+
+/* Quando anima para a DIREITA → AeD vai para a posição da direita */
+.popup-imagens.animando-direita .aed-container {
+    left: 80%;
+    width: 150px;
+    height: 170px;
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Quando anima para a ESQUERDA → AeD vai para a posição da esquerda */
+.popup-imagens.animando-esquerda .aed-container {
+    left: 20%;
+    width: 150px;
+    height: 170px;
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 1;
+    z-index: 2;
+}
+
+/* ========================================= */
 /* ESCONDE A IMAGEM QUE DÁ A VOLTA (instantâneo) */
 /* ========================================= */
 

@@ -29,12 +29,9 @@ body {
 
     width: 100%;
 
-    /*
-        Troque "painel.png" pela imagem real
-        do seu painel.
-    */
+    background-color: rgb(243, 242, 237);
 
-    background-image: url("img/painel.png");
+    background-image: url("img/Painel.png");
 
     background-size: 100% auto;
 

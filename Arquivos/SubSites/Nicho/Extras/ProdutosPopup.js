@@ -1,20 +1,20 @@
 const precosProdutos = [
-    "R$ 289,99",
-    "R$ 219,99",
-    "R$ 199,99",
-    "R$ ,99",
-    "R$ ,99",
-    "R$ ,99",
-    "R$ ,99",
-    "R$ 214,99",
-    "R$ 214,99",
-    "R$ 199,99",
-    "R$ 199,99",
-    "R$ 209,99",
-    "R$ 199,99",
-    "R$ 199,99",
-    "R$ 199,99",
-    "R$ 199,99"
+    "R$ 330,99",
+    "R$ 260,99",
+    "R$ 260,99",
+    "R$ 290,99",
+    "R$ 290,99",
+    "R$ 260,99",
+    "R$ 260,99",
+    "R$ 290,99",
+    "R$ 260,99",
+    "R$ 230,99",
+    "R$ 260,99",
+    "R$ 260,99",
+    "R$ 260,99",
+    "R$ 260,99",
+    "R$ 260,99",
+    "R$ 280,99"
 ];
 
 const produtos = [
@@ -28,7 +28,7 @@ const produtos = [
     "Imbuia",
     "Mogno",
     "Cru",
-    "Por do sôl",
+    "Por do Sôl",
     "Preto",
     "Caramelo",
     "Pastel",
@@ -187,6 +187,20 @@ if (!popup) return;
 
 const nomeProduto = produtos[indice];
 
+// ==========================================
+// ANTES E DEPOIS
+// ==========================================
+
+const imagemAntes = popup.querySelector(".aed-imagem-A");
+const imagemDepois = popup.querySelector(".aed-imagem-D");
+
+if (imagemAntes && imagemDepois) {
+
+    imagemAntes.src = `img/Antes e Depois/${nomeProduto}/Antes.png`;
+    imagemDepois.src = `img/Antes e Depois/${nomeProduto}/Depois.png`;
+
+}
+
 const titulo = popup.querySelector("h2");
 
 if (titulo) {
@@ -219,6 +233,49 @@ if (preco) {
             const imagem3 = popup.querySelector(".Imagem-central");
             const imagem4 = popup.querySelector(".Imagem-Seguinte");
             const imagem5 = popup.querySelector(".Imagem-Seguinte-2");
+            const aedContainer = popup.querySelector(".aed-container");
+const aedImagemA = popup.querySelector(".aed-imagem-A");
+const aedImagemD = popup.querySelector(".aed-imagem-D");
+const aedBarra = popup.querySelector(".aed-barra");
+const aedBotao = popup.querySelector(".aed-botao");
+
+function atualizarAeD(posicao) {
+
+    aedImagemD.style.clipPath =
+        `inset(0 ${100 - posicao}% 0 0)`;
+
+    aedBarra.style.left =
+        posicao + "%";
+
+}
+atualizarAeD(50);
+let arrastandoAeD = false;
+
+
+
+aedBotao.addEventListener("mousedown", (evento) => {
+    evento.preventDefault();   // ← adiciona isto
+    arrastandoAeD = true;
+});
+
+document.addEventListener("mousemove", (evento) => {
+    if (!arrastandoAeD) return;
+
+    evento.preventDefault();   // ← e isto também
+
+    const rect = aedContainer.getBoundingClientRect();
+    let posicao = ((evento.clientX - rect.left) / rect.width) * 100;
+    posicao = Math.max(0, Math.min(100, posicao));
+    atualizarAeD(posicao);
+});
+
+
+
+document.addEventListener("mouseup", () => {
+
+    arrastandoAeD = false;
+
+});
 
             if (!imagem1 || !imagem2 || !imagem3 || !imagem4 || !imagem5) {
                 return;
@@ -252,11 +309,35 @@ if (resultado) {
                 if (kit4 > 5) kit4 -= 5;
                 if (kit5 > 5) kit5 -= 5;
 
-                imagem1.src = `img/Kit ${kit1}/${nomeProduto}.png`;
-                imagem2.src = `img/Kit ${kit2}/${nomeProduto}.png`;
-                imagem3.src = `img/Kit ${kit3}/${nomeProduto}.png`;
-                imagem4.src = `img/Kit ${kit4}/${nomeProduto}.png`;
-                imagem5.src = `img/Kit ${kit5}/${nomeProduto}.png`;
+imagem1.src = `img/Kit ${kit1}/${nomeProduto}.png`;
+imagem2.src = `img/Kit ${kit2}/${nomeProduto}.png`;
+imagem4.src = `img/Kit ${kit4}/${nomeProduto}.png`;
+imagem5.src = `img/Kit ${kit5}/${nomeProduto}.png`;
+
+
+/* ========================================= */
+/* PÁGINA 2 = ANTES E DEPOIS */
+/* ========================================= */
+
+if (paginaCarrossel === 2) {
+
+    imagem3.style.display = "none";
+
+    aedContainer.style.display = "block";
+
+    aedImagemA.src =
+        `img/Antes e Depois/${nomeProduto}/Antes.png`;
+
+    aedImagemD.src =
+        `img/Antes e Depois/${nomeProduto}/Depois.png`;
+
+}  else {
+
+    imagem3.style.display = "block";
+    aedContainer.style.display = "none";
+
+    imagem3.src = `img/Kit ${kit3}/${nomeProduto}.png`;
+}
             }
 
             // ==========================================
@@ -269,8 +350,8 @@ if (resultado) {
             // ESCONDE A IMAGEM CENTRAL (fica branco)
             // ==========================================
 
-            imagem3.style.opacity = "0";
-            imagem3.style.transition = "none";
+imagem3.style.opacity = "0";
+imagem3.style.transition = "none";
 
             // ==========================================
             // MOSTRA O POPUP

@@ -14,52 +14,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let animando = false;
 
-        function finalizarAnimacao(imagemClicada) {
+function finalizarAnimacao(imagemClicada) {
 
-            const onTransitionEnd = (e) => {
-                // Só reage se a transição for de uma das imagens do carrossel
-                if (!container.contains(e.target)) return;
+    const onTransitionEnd = (e) => {
+        if (!container.contains(e.target)) return;
+        if (e.propertyName !== "left") return;
 
-                // Evita disparar várias vezes (uma por propriedade)
-                if (e.propertyName !== "left") return;
+        container.removeEventListener("transitionend", onTransitionEnd);
 
-                container.removeEventListener("transitionend", onTransitionEnd);
+        // 1. Desliga transições
+        const imagens = container.querySelectorAll("img");
+        imagens.forEach(img => img.style.transition = "none");
 
-                // 1. Executa a lógica original (troca os src)
-                if (typeof imagemClicada.onclick === "function") {
-                    imagemClicada.onclick();
-                }
+        const aed = container.querySelector(".aed-container");
+        if (aed) aed.style.transition = "none";
 
-                // 2. Desliga as transições temporariamente
-                const imagens = container.querySelectorAll("img");
-                imagens.forEach(img => {
-                    img.style.transition = "none";
-                });
+        // 2. Remove as classes de animação ANTES de mostrar a nova imagem
+        container.classList.remove("animando-direita", "animando-esquerda");
 
-                // 3. Remove as classes de animação (as imagens voltam para as posições originais)
-                container.classList.remove("animando-direita", "animando-esquerda");
+        // 3. Força reflow
+        void container.offsetWidth;
 
-                // 4. Força o navegador a aplicar a mudança imediatamente
-                void container.offsetWidth;
-
-                // 5. Restaura as transições
-                imagens.forEach(img => {
-                    img.style.transition = "";
-                });
-
-                animando = false;
-            };
-
-            container.addEventListener("transitionend", onTransitionEnd);
-
-            // Fallback de segurança (caso o transitionend falhe)
-            setTimeout(() => {
-                if (animando) {
-                    container.removeEventListener("transitionend", onTransitionEnd);
-                    onTransitionEnd({ target: container, propertyName: "left" });
-                }
-            }, 850);
+        // 4. Agora sim atualiza src + show/hide
+        if (typeof imagemClicada.onclick === "function") {
+            imagemClicada.onclick();
         }
+
+        // 5. Reseta posição do AeD (já escondido)
+        if (aed) {
+            aed.style.left = "";
+            aed.style.width = "";
+            aed.style.height = "";
+            aed.style.transform = "";
+            aed.style.opacity = "";
+        }
+       // if (aed) {
+        //    aed.style.left = "50%";
+   //        aed.style.width = "300px";
+     //       aed.style.height = "340px";
+    //        aed.style.transform = "translate(-50%, -50%)";
+     //       aed.style.opacity = "1";
+     //   }
+
+        // 6. Restaura transições
+        imagens.forEach(img => img.style.transition = "");
+        if (aed) aed.style.transition = "";
+
+        animando = false;
+    };
+
+    container.addEventListener("transitionend", onTransitionEnd);
+
+    setTimeout(() => {
+        if (animando) {
+            container.removeEventListener("transitionend", onTransitionEnd);
+            onTransitionEnd({ target: container, propertyName: "left" });
+        }
+    }, 850);
+}
 
 // ===== CLIQUE NA DIREITA (próximo) =====
 imagemSeguinte.addEventListener("click", (evento) => {
