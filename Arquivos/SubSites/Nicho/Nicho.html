@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Nicho.css">
     <link rel="stylesheet" href="Extras/ProdutosPopup.css">
     <link rel="stylesheet" href="Extras/ProdutosPopupAnimação.css">
+    <link rel="stylesheet" href="Extras/Modelo3D.css">
 </head>
 
 <body>
@@ -850,7 +851,6 @@
 </div>
 
 
-<!--
 <section class="modelos-3d">
 
     <h2>Veja nosso nicho em 3D</h2>
@@ -859,28 +859,55 @@
 
     <div class="visualizador-3d">
 
-        <model-viewer
-            src="img/Teste.glb"
-            camera-controls
-            auto-rotate
-            shadow-intensity="1">
-        </model-viewer>
+<model-viewer
+    id="modelo3D"
+    src="img/Nicho teste mae.glb"
+    autoplay
+    auto-rotate
+    rotation-per-second="20deg"
+    interaction-prompt="none"
+    style="width: 700px; height: 500px;">
+</model-viewer>
 
     </div>
 
+<div class="estatisticas">
+
+    <div class="estatistica">
+        <span class="estatistica-titulo">Largura</span>
+        <span id="estatistica-largura">60 cm</span>
+    </div>
+
+    <div class="estatistica">
+        <span class="estatistica-titulo">Altura</span>
+        <span id="estatistica-altura">60 cm</span>
+    </div>
+
+    <div class="estatistica">
+        <span class="estatistica-titulo">Profundidade</span>
+        <span id="estatistica-profundidade">14 cm</span>
+    </div>
+
+    <div class="estatistica">
+        <span class="estatistica-titulo">Preço</span>
+        <span id="estatistica-preco">R$ 0,00</span>
+    </div>
+
+</div>
+
 </section>
--->
+
 
 
 </main>
-<!--
+
 <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 </script>
--->
     <script src="Nicho.js"></script>
     <script src="Extras/ProdutosPopup.js"></script>
     <script src="Extras/ProdutosPopupAnimação.js"></script>
+    <script src="Extras/Modelo3D.js"></script>
 </body>
 
 </html>
