@@ -688,6 +688,7 @@ button {
     font-weight: 500;
     line-height: .96;
     letter-spacing: -.04em;
+    text-align: center;
 }
 
 .hero-description {
@@ -695,6 +696,8 @@ button {
     margin: 25px 0 32px;
     color: rgba(255,255,255,.88);
     font-size: 1.08rem;
+    text-align: center;
+    transform: translateX(70px);
 }
 
 .hero-actions {
