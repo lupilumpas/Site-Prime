@@ -19,25 +19,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // =========================================================
-    // CORES DE TESTE
-    // Cada MATERIAL terá uma cor diferente
+    // CONFIGURAÇÃO
+    // =========================================================
+
+    // Altura original do modelo
+    const ALTURA_ORIGINAL = 60;
+
+    // Altura atual
+    let alturaAtual = ALTURA_ORIGINAL;
+
+
+    // =========================================================
+    // CORES
     // =========================================================
 
     const coresMateriais = [
-        [1, 0, 0, 1],       // Vermelho
-        [0, 1, 0, 1],       // Verde
-        [0, 0, 1, 1],       // Azul
-        [1, 1, 0, 1],       // Amarelo
-        [1, 0, 1, 1],       // Rosa
-        [0, 1, 1, 1],       // Ciano
-        [1, 0.5, 0, 1],     // Laranja
-        [0.5, 0, 1, 1],     // Roxo
-        [0, 0, 0, 1]        // Preto
+        [1, 0, 0, 1],       // 0 - Vermelho - parede lateral esquerda interna
+        [0, 1, 0, 1],       // 1 - Verde - parede lateral superior interna
+        [0, 0, 1, 1],       // 2 - Azul - parede lateral direita interna
+        [1, 1, 0, 1],       // 3 - Amarelo - parede lateral inferior interna
+        [1, 0, 1, 1],       // 4 - Rosa - moldura externa inferior
+        [0, 1, 1, 1],       // 5 - Ciano - moldura externa esquerda
+        [1, 0.5, 0, 1],     // 6 - Laranja - moldura externa superior
+        [0.5, 0, 1, 1],     // 7 - Roxo - moldura externa direita
+        [0, 0, 0, 1]        // 8 - Preto - fundo
     ];
 
 
     // =========================================================
-    // CARREGAMENTO DO MODELO
+    // CARREGAR MODELO
     // =========================================================
 
     modelo.addEventListener("load", () => {
@@ -72,11 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.error(
                 "ERRO: Symbol(hierarchy) não encontrado!"
-            );
-
-            console.log(
-                "Symbols encontrados:",
-                simbolos
             );
 
             return;
@@ -114,6 +119,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
+        // =====================================================
+        // PINTAR PEÇAS
+        // =====================================================
+
+        pintarTodasAsPecas();
+
+
         modeloPronto = true;
 
         console.log("");
@@ -123,147 +135,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         // =====================================================
-        // TESTE INICIAL
-        //
-        // Pinta cada MATERIAL de uma cor diferente.
+        // MOSTRAR INFORMAÇÕES DOS EIXOS
         // =====================================================
 
-        console.log("");
-        console.log("=================================");
-        console.log("TESTE DOS MATERIAIS");
-        console.log("=================================");
-
-        testarMateriais();
+        diagnosticarEixos();
 
     });
 
 
     // =========================================================
-    // TESTAR TODOS OS MATERIAIS
+    // PINTAR TODAS AS PEÇAS
     // =========================================================
 
-    function testarMateriais() {
+    function pintarTodasAsPecas() {
 
-        if (!hierarquia) {
-            return;
-        }
-
-
-        hierarquia.forEach((parte, indicePeca) => {
+        hierarquia.forEach((parte, indice) => {
 
             try {
 
                 if (!parte.materials) {
-
-                    console.warn(
-                        "PEÇA SEM MATERIAL:",
-                        parte.name
-                    );
-
                     return;
                 }
-
 
                 if (!(parte.materials instanceof Map)) {
-
-                    console.warn(
-                        "Materials não é Map:",
-                        parte.name
-                    );
-
                     return;
                 }
 
+                parte.materials.forEach((material) => {
 
-                // =============================================
-                // PERCORRER TODOS OS MATERIAIS DA PEÇA
-                // =============================================
-
-                parte.materials.forEach(
-                    (material, indiceMaterial) => {
-
-                        if (!material) {
-
-                            console.warn(
-                                "Material inválido:",
-                                parte.name
-                            );
-
-                            return;
-                        }
-
-
-                        console.log("");
-                        console.log(
-                            "PEÇA:",
-                            parte.name
-                        );
-
-                        console.log(
-                            "ÍNDICE DA PEÇA:",
-                            indicePeca
-                        );
-
-                        console.log(
-                            "ÍNDICE DO MATERIAL:",
-                            indiceMaterial
-                        );
-
-                        console.log(
-                            "NOME DO MATERIAL:",
-                            material.name
-                        );
-
-
-                        // =====================================
-                        // PEGAR PBR
-                        // =====================================
-
-                        const pbr =
-                            material.pbrMetallicRoughness;
-
-
-                        if (!pbr) {
-
-                            console.warn(
-                                "Material sem PBR:",
-                                material.name
-                            );
-
-                            return;
-                        }
-
-
-                        // =====================================
-                        // ESCOLHER COR
-                        // =====================================
-
-                        const cor =
-                            coresMateriais[
-                                indicePeca %
-                                coresMateriais.length
-                            ];
-
-
-                        // =====================================
-                        // APLICAR COR
-                        // =====================================
-
-                        pbr.setBaseColorFactor(cor);
-
-
-                        console.log(
-                            "COR APLICADA:",
-                            cor
-                        );
-
+                    if (
+                        !material ||
+                        !material.pbrMetallicRoughness
+                    ) {
+                        return;
                     }
-                );
+
+                    const cor =
+                        coresMateriais[
+                            indice % coresMateriais.length
+                        ];
+
+                    material
+                        .pbrMetallicRoughness
+                        .setBaseColorFactor(cor);
+
+                });
 
             } catch (erro) {
 
-                console.error(
-                    "ERRO AO PINTAR MATERIAL DA PEÇA:",
+                console.warn(
+                    "Erro ao pintar:",
                     parte.name,
                     erro
                 );
@@ -272,14 +193,299 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
+    }
+
+
+    // =========================================================
+    // DIAGNÓSTICO DOS EIXOS
+    // =========================================================
+
+    function diagnosticarEixos() {
 
         console.log("");
         console.log("=================================");
-        console.log("TESTE DOS MATERIAIS FINALIZADO");
+        console.log("DIAGNÓSTICO DOS EIXOS");
         console.log("=================================");
+
+        hierarquia.forEach((parte, indice) => {
+
+            try {
+
+                if (
+                    !parte.mesh ||
+                    !parte.mesh.position
+                ) {
+                    return;
+                }
+
+                console.log(
+                    indice,
+                    "|",
+                    parte.name,
+                    "| POSIÇÃO:",
+                    parte.mesh.position
+                );
+
+            } catch (erro) {
+
+                console.warn(
+                    "Erro ao diagnosticar:",
+                    parte.name
+                );
+
+            }
+
+        });
 
     }
 
+
+    // =========================================================
+    // BARRA DE ALTURA
+    // =========================================================
+
+    const barraAltura =
+        document.getElementById("barra-altura");
+
+    const valorAltura =
+        document.getElementById("valor-altura");
+
+
+    if (!barraAltura) {
+
+        console.error(
+            "ERRO: #barra-altura não encontrada!"
+        );
+
+    } else {
+
+        barraAltura.addEventListener(
+            "input",
+            () => {
+
+                const novaAltura =
+                    Number(barraAltura.value);
+
+                alturaAtual =
+                    novaAltura;
+
+
+                // ---------------------------------------------
+                // ATUALIZAR TEXTO
+                // ---------------------------------------------
+
+                if (valorAltura) {
+
+                    valorAltura.textContent =
+                        novaAltura + " cm";
+
+                }
+
+
+                // ---------------------------------------------
+                // ALTERAR MODELO
+                // ---------------------------------------------
+
+                if (modeloPronto) {
+
+                    alterarAltura(
+                        novaAltura
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    // =========================================================
+    // ALTERAR ALTURA
+    // =========================================================
+
+    function alterarAltura(novaAltura) {
+
+        console.log("");
+        console.log("=================================");
+        console.log("ALTERANDO ALTURA");
+        console.log("=================================");
+
+        console.log(
+            "Altura anterior:",
+            alturaAtual,
+            "cm"
+        );
+
+        console.log(
+            "Nova altura:",
+            novaAltura,
+            "cm"
+        );
+
+
+        const diferenca =
+            novaAltura -
+            ALTURA_ORIGINAL;
+
+
+        console.log(
+            "Diferença:",
+            diferenca,
+            "cm"
+        );
+
+
+        // =====================================================
+        // TESTE INICIAL
+        //
+        // POR ENQUANTO vamos alterar apenas a escala
+        // VERTICAL das peças.
+        //
+        // Isso NÃO escala o modelo inteiro.
+        // =====================================================
+
+        const fator =
+            novaAltura /
+            ALTURA_ORIGINAL;
+
+
+// =====================================================
+// 0 - Vermelho - parede lateral esquerda interna
+// 1 - Verde - parede lateral superior interna
+// 2 - Azul - parede lateral direita interna
+// 3 - Amarelo - parede lateral inferior interna
+// 4 - Rosa - moldura externa inferior
+// 5 - Ciano - moldura externa esquerda
+// 6 - Laranja - moldura externa superior
+// 7 - Roxo - moldura externa direita
+// 8 - Preto - fundo
+// =====================================================
+
+        const pecasQueAumentam = [
+            0,
+            2,
+            5,
+            7,
+            8,
+        ];
+
+        const pecasQueMovem = [
+            1,
+            3,
+            4,
+            6,
+        ];
+
+        pecasQueAumentam.forEach((indice) => {
+
+            const parte =
+                hierarquia[indice];
+
+
+            if (!parte || !parte.mesh) {
+                return;
+            }
+
+
+            try {
+
+                // =============================================
+                // GUARDAR ESCALA ORIGINAL
+                // =============================================
+
+                if (!parte.__escalaOriginal) {
+
+                    parte.__escalaOriginal = {
+                        x: parte.mesh.scale.x,
+                        y: parte.mesh.scale.y,
+                        z: parte.mesh.scale.z
+                    };
+
+                }
+
+
+                const original =
+                    parte.__escalaOriginal;
+
+
+                // =============================================
+                // ALTERAR SOMENTE O EIXO Y
+                // =============================================
+
+                parte.mesh.scale.set(
+                    original.x,
+                    original.y * fator,
+                    original.z
+                );
+
+            } catch (erro) {
+
+            }
+
+        });
+
+// =====================================================
+// FUNDO
+// =====================================================
+
+const fundo = hierarquia[8];
+
+if (fundo && fundo.mesh) {
+
+    if (!fundo.__escalaOriginal) {
+
+        fundo.__escalaOriginal = {
+            x: fundo.mesh.scale.x,
+            y: fundo.mesh.scale.y,
+            z: fundo.mesh.scale.z
+        };
+
+    }
+
+    const original =
+        fundo.__escalaOriginal;
+
+    fundo.mesh.scale.set(
+        original.x * fator,
+        original.y,
+        original.z
+    );
+}
+
+// =====================================================
+// FUNDO
+// =====================================================
+
+pecasQueMovem.forEach((indice) => {
+
+    const parte = hierarquia[indice];
+    const fatorMovimento = 5.1;
+
+    if (!parte || !parte.mesh) {
+        return;
+    }
+
+    if (!parte.__posicaoOriginal) {
+
+        parte.__posicaoOriginal = {
+            x: parte.mesh.position.x,
+            y: parte.mesh.position.y,
+            z: parte.mesh.position.z
+        };
+    }
+
+    const original = parte.__posicaoOriginal;
+
+    parte.mesh.position.set(
+        original.x,
+        original.y + (diferenca * fatorMovimento),
+        original.z
+    );
+
+});
+
+    }
 
     // =========================================================
     // CLIQUE NO MODELO
@@ -289,23 +495,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!modeloPronto || !scene || !hierarquia) {
 
-            console.log(
-                "Modelo ainda não está pronto."
-            );
-
             return;
         }
 
-
-        console.log("");
-        console.log("=================================");
-        console.log("CLIQUE NO MODELO");
-        console.log("=================================");
-
-
-        // =====================================================
-        // DESCOBRIR PONTO CLICADO
-        // =====================================================
 
         const intersecao =
             modelo.positionAndNormalFromPoint(
@@ -315,34 +507,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if (!intersecao) {
-
-            console.log(
-                "Clique fora do modelo."
-            );
-
             return;
         }
 
-
-        console.log(
-            "POSIÇÃO:",
-            intersecao.position
-        );
-
-        console.log(
-            "NORMAL:",
-            intersecao.normal
-        );
-
-        console.log(
-            "UV:",
-            intersecao.uv
-        );
-
-
-        // =====================================================
-        // IDENTIFICAR PEÇA
-        // =====================================================
 
         let melhorPeca = null;
         let menorDistancia = Infinity;
@@ -386,14 +553,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
 
 
-                console.log(
-                    "PEÇA:",
-                    parte.name,
-                    "| DISTÂNCIA:",
-                    distancia
-                );
-
-
                 if (distancia < menorDistancia) {
 
                     menorDistancia =
@@ -411,8 +570,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 console.warn(
                     "Erro ao analisar:",
-                    parte.name,
-                    erro
+                    parte.name
                 );
 
             }
@@ -420,23 +578,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-        // =====================================================
-        // NENHUMA PEÇA
-        // =====================================================
-
         if (!melhorPeca) {
-
-            console.error(
-                "Não foi possível identificar a peça."
-            );
-
             return;
         }
 
-
-        // =====================================================
-        // RESULTADO
-        // =====================================================
 
         console.log("");
         console.log("********************************");
@@ -454,137 +599,8 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         console.log(
-            "DISTÂNCIA:",
-            menorDistancia
-        );
-
-        console.log(
-            "********************************"
-        );
-
-
-        // =====================================================
-        // PINTAR O MATERIAL DA PEÇA CLICADA
-        // =====================================================
-
-        pintarMaterialDaPeca(
-            melhorPeca,
-            melhorIndice
-        );
+            "********************************");
 
     });
-
-
-    // =========================================================
-    // PINTAR MATERIAL DA PEÇA CLICADA
-    // =========================================================
-
-    function pintarMaterialDaPeca(parte, indicePeca) {
-
-        console.log("");
-        console.log("=================================");
-        console.log("PINTANDO MATERIAL");
-        console.log("=================================");
-
-        console.log(
-            "PEÇA:",
-            parte.name
-        );
-
-
-        try {
-
-            if (!parte.materials) {
-
-                console.error(
-                    "Essa peça não possui materials."
-                );
-
-                return;
-            }
-
-
-            if (!(parte.materials instanceof Map)) {
-
-                console.error(
-                    "parte.materials não é um Map."
-                );
-
-                return;
-            }
-
-
-            parte.materials.forEach(
-                (material, indiceMaterial) => {
-
-                    if (!material) {
-                        return;
-                    }
-
-
-                    const pbr =
-                        material.pbrMetallicRoughness;
-
-
-                    if (!pbr) {
-
-                        console.warn(
-                            "Material sem PBR:",
-                            material.name
-                        );
-
-                        return;
-                    }
-
-
-                    // =========================================
-                    // COR DA PEÇA
-                    // =========================================
-
-                    const cor =
-                        coresMateriais[
-                            indicePeca %
-                            coresMateriais.length
-                        ];
-
-
-                    pbr.setBaseColorFactor(cor);
-
-
-                    console.log(
-                        "MATERIAL:",
-                        material.name
-                    );
-
-                    console.log(
-                        "ÍNDICE DO MATERIAL:",
-                        indiceMaterial
-                    );
-
-                    console.log(
-                        "COR:",
-                        cor
-                    );
-
-                }
-            );
-
-
-            console.log("");
-            console.log("SUCESSO!");
-            console.log(
-                "Material da peça alterado."
-            );
-
-        } catch (erro) {
-
-            console.error(
-                "ERRO AO ALTERAR MATERIAL:",
-                erro
-            );
-
-        }
-
-    }
 
 });

@@ -866,32 +866,27 @@
     auto-rotate
     rotation-per-second="20deg"
     interaction-prompt="none"
-    style="width: 700px; height: 500px;">
+    camera-orbit="0deg 75deg 30000m"
+    style="width: 900px; height: 600px;">
 </model-viewer>
 
     </div>
 
-<div class="estatisticas">
+<div class="controle-medida">
 
-    <div class="estatistica">
-        <span class="estatistica-titulo">Largura</span>
-        <span id="estatistica-largura">60 cm</span>
+    <div class="controle-medida-topo">
+        <span>Altura</span>
+        <span id="valor-altura">60 cm</span>
     </div>
 
-    <div class="estatistica">
-        <span class="estatistica-titulo">Altura</span>
-        <span id="estatistica-altura">60 cm</span>
-    </div>
-
-    <div class="estatistica">
-        <span class="estatistica-titulo">Profundidade</span>
-        <span id="estatistica-profundidade">14 cm</span>
-    </div>
-
-    <div class="estatistica">
-        <span class="estatistica-titulo">Preço</span>
-        <span id="estatistica-preco">R$ 0,00</span>
-    </div>
+    <input
+        type="range"
+        id="barra-altura"
+        min="40"
+        max="150"
+        value="60"
+        step="1"
+    >
 
 </div>
 

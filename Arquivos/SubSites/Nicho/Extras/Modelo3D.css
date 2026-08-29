@@ -1,13 +1,3 @@
-/* ========================================= */
-/* MODELO 3D */
-/* ========================================= */
-/* ========================================= */
-/* MODELO 3D */
-/* ========================================= */
-/* ========================================= */
-/* MODELO 3D */
-/* ========================================= */
-
 .modelos-3d {
     width: 100%;
     margin-top: 80px;
@@ -43,4 +33,80 @@
 .visualizador-3d model-viewer {
     width: 100%;
     height: 100%;
+}
+
+/* =========================================
+   CONTROLE DE MEDIDA
+   ========================================= */
+
+.controle-medida {
+    width: 700px;
+    margin: 20px auto 0;
+}
+
+.controle-medida-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#valor-altura {
+    font-weight: 700;
+}
+
+
+/* =========================================
+   BARRA HORIZONTAL
+   ========================================= */
+
+#barra-altura {
+    width: 100%;
+    height: 6px;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: #ccc;
+    border-radius: 10px;
+}
+
+
+/* BOLINHA - CHROME / EDGE */
+
+#barra-altura::-webkit-slider-thumb {
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #333;
+
+    cursor: pointer;
+}
+
+
+/* BOLINHA - FIREFOX */
+
+#barra-altura::-moz-range-thumb {
+
+    width: 20px;
+    height: 20px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #333;
+
+    cursor: pointer;
 }

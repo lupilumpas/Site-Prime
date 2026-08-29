@@ -1,379 +1,571 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-// =========================================================
-// MODELO 3D - SISTEMA PRINCIPAL
-// =========================================================
+    // =========================================================
+    // MODELO 3D
+    // =========================================================
 
-const modelo = document.getElementById("modelo3D");
+    const modelo = document.getElementById("modelo3D");
 
-if (!modelo) {
-    console.error("ERRO: #modelo3D não encontrado!");
-    return;
-}
-
-console.log("model-viewer encontrado!");
-
-let scene = null;
-let hierarquia = null;
-let modeloPronto = false;
-
-
-// =========================================================
-// CARREGAMENTO DO MODELO
-// =========================================================
-
-modelo.addEventListener("load", () => {
-
-    console.log("");
-    console.log("=================================");
-    console.log("MODELO 3D CARREGADO");
-    console.log("=================================");
-
-    scene = modelo.model;
-
-    if (!scene) {
-        console.error("ERRO: modelo interno não encontrado!");
+    if (!modelo) {
+        console.error("ERRO: #modelo3D não encontrado!");
         return;
     }
 
+    console.log("model-viewer encontrado!");
 
-    // =====================================================
-    // LOCALIZAR HIERARQUIA
-    // =====================================================
+    let scene = null;
+    let hierarquia = null;
+    let modeloPronto = false;
 
-    const simbolos = Object.getOwnPropertySymbols(scene);
 
-    const simboloHierarquia = simbolos.find(
-        simbolo =>
-            String(simbolo) === "Symbol(hierarchy)"
-    );
+    // =========================================================
+    // CONFIGURAÇÃO
+    // =========================================================
 
+    // Altura original do modelo
+    const ALTURA_ORIGINAL = 60;
 
-    if (!simboloHierarquia) {
+    // Altura atual
+    let alturaAtual = ALTURA_ORIGINAL;
 
-        console.error(
-            "ERRO: Symbol(hierarchy) não encontrado!"
-        );
 
-        console.log(
-            "Symbols encontrados:",
-            simbolos
-        );
+    // =========================================================
+    // CORES
+    // =========================================================
 
-        return;
-    }
+    const coresMateriais = [
+        [1, 0, 0, 1],       // 0 - Vermelho - parede lateral esquerda interna
+        [0, 1, 0, 1],       // 1 - Verde - parede lateral superior interna
+        [0, 0, 1, 1],       // 2 - Azul - parede lateral direita interna
+        [1, 1, 0, 1],       // 3 - Amarelo - parede lateral inferior interna
+        [1, 0, 1, 1],       // 4 - Rosa - moldura externa inferior
+        [0, 1, 1, 1],       // 5 - Ciano - moldura externa esquerda
+        [1, 0.5, 0, 1],     // 6 - Laranja - moldura externa superior
+        [0.5, 0, 1, 1],     // 7 - Roxo - moldura externa direita
+        [0, 0, 0, 1]        // 8 - Preto - fundo
+    ];
 
 
-    hierarquia = scene[simboloHierarquia];
+    // =========================================================
+    // CARREGAR MODELO
+    // =========================================================
 
+    modelo.addEventListener("load", () => {
 
-    if (!hierarquia || !Array.isArray(hierarquia)) {
+        console.log("");
+        console.log("=================================");
+        console.log("MODELO 3D CARREGADO");
+        console.log("=================================");
 
-        console.error(
-            "ERRO: hierarquia encontrada, mas não é válida!"
-        );
+        scene = modelo.model;
 
-        return;
-    }
-
-
-    console.log(
-        "Quantidade de peças:",
-        hierarquia.length
-    );
-
-
-    // =====================================================
-    // LISTAR PEÇAS
-    // =====================================================
-
-    console.log("");
-    console.log("PEÇAS DISPONÍVEIS:");
-
-    hierarquia.forEach((parte, index) => {
-
-        console.log(
-            index,
-            "|",
-            parte.name
-        );
-
-    });
-
-
-    modeloPronto = true;
-
-    console.log("");
-    console.log(
-        "Modelo pronto para receber cliques."
-    );
-
-});
-
-
-// =========================================================
-// FUNÇÃO AUXILIAR
-// DISTÂNCIA ENTRE DOIS PONTOS
-// =========================================================
-
-function distancia(a, b) {
-
-    const dx = a.x - b.x;
-    const dy = a.y - b.y;
-    const dz = a.z - b.z;
-
-    return Math.sqrt(
-        dx * dx +
-        dy * dy +
-        dz * dz
-    );
-}
-
-
-// =========================================================
-// PEGAR POSIÇÃO DO OBJETO
-// =========================================================
-
-function obterPosicao(parte) {
-
-    try {
-
-        if (
-            parte &&
-            parte.mesh &&
-            parte.mesh.position
-        ) {
-
-            return parte.mesh.position;
-
-        }
-
-    } catch (erro) {
-
-        console.warn(
-            "Não foi possível obter posição:",
-            parte.name
-        );
-
-    }
-
-    return null;
-}
-
-
-// =========================================================
-// CLIQUE NO MODELO
-// =========================================================
-
-modelo.addEventListener("click", (evento) => {
-
-    if (!modeloPronto || !scene || !hierarquia) {
-
-        console.log(
-            "Modelo ainda não está pronto."
-        );
-
-        return;
-    }
-
-
-    console.log("");
-    console.log("=================================");
-    console.log("CLIQUE NO MODELO");
-    console.log("=================================");
-
-
-    // =====================================================
-    // DESCOBRIR PONTO CLICADO
-    // =====================================================
-
-    const intersecao =
-        modelo.positionAndNormalFromPoint(
-            evento.clientX,
-            evento.clientY
-        );
-
-
-    if (!intersecao) {
-
-        console.log(
-            "Clique fora do modelo."
-        );
-
-        return;
-    }
-
-
-    console.log(
-        "POSIÇÃO:",
-        intersecao.position
-    );
-
-
-    console.log(
-        "NORMAL:",
-        intersecao.normal
-    );
-
-
-    console.log(
-        "UV:",
-        intersecao.uv
-    );
-
-
-    // =====================================================
-    // IMPORTANTE
-    // Não usamos modelIndex como índice da peça.
-    // =====================================================
-
-    console.log("");
-    console.log(
-        "MODEL INDEX:",
-        intersecao.modelIndex
-    );
-
-
-    // =====================================================
-    // PROCURAR A PEÇA MAIS PRÓXIMA
-    // =====================================================
-
-    let melhorPeca = null;
-    let menorDistancia = Infinity;
-    let melhorIndice = -1;
-
-
-    hierarquia.forEach((parte, index) => {
-
-        const posicao =
-            obterPosicao(parte);
-
-
-        if (!posicao) {
+        if (!scene) {
+            console.error("ERRO: modelo interno não encontrado!");
             return;
         }
 
 
-        const d =
-            distancia(
-                intersecao.position,
-                posicao
+        // =====================================================
+        // LOCALIZAR HIERARQUIA
+        // =====================================================
+
+        const simbolos =
+            Object.getOwnPropertySymbols(scene);
+
+        const simboloHierarquia =
+            simbolos.find(
+                simbolo =>
+                    String(simbolo) === "Symbol(hierarchy)"
             );
 
+        if (!simboloHierarquia) {
 
+            console.error(
+                "ERRO: Symbol(hierarchy) não encontrado!"
+            );
+
+            return;
+        }
+
+        hierarquia =
+            scene[simboloHierarquia];
+
+
+        if (!hierarquia || !Array.isArray(hierarquia)) {
+
+            console.error(
+                "ERRO: hierarquia inválida!"
+            );
+
+            return;
+        }
+
+
+        // =====================================================
+        // LISTAR PEÇAS
+        // =====================================================
+
+        console.log("");
+        console.log("PEÇAS DISPONÍVEIS:");
+
+        hierarquia.forEach((parte, index) => {
+
+            console.log(
+                index,
+                "|",
+                parte.name
+            );
+
+        });
+
+
+        // =====================================================
+        // PINTAR PEÇAS
+        // =====================================================
+
+        pintarTodasAsPecas();
+
+
+        modeloPronto = true;
+
+        console.log("");
         console.log(
-            "PEÇA:",
-            parte.name,
-            "| DISTÂNCIA:",
-            d
+            "Modelo pronto para receber cliques."
         );
 
 
-        if (d < menorDistancia) {
+        // =====================================================
+        // MOSTRAR INFORMAÇÕES DOS EIXOS
+        // =====================================================
 
-            menorDistancia = d;
-            melhorPeca = parte;
-            melhorIndice = index;
-
-        }
+        diagnosticarEixos();
 
     });
 
 
-    // =====================================================
-    // RESULTADO
-    // =====================================================
+    // =========================================================
+    // PINTAR TODAS AS PEÇAS
+    // =========================================================
 
-    if (!melhorPeca) {
+    function pintarTodasAsPecas() {
 
-        console.error(
-            "Não foi possível identificar a peça."
-        );
+        hierarquia.forEach((parte, indice) => {
 
-        return;
+            try {
+
+                if (!parte.materials) {
+                    return;
+                }
+
+                if (!(parte.materials instanceof Map)) {
+                    return;
+                }
+
+                parte.materials.forEach((material) => {
+
+                    if (
+                        !material ||
+                        !material.pbrMetallicRoughness
+                    ) {
+                        return;
+                    }
+
+                    const cor =
+                        coresMateriais[
+                            indice % coresMateriais.length
+                        ];
+
+                    material
+                        .pbrMetallicRoughness
+                        .setBaseColorFactor(cor);
+
+                });
+
+            } catch (erro) {
+
+                console.warn(
+                    "Erro ao pintar:",
+                    parte.name,
+                    erro
+                );
+
+            }
+
+        });
+
     }
 
 
-    console.log("");
-    console.log("********************************");
-    console.log("PEÇA SELECIONADA");
-    console.log("********************************");
+    // =========================================================
+    // DIAGNÓSTICO DOS EIXOS
+    // =========================================================
+
+    function diagnosticarEixos() {
+
+        console.log("");
+        console.log("=================================");
+        console.log("DIAGNÓSTICO DOS EIXOS");
+        console.log("=================================");
+
+        hierarquia.forEach((parte, indice) => {
+
+            try {
+
+                if (
+                    !parte.mesh ||
+                    !parte.mesh.position
+                ) {
+                    return;
+                }
+
+                console.log(
+                    indice,
+                    "|",
+                    parte.name,
+                    "| POSIÇÃO:",
+                    parte.mesh.position
+                );
+
+            } catch (erro) {
+
+                console.warn(
+                    "Erro ao diagnosticar:",
+                    parte.name
+                );
+
+            }
+
+        });
+
+    }
 
 
-    console.log(
-        "ÍNDICE:",
-        melhorIndice
-    );
+    // =========================================================
+    // BARRA DE ALTURA
+    // =========================================================
+
+    const barraAltura =
+        document.getElementById("barra-altura");
+
+    const valorAltura =
+        document.getElementById("valor-altura");
 
 
-    console.log(
-        "NOME:",
-        melhorPeca.name
-    );
+    if (!barraAltura) {
+
+        console.error(
+            "ERRO: #barra-altura não encontrada!"
+        );
+
+    } else {
+
+        barraAltura.addEventListener(
+            "input",
+            () => {
+
+                const novaAltura =
+                    Number(barraAltura.value);
+
+                alturaAtual =
+                    novaAltura;
 
 
-    console.log(
-        "DISTÂNCIA:",
-        menorDistancia
-    );
+                // ---------------------------------------------
+                // ATUALIZAR TEXTO
+                // ---------------------------------------------
+
+                if (valorAltura) {
+
+                    valorAltura.textContent =
+                        novaAltura + " cm";
+
+                }
 
 
-    console.log(
-        "OBJETO:",
-        melhorPeca
-    );
+                // ---------------------------------------------
+                // ALTERAR MODELO
+                // ---------------------------------------------
+
+                if (modeloPronto) {
+
+                    alterarAltura(
+                        novaAltura
+                    );
+
+                }
+
+            }
+        );
+
+    }
 
 
-    console.log(
-        "MESH:",
-        melhorPeca.mesh
-    );
+    // =========================================================
+    // ALTERAR ALTURA
+    // =========================================================
+
+    function alterarAltura(novaAltura) {
+
+        console.log("");
+        console.log("=================================");
+        console.log("ALTERANDO ALTURA");
+        console.log("=================================");
+
+        console.log(
+            "Altura anterior:",
+            alturaAtual,
+            "cm"
+        );
+
+        console.log(
+            "Nova altura:",
+            novaAltura,
+            "cm"
+        );
 
 
-    console.log(
-        "********************************");
+        const diferenca =
+            novaAltura -
+            ALTURA_ORIGINAL;
 
 
-    // =====================================================
-    // AQUI VAI ENTRAR O SISTEMA DE SELEÇÃO
-    // =====================================================
-
-    selecionarPeca(
-        melhorPeca,
-        melhorIndice
-    );
-
-});
+        console.log(
+            "Diferença:",
+            diferenca,
+            "cm"
+        );
 
 
-// =========================================================
-// SELECIONAR PEÇA
-// =========================================================
+        // =====================================================
+        // TESTE INICIAL
+        //
+        // POR ENQUANTO vamos alterar apenas a escala
+        // VERTICAL das peças.
+        //
+        // Isso NÃO escala o modelo inteiro.
+        // =====================================================
 
-function selecionarPeca(parte, indice) {
-
-    console.log("");
-    console.log(
-        ">>> PEÇA SELECIONADA:"
-    );
-
-    console.log(
-        "Nome:",
-        parte.name
-    );
-
-    console.log(
-        "Índice:",
-        indice
-    );
+        const fator =
+            novaAltura /
+            ALTURA_ORIGINAL;
 
 
-    // =====================================================
-    // FUTURO:
-    // Aqui vamos mudar material,
-    // cor, textura, preço etc.
-    // =====================================================
+        // =====================================================
+        // PEÇAS VERTICAIS
+        //
+        // Vermelho = esquerda
+        // Azul     = direita
+        // =====================================================
 
-}
+        const pecasVerticais = [
+            0, // vermelho
+            2  // azul
+        ];
+
+
+        pecasVerticais.forEach((indice) => {
+
+            const parte =
+                hierarquia[indice];
+
+
+            if (!parte || !parte.mesh) {
+                return;
+            }
+
+
+            try {
+
+                // =============================================
+                // GUARDAR ESCALA ORIGINAL
+                // =============================================
+
+                if (!parte.__escalaOriginal) {
+
+                    parte.__escalaOriginal = {
+                        x: parte.mesh.scale.x,
+                        y: parte.mesh.scale.y,
+                        z: parte.mesh.scale.z
+                    };
+
+                }
+
+
+                const original =
+                    parte.__escalaOriginal;
+
+
+                // =============================================
+                // ALTERAR SOMENTE O EIXO Y
+                // =============================================
+
+                parte.mesh.scale.set(
+                    original.x,
+                    original.y * fator,
+                    original.z
+                );
+
+
+                console.log(
+                    "Peça alterada:",
+                    parte.name
+                );
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro ao alterar:",
+                    parte.name,
+                    erro
+                );
+
+            }
+
+        });
+
+
+        // =====================================================
+        // MOVER TOPO E BASE
+        // =====================================================
+
+        // Por enquanto NÃO vamos fazer isso.
+        //
+        // Primeiro precisamos confirmar que o eixo Y
+        // realmente representa a altura no seu modelo.
+        //
+        // Depois vamos calcular exatamente:
+        //
+        // topo
+        // base
+        // molduras
+        // divisórias
+        // fundo
+        //
+        // sem deformar nenhuma peça.
+
+
+        console.log("");
+        console.log(
+            "Teste de altura aplicado."
+        );
+
+    }
+
+
+    // =========================================================
+    // CLIQUE NO MODELO
+    // =========================================================
+
+    modelo.addEventListener("click", (evento) => {
+
+        if (!modeloPronto || !scene || !hierarquia) {
+
+            return;
+        }
+
+
+        const intersecao =
+            modelo.positionAndNormalFromPoint(
+                evento.clientX,
+                evento.clientY
+            );
+
+
+        if (!intersecao) {
+            return;
+        }
+
+
+        let melhorPeca = null;
+        let menorDistancia = Infinity;
+        let melhorIndice = -1;
+
+
+        hierarquia.forEach((parte, index) => {
+
+            try {
+
+                if (
+                    !parte.mesh ||
+                    !parte.mesh.position
+                ) {
+                    return;
+                }
+
+
+                const posicao =
+                    parte.mesh.position;
+
+
+                const dx =
+                    intersecao.position.x -
+                    posicao.x;
+
+                const dy =
+                    intersecao.position.y -
+                    posicao.y;
+
+                const dz =
+                    intersecao.position.z -
+                    posicao.z;
+
+
+                const distancia =
+                    Math.sqrt(
+                        dx * dx +
+                        dy * dy +
+                        dz * dz
+                    );
+
+
+                if (distancia < menorDistancia) {
+
+                    menorDistancia =
+                        distancia;
+
+                    melhorPeca =
+                        parte;
+
+                    melhorIndice =
+                        index;
+
+                }
+
+            } catch (erro) {
+
+                console.warn(
+                    "Erro ao analisar:",
+                    parte.name
+                );
+
+            }
+
+        });
+
+
+        if (!melhorPeca) {
+            return;
+        }
+
+
+        console.log("");
+        console.log("********************************");
+        console.log("PEÇA SELECIONADA");
+        console.log("********************************");
+
+        console.log(
+            "ÍNDICE:",
+            melhorIndice
+        );
+
+        console.log(
+            "NOME:",
+            melhorPeca.name
+        );
+
+        console.log(
+            "********************************");
+
+    });
 
 });
