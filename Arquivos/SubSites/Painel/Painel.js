@@ -13,34 +13,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    /* =====================================================
-       BOTÕES DOS PRODUTOS
-    ===================================================== */
+/* =====================================================
+   BOTÕES DOS PRODUTOS
+===================================================== */
 
-    const botoes =
-        document.querySelectorAll(".produto button");
+const botoes =
+    document.querySelectorAll(".produto-card button");
 
+const imagens =
+    document.querySelectorAll(".produto-card img");
 
-    botoes.forEach((botao) => {
+botoes.forEach((botao, indice) => {
 
-        botao.addEventListener("click", () => {
+    botao.addEventListener("click", () => {
 
-            const produto =
-                botao.closest(".produto");
-
-            const nome =
-                produto.querySelector("h3").textContent;
-
-
-            alert(
-                "Você selecionou: " + nome
-            );
-
-        });
+        if (imagens[indice]) {
+            imagens[indice].click();
+        }
 
     });
 
-
+});
 
     /* =====================================================
        ANIMAÇÃO DOS CACHEPÔS

@@ -8,9 +8,9 @@
     <title>Tampas para Churrasqueira</title>
 
     <link rel="stylesheet" href="Nicho.css">
-    <link rel="stylesheet" href="Extras/ProdutosPopup.css">
-    <link rel="stylesheet" href="Extras/ProdutosPopupAnimação.css">
-    <link rel="stylesheet" href="Extras/Modelo3D.css">
+    <link rel="stylesheet" href="Extras/Popup/ProdutosPopup.css">
+    <link rel="stylesheet" href="Extras/Popup/ProdutosPopupAnimação.css">
+    <link rel="stylesheet" href="Extras/Modelos3D/Modelo3D.css">
 </head>
 
 <body>
@@ -864,32 +864,59 @@
     src="img/Nicho teste mae.glb"
     autoplay
     auto-rotate
-    rotation-per-second="20deg"
+    camera-controls
+    rotation-per-second="-20deg"
     interaction-prompt="none"
-    camera-orbit="0deg 75deg 30000m"
+    camera-orbit="90deg 75deg 30000m"
     style="width: 900px; height: 600px;">
 </model-viewer>
 
     </div>
-
+<!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes -->
 <div class="controle-medida">
-
     <div class="controle-medida-topo">
         <span>Altura</span>
         <span id="valor-altura">60 cm</span>
     </div>
-
-    <input
+<input
         type="range"
         id="barra-altura"
         min="40"
-        max="150"
+        max="100"
         value="60"
-        step="1"
-    >
-
+        step="1">
 </div>
+<!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes -->
+<div class="controle-medida">
+    <div class="controle-medida-topo">
+        <span>Largura</span>
+        <span id="valor-largura">60 cm</span>
+    </div>
 
+<input
+        type="range"
+        id="barra-largura"
+        min="40"
+        max="100"
+        value="60"
+        step="1">
+</div>
+<!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes -->
+<div class="controle-medida">
+    <div class="controle-medida-topo">
+        <span>Profundidade</span>
+        <span id="valor-profundidade">10 cm</span>
+    </div>
+
+    <div id="barra-profundidade" class="opcoes-profundidade">
+
+        <button value="10">10 cm</button>
+        <button value="14">14 cm</button>
+        <button value="19">19 cm</button>
+
+    </div>
+</div>
+<!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes -->
 </section>
 
 
@@ -900,9 +927,12 @@
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 </script>
     <script src="Nicho.js"></script>
-    <script src="Extras/ProdutosPopup.js"></script>
-    <script src="Extras/ProdutosPopupAnimação.js"></script>
-    <script src="Extras/Modelo3D.js"></script>
+    <script src="Extras/Popup/ProdutosPopup.js"></script>
+    <script src="Extras/Popup/ProdutosPopupAnimação.js"></script>
+    <script src="Extras/Modelos3D/Altura3D.js"></script>
+    <script src="Extras/Modelos3D/Largura3D.js"></script>
+    <script src="Extras/Modelos3D/Profundidade3D.js"></script>
+<!--<script src="Extras/Modelos3D/Outros.js"></script> -->
 </body>
 
 </html>

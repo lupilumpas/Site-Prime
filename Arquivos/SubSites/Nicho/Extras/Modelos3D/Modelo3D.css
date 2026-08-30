@@ -61,7 +61,7 @@
 
 
 /* =========================================
-   BARRA HORIZONTAL
+   BARRA Altura
    ========================================= */
 
 #barra-altura {
@@ -109,4 +109,75 @@
     background: #333;
 
     cursor: pointer;
+}
+
+/* =========================================
+   BARRA Largura
+   ========================================= */
+
+#barra-largura {
+    width: 100%;
+    height: 6px;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: #ccc;
+    border-radius: 10px;
+}
+
+
+/* BOLINHA - CHROME / EDGE */
+
+#barra-largura::-webkit-slider-thumb {
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #333;
+
+    cursor: pointer;
+}
+
+
+/* BOLINHA - FIREFOX */
+
+#barra-largura::-moz-range-thumb {
+
+    width: 20px;
+    height: 20px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #333;
+
+    cursor: pointer;
+}
+
+/* Profundidade */
+
+.opcoes-profundidade {
+    display: flex;
+    gap: 8px;
+}
+
+.opcoes-profundidade button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+}
+
+.opcoes-profundidade button.selecionado {
+    background: #ddd;
+    border-color: #333;
 }
