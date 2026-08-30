@@ -1,7 +1,7 @@
 const precosProdutos = [
-    "R$ 330,99",
-    "R$ 260,99",
-    "R$ 260,99",
+    "R$ 210,90",
+    "R$ 243,09",
+    "R$ 243,09",
     "R$ 290,99",
     "R$ 290,99",
     "R$ 260,99",
@@ -17,10 +17,18 @@ const precosProdutos = [
     "R$ 280,99"
 ];
 
+const NomesdosArquivos = [
+    "Painel 1",
+    "Painel 2",
+    "Painel 3",
+    "Painel 4",
+    "Painel 5"
+];
+
 const produtos = [
-    "Branco",
-    "Camurça",
-    "Envelhecido",
+    "Floreira de parede <br>vertical jardim <br>com 4 cachepos sku99",
+    "Floreira de parede <br>horizontal jardim <br>com 5 andares sku88",
+    "Floreira de parede <br>vertical jardim <br>com 4 cachepos sku10",
     "Cerejeira Claro",
     "Cerejeira Escuro",
     "Cinza Claro",
@@ -56,27 +64,27 @@ const linksComprar = [
 ];
 
 const descricaoProduto = `
-CONFECCIONADOS EM MADEIRA MACIÇA, OS PAINÉIS DEIXARÃO SEU AMBIENTE MAIS HARMÔNICO E ALEGRE. NOSSAS PEÇAS SÃO FEITAS À MÃO, PRODUZIDAS ARTESANALMENTE E COM MUITO APREÇO. AS MADEIRAS PARA CORTE PROVÉM DE REFLORESTAMENTO, CERTIFICADAS PELO IBAMA.
+CONFECCIONADOS EM MADEIRA MACIÇA, OS PAINÉIS DEIXARÃO SEU AMBIENTE MAIS HARMÔNICO E ALEGRE. NOSSAS PEÇAS SÃO FEITAS À MÃO, PRODUZIDAS ARTESANALMENTE E COM MUITO APREÇO.
 <br>
 VOCÊ TERÁ UM PRODUTO VERSÁTIL E DECORATIVO, TANTO PARA FAZER UMA PEQUENA HORTA COM TEMPEROS OU FLORES E FOLHAGENS OU DECORAR SEU JARDIM, SACADA OU VARANDA, IDEAL PARA QUEM TEM POUCO ESPAÇO E NÃO ABRE MÃO DE CONTATO COM A NATUREZA. TAMBÉM HÁ QUEM ACHE OUTRAS UTILIDADES, COMO PORTA OBJETOS OU ACONCHEGO PARA GATOS.
 <br>
 DIMENSÕES
 <br>
 Painel estilo treliçado nas cores das imagens.
-Acompanha 4 cachepos de 40x14 cm móveis.
+Acompanha X cachepos de XX x XX cm móveis.
 Para colocar seus vasos com plantinhas deixando
 sua parede ou muro mais harmônico e alegre com os cachepôs desparceirados em zig zag no seu painel!
 <br>
 Medidas painel:
-- Altura : 120 cm
-- Largura : 80cm
+- Altura : XXX cm
+- Largura : XX cm
 <br>
 CACHEPOS:
 <br>
-ALTURA: 8,5cm EXTERNA / 6,5cm INTERNA
+ALTURA: X,Xcm EXTERNA / X,Xcm INTERNA
 <br>
-LARGURA: 40CM
-PROFUNDIDADE: 15CM
+LARGURA: XX CM
+PROFUNDIDADE: XX CM
 <br>
 FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA
 FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES RÚSTICOS FOSCOS E QUEIMADO/SAFARI,
@@ -146,7 +154,9 @@ botoes.forEach((botao, indice) => {
 
     const imagens = document.querySelectorAll(".produto-card img");
 
-    imagens.forEach((imagem) => {
+    imagens.forEach((imagem, indice) => {
+
+imagem.src = `img/Capa/${NomesdosArquivos[indice]}.png`;
 
         imagem.addEventListener("click", () => {
 
@@ -185,6 +195,8 @@ botoes.forEach((botao, indice) => {
 
 const indice = Array.from(imagens).indexOf(imagem);
 
+
+
 const popup =
     document.getElementById(`popup-${indice + 1}`);
 
@@ -200,24 +212,10 @@ if (botaoComprar) {
 
 const nomeProduto = produtos[indice];
 
-// ==========================================
-// ANTES E DEPOIS
-// ==========================================
-
-const imagemAntes = popup.querySelector(".aed-imagem-A");
-const imagemDepois = popup.querySelector(".aed-imagem-D");
-
-if (imagemAntes && imagemDepois) {
-
-    imagemAntes.src = `img/Antes e Depois/${nomeProduto}/Antes.png`;
-    imagemDepois.src = `img/Antes e Depois/${nomeProduto}/Depois.png`;
-
-}
-
 const titulo = popup.querySelector("h2");
 
 if (titulo) {
-    titulo.textContent = nomeProduto;
+    titulo.innerHTML = nomeProduto;
 }
 // ==========================================
 // DESCRIÇÃO DO PRODUTO
@@ -246,49 +244,6 @@ if (preco) {
             const imagem3 = popup.querySelector(".Imagem-central");
             const imagem4 = popup.querySelector(".Imagem-Seguinte");
             const imagem5 = popup.querySelector(".Imagem-Seguinte-2");
-            const aedContainer = popup.querySelector(".aed-container");
-const aedImagemA = popup.querySelector(".aed-imagem-A");
-const aedImagemD = popup.querySelector(".aed-imagem-D");
-const aedBarra = popup.querySelector(".aed-barra");
-const aedBotao = popup.querySelector(".aed-botao");
-
-function atualizarAeD(posicao) {
-
-    aedImagemD.style.clipPath =
-        `inset(0 ${100 - posicao}% 0 0)`;
-
-    aedBarra.style.left =
-        posicao + "%";
-
-}
-atualizarAeD(50);
-let arrastandoAeD = false;
-
-
-
-aedBotao.addEventListener("mousedown", (evento) => {
-    evento.preventDefault();   // ← adiciona isto
-    arrastandoAeD = true;
-});
-
-document.addEventListener("mousemove", (evento) => {
-    if (!arrastandoAeD) return;
-
-    evento.preventDefault();   // ← e isto também
-
-    const rect = aedContainer.getBoundingClientRect();
-    let posicao = ((evento.clientX - rect.left) / rect.width) * 100;
-    posicao = Math.max(0, Math.min(100, posicao));
-    atualizarAeD(posicao);
-});
-
-
-
-document.addEventListener("mouseup", () => {
-
-    arrastandoAeD = false;
-
-});
 
             if (!imagem1 || !imagem2 || !imagem3 || !imagem4 || !imagem5) {
                 return;
@@ -322,35 +277,14 @@ if (resultado) {
                 if (kit4 > 5) kit4 -= 5;
                 if (kit5 > 5) kit5 -= 5;
 
-imagem1.src = `img/Kit ${kit1}/${nomeProduto}.png`;
-imagem2.src = `img/Kit ${kit2}/${nomeProduto}.png`;
-imagem4.src = `img/Kit ${kit4}/${nomeProduto}.png`;
-imagem5.src = `img/Kit ${kit5}/${nomeProduto}.png`;
+imagem1.src = `img/Kit ${kit1}/${NomesdosArquivos[indice]}.png`;
+imagem2.src = `img/Kit ${kit2}/${NomesdosArquivos[indice]}.png`;
+imagem4.src = `img/Kit ${kit4}/${NomesdosArquivos[indice]}.png`;
+imagem5.src = `img/Kit ${kit5}/${NomesdosArquivos[indice]}.png`;
 
+imagem3.style.display = "block";
 
-/* ========================================= */
-/* PÁGINA 2 = ANTES E DEPOIS */
-/* ========================================= */
-
-if (paginaCarrossel === 2) {
-
-    imagem3.style.display = "none";
-
-    aedContainer.style.display = "block";
-
-    aedImagemA.src =
-        `img/Antes e Depois/${nomeProduto}/Antes.png`;
-
-    aedImagemD.src =
-        `img/Antes e Depois/${nomeProduto}/Depois.png`;
-
-}  else {
-
-    imagem3.style.display = "block";
-    aedContainer.style.display = "none";
-
-    imagem3.src = `img/Kit ${kit3}/${nomeProduto}.png`;
-}
+imagem3.src = `img/Kit ${kit3}/${NomesdosArquivos[indice]}.png`;
             }
 
             // ==========================================

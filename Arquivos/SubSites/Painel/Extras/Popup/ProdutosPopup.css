@@ -2,8 +2,6 @@
 /* FUNDO DO POPUP */
 /* ========================================= */
 
-
-
 .popup-fundo {
     position: fixed;
     inset: 0;
@@ -42,7 +40,7 @@
 /* ========================================= */
 
 .popup-produto {
-    
+
     position: relative;
 
     width: 1000px;
@@ -236,7 +234,7 @@
 
     margin-bottom: 10px;
 
-    transform: translate(340px, -230px);
+    transform: translate(340px, -270px);
 }
 
 
@@ -271,7 +269,7 @@
 
     margin-bottom: 20px;
 
-    transform: translate(338px, -735px);
+    transform: translate(338px, -635px);
 }
 
 
@@ -297,7 +295,7 @@
 
     cursor: pointer;
 
-    transform: translate(338px, -745px);
+    transform: translate(338px, -645px);
 }
 
 .popup-comprar:hover {

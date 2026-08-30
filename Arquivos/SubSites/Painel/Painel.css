@@ -31,7 +31,7 @@ body {
 
     background-color: rgb(243, 242, 237);
 
-    background-image: url("img/Painel.png");
+    background-image: url("img/img/Painel.png");
 
     background-size: 100% auto;
 
@@ -242,9 +242,7 @@ body {
 
     width: 100%;
     height: 100%;
-
-    height: 220px;
-
+    
     object-fit: cover;
 
     display: block;
