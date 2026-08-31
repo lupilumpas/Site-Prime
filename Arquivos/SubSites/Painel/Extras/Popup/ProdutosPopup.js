@@ -35,7 +35,7 @@ const NomesdosArquivos = [
 ];
 
 const produtos = [
-    "Floreira de parede vertical jardim com 4 cachepos 1,20x60  sku10",
+    "Floreira de parede <br>vertical jardim com 4 <br>cachepos 1,20x60  sku10",
     "Floreira de parede <br>horizontal jardim <br>com 5 andares sku88",
     "Floreira de parede <br>vertical jardim <br>com 4 cachepos sku10",
     "Cerejeira Claro",
@@ -87,7 +87,7 @@ RÚSTICOS FOSCOS, QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZ
 <br>
 FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
 <br>
-PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
 `,
 
 ];

@@ -234,7 +234,7 @@
 
     margin-bottom: 10px;
 
-    transform: translate(340px, -270px);
+    transform: translate(330px, -270px);
 }
 
 
@@ -243,6 +243,11 @@
 /* ========================================= */
 
 .popup-descricao {
+
+    position: absolute;
+    top: 400px;
+    left: 10px;
+    width: 980px;
 
     color: #6d6258;
 
@@ -270,7 +275,7 @@
 
     margin-bottom: 20px;
 
-    transform: translate(338px, -635px);
+    transform: translate(338px, -270px);
 }
 
 
@@ -296,7 +301,7 @@
 
     cursor: pointer;
 
-    transform: translate(338px, -645px);
+    transform: translate(338px, -275px);
 }
 
 .popup-comprar:hover {
