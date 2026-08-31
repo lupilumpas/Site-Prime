@@ -18,11 +18,20 @@ const precosProdutos = [
 ];
 
 const NomesdosArquivos = [
-    "Painel 1",
-    "Painel 2",
-    "Painel 3",
-    "Painel 4",
-    "Painel 5"
+    "sku 10",
+    "sku 18",
+    "sku 21",
+    "sku 31",
+    "sku 59",
+    "sku 72",
+    "sku 77",
+    "sku 80",
+    "sku 82 e 59",
+    "sku 88",
+    "sku 89",
+    "sku 90",
+    "sku 99",
+    "sku 110 1",
 ];
 
 const produtos = [
