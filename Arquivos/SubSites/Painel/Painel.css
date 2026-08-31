@@ -39,9 +39,9 @@ body {
 
     background-repeat: no-repeat;
 
-    min-height: 4150px;
+    min-height: 5170px;
 
-    padding-top: 100px;
+    padding-top: 125px;
     padding-bottom: 150px;
 
     overflow: hidden;
@@ -54,7 +54,7 @@ body {
 
 .introducao {
 
-    width: 700px;
+    width: 800px;
     max-width: 90%;
 
     margin: 0 auto 400px auto;
@@ -128,20 +128,32 @@ body {
 ========================================================= */
 
 .cachepo-1 {
-    top: 485px;
+    top: 475px;
     height: 570px;
 }
 
 .cachepo-2 {
-    top: 1375px;
-    height: 540px;
+    top: 1165px;
+    height: 555px;
 }
+
+/* =========================================================
+   Lembre pra amanha colocas os cachepos pra ocupar 2madeiras + 2 vaos ou seja: 1maideira+1vão+1madeira+1vão, assim da certinho com o tamanho que ja tem
+========================================================= */
 
 .cachepo-3 {
-    top: 2230px;
-    height: 590px;
+    top: 1867px;
+    height: 535px;
+}
+.cachepo-4 {
+    top: 2510px;
+    height: 560px;
 }
 
+.cachepo-5 {
+    top: 3225px;
+    height: 585px;
+}
 
 /* =========================================================
    TÍTULO DO CACHEPÔ
@@ -194,7 +206,14 @@ body {
 }
 
 .cachepo-3 .produto {
-    height: 540px;
+    height: 480px;
+}
+.cachepo-4 .produto {
+    height: 500px;
+}
+
+.cachepo-5 .produto {
+    height: 530px;
 }
 
 
@@ -327,7 +346,7 @@ body {
 
     position: absolute;
 
-    top: 3363px;
+    top: 3948px;
 
     left: 50%;
 

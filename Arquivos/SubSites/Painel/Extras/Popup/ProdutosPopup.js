@@ -18,20 +18,22 @@ const precosProdutos = [
 ];
 
 const NomesdosArquivos = [
-    "sku 10",
-    "sku 18",
-    "sku 21",
-    "sku 31",
-    "sku 59",
-    "sku 72",
-    "sku 77",
-    "sku 80",
-    "sku 82 e 59",
-    "sku 88",
-    "sku 89",
-    "sku 90",
-    "sku 99",
-    "sku 110 1",
+    ["sku 10"],
+    ["sku 18"],
+    ["sku 21"],
+    ["sku 31"],
+    ["sku 59"],
+    ["sku 72"],
+    ["sku 77"],
+    ["sku 80"],
+    ["sku 82 e 59"],
+    ["sku 88"],
+    ["sku 89"],
+    ["sku 90"],
+    ["sku 99"],
+    ["sku 110 1", "sku 110 2"],
+    ["sku 110 1", "sku 110 2"],
+    ["sku 110 1", "sku 110 2"],
 ];
 
 const produtos = [
@@ -110,7 +112,7 @@ Acessar loja
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.querySelectorAll(".popup-fechar").forEach((botao) => {
+document.querySelectorAll(".popup-fechar").forEach((botao) => {
 
     botao.addEventListener("click", () => {
 
@@ -118,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (popup) {
             popup.classList.remove("ativo");
+            console.log("POPUP FECHADO:", popup.id);
         }
 
     });
@@ -147,6 +150,8 @@ document.querySelectorAll(".popup-fundo").forEach((popup) => {
 
 });
 
+const imagens = document.querySelectorAll(".produto-card img");
+
 const botoes = document.querySelectorAll(".produto-card button");
 
 botoes.forEach((botao, indice) => {
@@ -161,14 +166,40 @@ botoes.forEach((botao, indice) => {
 
 });
 
-    const imagens = document.querySelectorAll(".produto-card img");
+imagens.forEach((imagem, indice) => {
 
-    imagens.forEach((imagem, indice) => {
+const capas = NomesdosArquivos[indice] || [];
 
-imagem.src = `img/Capa/${NomesdosArquivos[indice]}.png`;
+// Só configura a capa se existir
+if (capas.length > 0) {
+    imagem.src = `img/Capa/${capas[0]}.png`;
+}
+
+    // Se tiver mais de uma capa, começa a alternar
+    if (capas.length > 1) {
+
+        let capaAtual = 0;
+
+        setInterval(() => {
+
+            capaAtual++;
+
+            if (capaAtual >= capas.length) {
+                capaAtual = 0;
+            }
+
+            imagem.style.opacity = "0";
+
+            setTimeout(() => {
+                imagem.src = `img/Capa/${capas[capaAtual]}.png`;
+                imagem.style.opacity = "1";
+            }, 300);
+
+        }, 3000);
+    }
 
         imagem.addEventListener("click", () => {
-
+console.log("CLIQUE NA IMAGEM!", indice);
             // ==========================================
             // ANIMAÇÃO DA IMAGEM → CENTRO
             // ==========================================
@@ -202,15 +233,15 @@ imagem.src = `img/Capa/${NomesdosArquivos[indice]}.png`;
 // ENCONTRA O POPUP
 // ==========================================
 
-const indice = Array.from(imagens).indexOf(imagem);
-
-
-
 const popup =
-    document.getElementById(`popup-${indice + 1}`);
+    document.getElementById(`popup-${indice+ 1}`);
+    console.log("Procurando popup:", `popup-${indice+ 1}`);
+    console.log("Popup encontrado?", popup);
 
-    if (!popup) return;
-
+    if (!popup) {
+        console.error("Popup não encontrado!");
+        return;
+    }
 const botaoComprar =
     popup.querySelector(".popup-comprar");
 
@@ -248,31 +279,34 @@ if (preco) {
             // ELEMENTOS DO CARROSSEL
             // ==========================================
 
-            const imagem1 = popup.querySelector(".Imagem-Anterior-2");
-            const imagem2 = popup.querySelector(".Imagem-Anterior");
-            const imagem3 = popup.querySelector(".Imagem-central");
-            const imagem4 = popup.querySelector(".Imagem-Seguinte");
-            const imagem5 = popup.querySelector(".Imagem-Seguinte-2");
+const imagem1 = popup.querySelector(".Imagem-Anterior-2");
+const imagem2 = popup.querySelector(".Imagem-Anterior");
+const imagem3 = popup.querySelector(".Imagem-central");
+const imagem4 = popup.querySelector(".Imagem-Seguinte");
+const imagem5 = popup.querySelector(".Imagem-Seguinte-2");
 
-            if (!imagem1 || !imagem2 || !imagem3 || !imagem4 || !imagem5) {
-                return;
-            }
+// ==========================================
+// MOSTRA O POPUP
+// ==========================================
+
+popup.classList.add("ativo");
+console.log("POPUP ATIVADO:", popup.id);
+console.log("CLASSES DO POPUP:", popup.className);
+// ==========================================
+// VERIFICA O CARROSSEL
+// ==========================================
+
+if (!imagem1 || !imagem2 || !imagem3 || !imagem4 || !imagem5) {
+    console.warn("Alguma imagem do carrossel não foi encontrada:", popup);
+    return;
+}
 
             // ==========================================
             // CONTROLE DO CARROSSEL
             // ==========================================
-
-// Descobre qual Kit foi clicado
-const caminhoImagem = imagem.src;
-
-const resultado =
-    caminhoImagem.match(/Kit%20(\d+)|Kit%20(\d+)/);
-
+const nomesArquivo = NomesdosArquivos[indice] || [];
+const nomeArquivo = nomesArquivo[0] || "";   // pega o primeiro nome do array
 let paginaCarrossel = 1;
-
-if (resultado) {
-    paginaCarrossel = Number(resultado[1]);
-}
 
             function atualizarCarrossel() {
                 let kit1 = paginaCarrossel - 2;
@@ -286,14 +320,13 @@ if (resultado) {
                 if (kit4 > 5) kit4 -= 5;
                 if (kit5 > 5) kit5 -= 5;
 
-imagem1.src = `img/Kit ${kit1}/${NomesdosArquivos[indice]}.png`;
-imagem2.src = `img/Kit ${kit2}/${NomesdosArquivos[indice]}.png`;
-imagem4.src = `img/Kit ${kit4}/${NomesdosArquivos[indice]}.png`;
-imagem5.src = `img/Kit ${kit5}/${NomesdosArquivos[indice]}.png`;
+    imagem1.src = `img/Kit ${kit1}/${nomeArquivo}.png`;
+    imagem2.src = `img/Kit ${kit2}/${nomeArquivo}.png`;
+    imagem4.src = `img/Kit ${kit4}/${nomeArquivo}.png`;
+    imagem5.src = `img/Kit ${kit5}/${nomeArquivo}.png`;
 
-imagem3.style.display = "block";
-
-imagem3.src = `img/Kit ${kit3}/${NomesdosArquivos[indice]}.png`;
+    imagem3.style.display = "block";
+    imagem3.src = `img/Kit ${kit3}/${nomeArquivo}.png`;
             }
 
             // ==========================================
@@ -312,7 +345,7 @@ imagem3.style.transition = "none";
             // ==========================================
             // MOSTRA O POPUP
             // ==========================================
-                popup.classList.add("ativo");
+
             // ==========================================
             // QUANDO A ANIMAÇÃO TERMINAR
             // ==========================================
