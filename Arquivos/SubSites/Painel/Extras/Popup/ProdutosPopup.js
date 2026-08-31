@@ -1,20 +1,20 @@
 const precosProdutos = [
     "R$ 210,99",
-    "R$ 243,09",
-    "R$ 243,09",
-    "R$ 290,99",
-    "R$ 290,99",
-    "R$ 260,99",
-    "R$ 260,99",
-    "R$ 290,99",
-    "R$ 260,99",
-    "R$ 230,99",
-    "R$ 260,99",
-    "R$ 260,99",
-    "R$ 260,99",
-    "R$ 260,99",
-    "R$ 260,99",
-    "R$ 280,99"
+    "R$ 299,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99",
+    "R$ ,99"
 ];
 
 const NomesdosArquivos = [
@@ -36,8 +36,8 @@ const NomesdosArquivos = [
 
 const produtos = [
     "Floreira de parede <br>vertical jardim com 4 <br>cachepos 1,20x60  sku10",
-    "Floreira de parede <br>horizontal jardim <br>com 5 andares sku88",
-    "Floreira de parede <br>vertical jardim <br>com 4 cachepos sku10",
+    "Floreira de parede <br>horizontal jardim 3 <br>prateleiras sku18",
+    "",
     "Cerejeira Claro",
     "Cerejeira Escuro",
     "Cinza Claro",
@@ -88,8 +88,30 @@ RÚSTICOS FOSCOS, QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZ
 FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
 <br>
 PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
+    Acessar site
+</a>
 `,
-
+`
+Painel estilo ripado nas cores das imagens.
+<br>
+DIMENSÕES PAINEL :<br>
+Altura: 80 cm<br>
+Largura: 1,20 cm <br>
+DIMENSÕES DA PRATELEIRA:<br>
+Largura: 90 cm<br>
+Profundidade: 12 cm<br>
+<br>
+FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
+RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
+<br>
+FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
+<br>
+PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
+    Acessar site
+</a>
+`
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
