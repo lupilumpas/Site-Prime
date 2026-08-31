@@ -1,7 +1,7 @@
 const precosProdutos = [
     "R$ 210,99",
     "R$ 299,99",
-    "R$ ,99",
+    "R$ 320,99",
     "R$ ,99",
     "R$ ,99",
     "R$ ,99",
@@ -37,20 +37,20 @@ const NomesdosArquivos = [
 const produtos = [
     "Floreira de parede <br>vertical jardim com 4 <br>cachepos 1,20x60  sku10",
     "Floreira de parede <br>horizontal jardim 3 <br>prateleiras sku18",
+    "Floreira de parede horizontal para jardim externo com 5 cachepots sku21",
     "",
-    "Cerejeira Claro",
-    "Cerejeira Escuro",
-    "Cinza Claro",
-    "Cinza Escuro",
-    "Imbuia",
-    "Mogno",
-    "Cru",
-    "Por do Sôl",
-    "Preto",
-    "Caramelo",
-    "Pastel",
-    "Rosê",
-    "Safari"
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
 ];
 
 const linksComprar = [
@@ -76,7 +76,7 @@ const descricaoProduto = [
 `Painel estilo treliçado nas cores das imagens.
 <br>
 DIMENSÕES PAINEL : <br>
-Altura: 1,20 cm<br>
+Altura: 120 cm<br>
 Largura: 60 cm<br>
 DIMENSÕES DOS CACHEPOS :<br>
 Largura: 40 cm<br>
@@ -97,7 +97,7 @@ Painel estilo ripado nas cores das imagens.
 <br>
 DIMENSÕES PAINEL :<br>
 Altura: 80 cm<br>
-Largura: 1,20 cm <br>
+Largura: 120 cm <br>
 DIMENSÕES DA PRATELEIRA:<br>
 Largura: 90 cm<br>
 Profundidade: 12 cm<br>
@@ -111,7 +111,27 @@ PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
 <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
     Acessar site
 </a>
+`,
 `
+Painel estilo ripado nas cores das imagens.
+<br>
+DIMENSÕES PAINEL :<br>
+Altura: 120 cm<br>
+Largura: 150 cm <br>
+DIMENSÕES DOS CACHEPOS:<br>
+4 chachepos Largura: 40 x 14 cm<br>
+1 chachepo largura: 50 x 14 cm<br>
+<br>
+FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
+RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
+<br>
+FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
+<br>
+PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
+    Acessar site
+</a>
+`,
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
