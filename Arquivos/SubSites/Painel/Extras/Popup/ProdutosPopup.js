@@ -1,5 +1,5 @@
 const precosProdutos = [
-    "R$ 210,90",
+    "R$ 210,99",
     "R$ 243,09",
     "R$ 243,09",
     "R$ 290,99",
@@ -32,12 +32,10 @@ const NomesdosArquivos = [
     ["sku 90"],
     ["sku 99"],
     ["sku 110 1", "sku 110 2"],
-    ["sku 110 1", "sku 110 2"],
-    ["sku 110 1", "sku 110 2"],
 ];
 
 const produtos = [
-    "Floreira de parede <br>vertical jardim <br>com 4 cachepos sku99",
+    "Floreira de parede vertical jardim com 4 cachepos 1,20x60  sku10",
     "Floreira de parede <br>horizontal jardim <br>com 5 andares sku88",
     "Floreira de parede <br>vertical jardim <br>com 4 cachepos sku10",
     "Cerejeira Claro",
@@ -74,41 +72,25 @@ const linksComprar = [
     "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20Safari."
 ];
 
-const descricaoProduto = `
-CONFECCIONADOS EM MADEIRA MACIÇA, OS PAINÉIS DEIXARÃO SEU AMBIENTE MAIS HARMÔNICO E ALEGRE. NOSSAS PEÇAS SÃO FEITAS À MÃO, PRODUZIDAS ARTESANALMENTE E COM MUITO APREÇO.
+const descricaoProduto = [ 
+`Painel estilo treliçado nas cores das imagens.
 <br>
-VOCÊ TERÁ UM PRODUTO VERSÁTIL E DECORATIVO, TANTO PARA FAZER UMA PEQUENA HORTA COM TEMPEROS OU FLORES E FOLHAGENS OU DECORAR SEU JARDIM, SACADA OU VARANDA, IDEAL PARA QUEM TEM POUCO ESPAÇO E NÃO ABRE MÃO DE CONTATO COM A NATUREZA. TAMBÉM HÁ QUEM ACHE OUTRAS UTILIDADES, COMO PORTA OBJETOS OU ACONCHEGO PARA GATOS.
+DIMENSÕES PAINEL : <br>
+Altura: 1,20 cm<br>
+Largura: 60 cm<br>
+DIMENSÕES DOS CACHEPOS :<br>
+Largura: 40 cm<br>
+Profundidade: 14 cm<br>
 <br>
-DIMENSÕES
+FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:<br>
+RÚSTICOS FOSCOS, QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
 <br>
-Painel estilo treliçado nas cores das imagens.
-Acompanha X cachepos de XX x XX cm móveis.
-Para colocar seus vasos com plantinhas deixando
-sua parede ou muro mais harmônico e alegre com os cachepôs desparceirados em zig zag no seu painel!
-<br>
-Medidas painel:
-- Altura : XXX cm
-- Largura : XX cm
-<br>
-CACHEPOS:
-<br>
-ALTURA: X,Xcm EXTERNA / X,Xcm INTERNA
-<br>
-LARGURA: XX CM
-PROFUNDIDADE: XX CM
-<br>
-FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA
-FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES RÚSTICOS FOSCOS E QUEIMADO/SAFARI,
-IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |
-<br>
-FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS
+FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
 <br>
 PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
-<br>
-<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
-Acessar loja
-</a>
-`;
+`,
+
+];
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -188,12 +170,19 @@ if (capas.length > 0) {
                 capaAtual = 0;
             }
 
-            imagem.style.opacity = "0";
+imagem.style.transition = "opacity 0.5s ease";
+imagem.style.opacity = "0";
 
-            setTimeout(() => {
-                imagem.src = `img/Capa/${capas[capaAtual]}.png`;
-                imagem.style.opacity = "1";
-            }, 300);
+setTimeout(() => {
+
+    imagem.src = `img/Capa/${capas[capaAtual]}.png`;
+
+    // espera a imagem nova carregar
+    imagem.onload = () => {
+        imagem.style.opacity = "1";
+    };
+
+}, 500);
 
         }, 3000);
     }
@@ -265,7 +254,7 @@ const descricao =
     popup.querySelector(".popup-descricao");
 
 if (descricao) {
-    descricao.innerHTML = descricaoProduto;
+    descricao.innerHTML = descricaoProduto[indice];
 }
 
 const preco =
