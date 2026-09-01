@@ -5,7 +5,7 @@ const precosProdutos = [
     "R$ 210,99",
     "R$ 298,99",
     "R$ 259,99",
-    "R$ ,99",
+    "R$ 219,99",
     "R$ ,99",
     "R$ ,99",
     "R$ ,99",
@@ -41,7 +41,7 @@ const produtos = [
     "Floreira de parede <br>vertical jardim 1,20x60 <br>com 4 cachepos sku31",
     "Floreira de parede <br>vertical jardim com 4 <br>cachepos cor cerejeira <br>1,20x80 sku82",
     "Floreira de parede <br>treliçada jardim horizontal  <br>100x60 cm sku72",
-    "",
+    "Floreira de parede <br>vertical externa com 3 <br>cachepos 1,00x50 cm <br>sku77",
     "",
     "",
     "",
@@ -168,6 +168,25 @@ Altura: 60 cm<br>
 Largura: 100 cm <br>
 DIMENSÕES DOS CACHEPOS:<br>
 4 chachepos Largura: 60 x 14 cm<br>
+<br>
+FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
+RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
+<br>
+FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
+<br>
+PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
+    Acessar site
+</a>
+`,
+`
+Painel estilo ripado nas cores das imagens.
+<br>
+DIMENSÕES PAINEL :<br>
+Altura: 100 cm<br>
+Largura: 50 cm <br>
+DIMENSÕES DOS CACHEPOS:<br>
+3 chachepos Largura: 30 x 14 cm<br>
 <br>
 FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
 RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
