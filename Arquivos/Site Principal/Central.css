@@ -171,10 +171,6 @@ button {
     color: var(--green-dark);
 }
 
-.hero {
-    position: relative;
-}
-
 .whatsapp-button {
     position: absolute;
 

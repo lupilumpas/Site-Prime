@@ -1,3 +1,6 @@
+:root {
+    --padding-tonalidade: 5px 12px;
+}
 /* ========================================= */
 /* FUNDO DO POPUP */
 /* ========================================= */
@@ -251,11 +254,11 @@
 
     color: #6d6258;
 
-    font-size: 22px;
+    font-size: 20px;
 
-    margin-bottom: 20px;
+    margin-bottom: 19px;
 
-    max-height: 486px;
+    height: 486px;
 
     overflow-y: auto;
     text-align: left;
@@ -305,6 +308,99 @@
 }
 
 .popup-comprar:hover {
-
     background: #5b3e2a;
+}
+
+.popup-descricao h1 {
+    font-size: 25px;
+    margin: 10px 0 5px;
+    color: #33291f;
+}
+
+.popup-descricao h3 {
+    font-size: 25px;
+    margin: 5px 0 0px;
+    color: #33291f;
+}
+
+.popup-descricao p {
+    margin: 0 0 -5px;
+    line-height: 1.6;
+}
+
+.popup-descricao p1 {
+    font-size: 25px;
+    margin: 0 0 0px;
+    line-height: 1.6;
+}
+
+.popup-descricao a {
+    margin: 0 0 35px;
+    line-height: 1.6;
+}
+
+.tonalidades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.tonalidades span {
+    display: inline-block;
+    padding: 7px 10px;
+    border-radius: 50px;
+    font-size: 18px;
+    line-height: 1;
+    color: #33291f;
+}
+.tonalidades .branco {
+    background-image: url("Fundinho/");
+    background-size: cover;
+    background-position: center;
+}
+
+.tonalidades .camurca {
+    background-color: rgb(235, 0, 0);
+    background-image: url("Fundinho/");
+    background-size: cover;
+    background-position: center;
+}
+
+.tonalidades .envelhecido {
+    background-image: url("Fundinho/");
+    background-size: cover;
+    background-position: center;
+}
+
+.tonalidades .cerejeira-claro {
+    background-image: url("Fundinho/");
+    background-size: cover;
+    background-position: center;
+}
+
+.tonalidades .cerejeira-escuro {
+    background-image: url("Fundinho/");
+    background-size: cover;
+    background-position: center;
+}
+
+.tonalidades .cinza-claro {
+    background-image: url("Fundinho/");
+    background-size: cover;
+    background-position: center;
+}
+
+.tonalidades .cinza-escuro {
+    background-image: url("Fundinho/");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.tonalidades .imbuia {
+    background-image: url("Fundinho/");
+    background-size: cover;
+    background-position: center;
+    color: white;
 }

@@ -56,24 +56,31 @@ const produtos = [
 const linkWhatsApp = "https://api.whatsapp.com/send/?phone=5541991371245&text=";
 
 const descricaoProduto = [ 
-`Painel estilo treliçado nas cores das imagens.
+`<p>Painel estilo treliçado nas cores das imagens.</p>
+<h1>DIMENSÕES PAINEL :</h1>
+<p>Altura: 120 cm</p>
+<p>Largura: 60 cm</p>
+<h3>DIMENSÕES DOS CACHEPOS :</h3>
+<p>Largura: 40 cm</p>
+<p>Profundidade: 14 cm</p>
 <br>
-DIMENSÕES PAINEL : <br>
-Altura: 120 cm<br>
-Largura: 60 cm<br>
-DIMENSÕES DOS CACHEPOS :<br>
-Largura: 40 cm<br>
-Profundidade: 14 cm<br>
-<br>
-FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:<br>
-RÚSTICOS FOSCOS, QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
-<br>
-FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
-<br>
-PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
-<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
-    Acessar site
-</a>
+<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
+<p1 class="tonalidades">
+    <span class="branco">Branco</span>
+    <span class="camurca">Camurça</span>
+    <span class="envelhecido">Envelhecido</span>
+    <span class="cerejeira-claro">Cerejeira Claro</span>
+    <span class="cerejeira-escuro">Cerejeira Escuro</span>
+    <span class="cinza-claro">Cinza Claro</span>
+    <span class="cinza-escuro">Cinza Escuro</span>
+    <span class="imbuia">Imbuia</span>
+</p1> <br>
+<p1>Mogno, Cru, Por do sôl, Preto, Caramelo, Pastel, Rosê, Safari</p1>
+<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
+<p>
+    PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+    <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
+</p>
 `,
 `
 Painel estilo ripado nas cores das imagens.
@@ -311,7 +318,34 @@ const descricao =
     popup.querySelector(".popup-descricao");
 
 if (descricao) {
-    descricao.innerHTML = descricaoProduto[indice];
+
+    let texto = descricaoProduto[indice] || "";
+
+    texto = texto.trim();
+
+    // Divide o conteúdo pelas linhas vazias
+    const blocos = texto.split(/\n\s*\n/);
+
+    texto = blocos.map(bloco => {
+
+        bloco = bloco.trim();
+
+        // Se for título, mantém o HTML original
+        if (/^<h[1-3]>[\s\S]*<\/h[1-3]>$/i.test(bloco)) {
+            return bloco;
+        }
+
+        // Se for link ou outro HTML, mantém
+        if (bloco.startsWith("<")) {
+            return bloco;
+        }
+
+        // Texto normal vira parágrafo
+        return `<p>${bloco.replace(/\n/g, " ")}</p>`;
+
+    }).join("");
+
+    descricao.innerHTML = texto;
 }
 
 const preco =

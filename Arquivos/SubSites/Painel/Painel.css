@@ -18,16 +18,106 @@ body {
     color: white;
 }
 
+/* =========================================================
+   HERO
+========================================================= */
+
 .hero {
     position: relative;
+
     min-height: 650px;
+
     display: flex;
     align-items: center;
+    justify-content: center;
+
     overflow: hidden;
 
     background-image: url("img/img/Treliçado.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.30),
+            rgba(0, 0, 0, 0.30)
+        ),
+
+        repeating-linear-gradient(
+            92deg,
+            transparent 0,
+            transparent 38px,
+            rgba(255,255,255,.035) 39px,
+            transparent 42px
+        );
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 900px;
+
+    padding: 90px 30px;
+
+    text-align: center;
+}
+
+.hero h1 {
+    color: white;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(3rem, 7vw, 5.7rem);
+
+    font-weight: 500;
+
+    line-height: 0.96;
+
+    letter-spacing: -0.04em;
+
+    margin: 0 auto;
+}
+
+.hero-description {
+    max-width: 650px;
+
+    margin: 28px auto 32px;
+
+    color: rgba(255,255,255,.90);
+
+    font-size: 1.15rem;
+
+    line-height: 1.6;
+
+    text-align: center;
+
+    transform: none;
+}
+
+.hero-actions {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
 /* =========================================================
    PAINEL
 ========================================================= */
@@ -38,7 +128,7 @@ body {
 
     width: 100%;
 
-    background-color: rgb(243, 242, 237);
+    background-color: rgb(170, 170, 170);
 
     background-image: url("img/img/Painel.png");
 
@@ -54,41 +144,6 @@ body {
     padding-bottom: 150px;
 
     overflow: hidden;
-}
-
-
-/* =========================================================
-   INTRODUÇÃO
-========================================================= */
-
-.introducao {
-
-    width: 800px;
-    max-width: 90%;
-
-    margin: 0 auto 400px auto;
-
-    text-align: center;
-
-    padding: 35px;
-
-    background: rgba(0, 0, 0, 0.65);
-
-    border-radius: 18px;
-
-    backdrop-filter: blur(5px);
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.introducao h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-
-.introducao p {
-    font-size: 18px;
-    line-height: 1.6;
 }
 
 
@@ -137,31 +192,27 @@ body {
 ========================================================= */
 
 .cachepo-1 {
-    top: 475px;
+    top: 320px;
     height: 570px;
 }
 
 .cachepo-2 {
-    top: 1165px;
+    top: 1045px;
     height: 555px;
 }
 
-/* =========================================================
-   Lembre pra amanha colocas os cachepos pra ocupar 2madeiras + 2 vaos ou seja: 1maideira+1vão+1madeira+1vão, assim da certinho com o tamanho que ja tem
-========================================================= */
-
 .cachepo-3 {
-    top: 1867px;
+    top: 1718px;
     height: 535px;
 }
 .cachepo-4 {
-    top: 2510px;
+    top: 2395px;
     height: 560px;
 }
 
 .cachepo-5 {
-    top: 3225px;
-    height: 585px;
+    top: 3065px;
+    height: 580px;
 }
 
 /* =========================================================
