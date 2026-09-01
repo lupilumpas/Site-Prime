@@ -308,22 +308,3 @@
 
     background: #5b3e2a;
 }
-
-/* ========================================= */
-/* ANIMAÇÃO INICIAL DO PRODUTO */
-/* ========================================= */
-
-.imagem-animacao {
-    position: fixed;
-
-    z-index: 10000;
-
-    transition:
-        left 0.9s ease,
-        top 0.9s ease,
-        width 0.9s ease,
-        height 0.9s ease,
-        transform 0.9s ease;
-
-    pointer-events: none;
-}

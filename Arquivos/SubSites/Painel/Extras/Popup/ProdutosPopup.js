@@ -1,10 +1,10 @@
 const precosProdutos = [
-    "R$ 210,99",
+    "R$ 209,99",
     "R$ 299,99",
-    "R$ 320,99",
+    "R$ 319,99",
     "R$ 210,99",
     "R$ 298,99",
-    "R$ 260,99",
+    "R$ 259,99",
     "R$ ,99",
     "R$ ,99",
     "R$ ,99",
@@ -271,35 +271,6 @@ setTimeout(() => {
 
         imagem.addEventListener("click", () => {
 console.log("CLIQUE NA IMAGEM!", indice);
-            // ==========================================
-            // ANIMAÇÃO DA IMAGEM → CENTRO
-            // ==========================================
-
-            const rect = imagem.getBoundingClientRect();
-
-            const imagemAnimacao = imagem.cloneNode(true);
-
-            imagemAnimacao.classList.add("imagem-animacao");
-
-            imagemAnimacao.style.left = rect.left + "px";
-            imagemAnimacao.style.top = rect.top + "px";
-            imagemAnimacao.style.width = rect.width + "px";
-            imagemAnimacao.style.height = rect.height + "px";
-
-            document.body.appendChild(imagemAnimacao);
-
-            // ==========================================
-            // FAZ A IMAGEM IR PARA O CENTRO
-            // ==========================================
-
-            requestAnimationFrame(() => {
-                imagemAnimacao.style.left = "42.2%";
-                imagemAnimacao.style.top = "21%";
-                imagemAnimacao.style.width = "300px";
-                imagemAnimacao.style.height = "340px";
-                imagemAnimacao.style.transform = "translate(-50%, -50%)";
-            });
-
 // ==========================================
 // ENCONTRA O POPUP
 // ==========================================
@@ -409,31 +380,6 @@ let paginaCarrossel = 1;
             // ==========================================
 
             atualizarCarrossel();
-
-            // ==========================================
-            // ESCONDE A IMAGEM CENTRAL (fica branco)
-            // ==========================================
-
-imagem3.style.opacity = "0";
-imagem3.style.transition = "none";
-
-            // ==========================================
-            // MOSTRA O POPUP
-            // ==========================================
-
-            // ==========================================
-            // QUANDO A ANIMAÇÃO TERMINAR
-            // ==========================================
-
-            setTimeout(() => {
-
-                imagem3.style.opacity = "1";
-                imagemAnimacao.remove();
-
-                setTimeout(() => {
-                    imagem3.style.transition = "";
-                }, 50);
-            }, 900);
 
             // ==========================================
             // BOTÃO DIREITA
