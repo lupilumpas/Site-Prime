@@ -53,9 +53,7 @@ const produtos = [
     ""
 ];
 
-const linkWhatsApp = [
-    "https://api.whatsapp.com/send/?phone=5541991371245&text=Olá! Vim pela página JDM Madeiras e gostaria de solicitar um orçamento para um nicho Safari.",
-];
+const linkWhatsApp = "https://api.whatsapp.com/send/?phone=5541991371245&text=";
 
 const descricaoProduto = [ 
 `Painel estilo treliçado nas cores das imagens.
@@ -316,13 +314,14 @@ const popup =
         return;
     }
 
-const mensagem = `Olá! Vim pela página JDM Madeiras e gostaria de solicitar um orçamento para ${produtos[indice]}.`;
+const nomeProdutoLimpo = produtos[indice].replace(/<br\s*\/?>/gi, " ");
 
+const mensagem = `Olá! Vim pela página JDM Madeiras e gostaria de solicitar um orçamento para ${nomeProdutoLimpo}.`;
 
 const botaoComprar = popup.querySelector(".popup-comprar");
 
 if (botaoComprar) {
-    botaoComprar.href = linksComprar[indice];
+    botaoComprar.href = linkWhatsApp + encodeURIComponent(mensagem);
     botaoComprar.target = "_blank";
 }
 
