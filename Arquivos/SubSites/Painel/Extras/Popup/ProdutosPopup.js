@@ -37,9 +37,9 @@ const NomesdosArquivos = [
 const produtos = [
     "Floreira de parede <br>vertical jardim com 4 <br>cachepos 1,20x60  sku10",
     "Floreira de parede <br>horizontal jardim 3 <br>prateleiras sku18",
-    "Floreira de parede <br>horizontal para jardim <br>externo com 5 cachepots sku21",
+    "Floreira de parede <br>horizontal para jardim <br>externo com 5 cachepots <br>sku21",
     "Floreira de parede <br>vertical jardim 1,20x60 <br>com 4 cachepos sku31",
-    "Floreira de parede <br>vertical jardim com 4 cachepos <br>cor cerejeira 1,20x80  sku82",
+    "Floreira de parede <br>vertical jardim com 4 <br>cachepos cor cerejeira <br>1,20x80 sku82",
     "Floreira de parede <br>treliçada jardim horizontal  <br>100x60 cm sku72",
     "",
     "",
