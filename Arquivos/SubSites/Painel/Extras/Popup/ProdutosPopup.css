@@ -254,9 +254,9 @@
 
     color: #6d6258;
 
-    font-size: 20px;
+    font-size: 19px;
 
-    margin-bottom: 19px;
+    margin-bottom: 20px; /*era 20, temporarioamente por conta do fundo das cores vai ficar 19*/
 
     height: 486px;
 
@@ -339,7 +339,7 @@
     line-height: 1.6;
 }
 
-.tonalidades {
+/*.tonalidades {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -361,7 +361,6 @@
 }
 
 .tonalidades .camurca {
-    background-color: rgb(235, 0, 0);
     background-image: url("Fundinho/");
     background-size: cover;
     background-position: center;
