@@ -96,5 +96,20 @@ botoes.forEach((botao, indice) => {
         observer.observe(cachepo);
 
     });
+document.querySelectorAll('.main-nav a[href^="#"]').forEach(link => {
+    link.addEventListener("click", event => {
+        event.preventDefault();
+
+        const id = link.getAttribute("href");
+        const elemento = document.querySelector(id);
+
+        if (elemento) {
+            elemento.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+    });
+});
 
 });

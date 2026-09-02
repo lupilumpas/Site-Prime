@@ -83,64 +83,57 @@ const descricaoProduto = [
 </p>
 `,
 `
-Painel estilo ripado nas cores das imagens.
+<p>Painel estilo ripado nas cores das imagens.</p>
+<h1>DIMENSÕES PAINEL :</h1>
+<p>Altura: 80 cm</p>
+<p>Largura: 120 cm</p>
+<h3>DIMENSÕES DA PRATELEIRA:</h3>
+<p>Largura: 90 cm</p>
+<p>Profundidade: 12 cm</p>
 <br>
-DIMENSÕES PAINEL :<br>
-Altura: 80 cm<br>
-Largura: 120 cm <br>
-DIMENSÕES DA PRATELEIRA:<br>
-Largura: 90 cm<br>
-Profundidade: 12 cm<br>
-<br>
-FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
-RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
-<br>
-FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
-<br>
-PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
-<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
-    Acessar site
-</a>
+<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
+<p>RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |</p>
+<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
+<p>
+    PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+    <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
+</p>
 `,
 `
-Painel estilo ripado nas cores das imagens.
+<p>Painel estilo ripado nas cores das imagens.</p>
+<h1>DIMENSÕES PAINEL</h1>
+<p>Altura: 120 cm</p>
+<p>Largura: 150 cm</p>
+<h3>DIMENSÕES DOS CACHEPOS:</h3>
+<p>4 chachepos Largura: 40 x 14 cm</p>
+<p>1 chachepo largura: 50 x 14 cm</p>
 <br>
-DIMENSÕES PAINEL :<br>
-Altura: 120 cm<br>
-Largura: 150 cm <br>
-DIMENSÕES DOS CACHEPOS:<br>
-4 chachepos Largura: 40 x 14 cm<br>
-1 chachepo largura: 50 x 14 cm<br>
-<br>
-FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
-RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
-<br>
-FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
-<br>
-PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
-<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
-    Acessar site
-</a>
+<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:<p>
+<p>RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<p>
+<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<p>
+<p>
+    PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+    <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
+</p>
 `,
 `
-Painel estilo treliçado nas cores das imagens.
+<p>Painel estilo treliçado nas cores das imagens.</p>
+<h1>DIMENSÕES PAINEL :</h1>
+<p>Altura: 120 cm</p>
+<p>Largura: 60 cm</p>
+<h3>DIMENSÕES DOS CACHEPOS:</h3>
+<p>4 chachepos Largura: 40 x 14 cm</p>
 <br>
-DIMENSÕES PAINEL :<br>
-Altura: 120 cm<br>
-Largura: 60 cm <br>
-DIMENSÕES DOS CACHEPOS:<br>
-4 chachepos Largura: 40 x 14 cm<br>
+<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
+<p>RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |</p>
+<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <br>
-FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
-RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
-<br>
-FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
-<br>
-PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
-<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
-    Acessar site
-</a>
+<p>
+    PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+    <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
+</p>
 `,
+//feito até aqui as atualizçoes de <p> e <h1e3>
 `
 Painel estilo treliçado nas cores das imagens.
 <br>
