@@ -10,9 +10,9 @@ const imagensProdutos = [
     "produto09.png"
 ];
 
-const produtos = document.querySelectorAll(".produto-imagem");
+const cardsProdutos = document.querySelectorAll(".produto-imagem");
 
-produtos.forEach((produto, index) => {
+cardsProdutos.forEach((produto, index) => {
     const imagem = imagensProdutos[index];
 
     produto.style.backgroundImage = `url("${imagem}")`;

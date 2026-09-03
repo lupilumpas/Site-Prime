@@ -1,0 +1,178 @@
+/* ========================================= */
+/* TRANSIÇÃO COMPLETA */
+/* ========================================= */
+
+.popup-imagens img {
+    transition:
+        left 0.7s ease-in-out,
+        width 0.7s ease-in-out,
+        height 0.7s ease-in-out,
+        transform 0.7s ease-in-out,
+        opacity 0.7s ease-in-out;
+
+    will-change:
+        left,
+        width,
+        height,
+        transform,
+        opacity;
+}
+
+
+/* ========================================= */
+/* ANIMAÇÃO PARA A DIREITA (próximo) */
+/* ========================================= */
+
+/* Fundo esquerdo → posição do Anterior (continua pequeno) */
+.popup-imagens.animando-direita .Imagem-Anterior-2 {
+    left: 20%;
+    width: 150px;
+    height: 170px;
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 0.35;
+    z-index: 2;
+}
+
+/* Anterior → VAI PARA O CENTRO (cresce) */
+.popup-imagens.animando-direita .Imagem-Anterior {
+    left: 50%;
+    width: 300px;
+    height: 340px;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    z-index: 3;
+}
+
+/* Central → VAI PARA A DIREITA (diminui) */
+.popup-imagens.animando-direita .Imagem-central {
+    left: 80%;
+    width: 150px;
+    height: 170px;
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 0.35;
+    z-index: 2;
+}
+
+/* Seguinte → vai para o fundo direito (continua pequeno) */
+.popup-imagens.animando-direita .Imagem-Seguinte {
+    left: 105%;
+    width: 120px;
+    height: 140px;
+    transform: translate(-50%, -50%) scale(0.55);
+    opacity: 0.15;
+    z-index: 1;
+}
+
+/* Fundo direito → entra pela esquerda (continua pequeno) */
+.popup-imagens.animando-direita .Imagem-Seguinte-2 {
+    left: -5%;
+    width: 120px;
+    height: 140px;
+    transform: translate(-50%, -50%) scale(0.55);
+    opacity: 0.15;
+    z-index: 1;
+}
+
+
+/* ========================================= */
+/* ANIMAÇÃO PARA A ESQUERDA (anterior) */
+/* ========================================= */
+
+/* Fundo esquerdo → sai pela direita (continua pequeno) */
+.popup-imagens.animando-esquerda .Imagem-Anterior-2 {
+    left: 105%;
+    width: 120px;
+    height: 140px;
+    transform: translate(-50%, -50%) scale(0.55);
+    opacity: 0.15;
+    z-index: 1;
+}
+
+/* Anterior → sai pela esquerda (continua pequeno) */
+.popup-imagens.animando-esquerda .Imagem-Anterior {
+    left: -5%;
+    width: 120px;
+    height: 140px;
+    transform: translate(-50%, -50%) scale(0.55);
+    opacity: 0.15;
+    z-index: 1;
+}
+
+/* Central → VAI PARA A ESQUERDA (diminui) */
+.popup-imagens.animando-esquerda .Imagem-central {
+    left: 20%;
+    width: 150px;
+    height: 170px;
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 0.35;
+    z-index: 2;
+}
+
+/* Seguinte → VAI PARA O CENTRO (cresce) */
+.popup-imagens.animando-esquerda .Imagem-Seguinte {
+    left: 50%;
+    width: 300px;
+    height: 340px;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    z-index: 3;
+}
+
+/* Fundo direito → vai para a posição do Seguinte (médio) */
+.popup-imagens.animando-esquerda .Imagem-Seguinte-2 {
+    left: 80%;
+    width: 150px;
+    height: 170px;
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 0.35;
+    z-index: 2;
+}
+
+/* ========================================= */
+/* AeD participa da animação (como se fosse a central) */
+/* ========================================= */
+
+.popup-imagens .aed-container {
+    transition:
+        left 0.7s ease-in-out,
+        width 0.7s ease-in-out,
+        height 0.7s ease-in-out,
+        transform 0.7s ease-in-out,
+        opacity 0.7s ease-in-out;
+
+    will-change: left, width, height, transform, opacity;
+}
+
+/* Quando anima para a DIREITA → AeD vai para a posição da direita */
+.popup-imagens.animando-direita .aed-container {
+    left: 80%;
+    width: 150px;
+    height: 170px;
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Quando anima para a ESQUERDA → AeD vai para a posição da esquerda */
+.popup-imagens.animando-esquerda .aed-container {
+    left: 20%;
+    width: 150px;
+    height: 170px;
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 1;
+    z-index: 2;
+}
+
+/* ========================================= */
+/* ESCONDE A IMAGEM QUE DÁ A VOLTA (instantâneo) */
+/* ========================================= */
+
+.popup-imagens.animando-direita .Imagem-Seguinte-2 {
+    opacity: 0 !important;
+    transition: left 0.7s ease-in-out, opacity 0s !important; /* some na hora */
+}
+
+.popup-imagens.animando-esquerda .Imagem-Anterior-2 {
+    opacity: 0 !important;
+    transition: left 0.7s ease-in-out, opacity 0s !important; /* some na hora */
+}
