@@ -92,7 +92,9 @@ const descricaoProduto = [
 <p>Profundidade: 12 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
-<p>RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |</p>
+<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
+<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
+<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
@@ -109,7 +111,9 @@ const descricaoProduto = [
 <p>1 chachepo largura: 50 x 14 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:<p>
-<p>RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<p>
+<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
+<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
+<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<p>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
@@ -125,7 +129,9 @@ const descricaoProduto = [
 <p>4 chachepos Largura: 40 x 14 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
-<p>RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |</p>
+<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
+<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
+<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <br>
 <p>

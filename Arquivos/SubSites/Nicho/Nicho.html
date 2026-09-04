@@ -858,66 +858,105 @@
 
     <p>Arraste para girar o modelo e use a roda do mouse para aproximar ou afastar.</p>
 
-    <div class="visualizador-3d">
 
-<model-viewer
-    id="modelo3D"
-    src="img/Nicho teste mae.glb"
-    autoplay
-    auto-rotate
-    camera-controls
-    rotation-per-second="-20deg"
-    interaction-prompt="none"
-    camera-orbit="90deg 75deg 30000m"
-    style="width: 900px; height: 600px;">
-</model-viewer>
+    <!-- ÁREA DO MODELO + TEXTURAS -->
+    <div class="area-modelo">
 
-    </div>
-<!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes -->
-<div class="controle-medida">
-    <div class="controle-medida-topo">
-        <span>Altura</span>
-        <span id="valor-altura">60 cm</span>
-    </div>
-<input
-        type="range"
-        id="barra-altura"
-        min="40"
-        max="100"
-        value="60"
-        step="1">
-</div>
-<!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes -->
-<div class="controle-medida">
-    <div class="controle-medida-topo">
-        <span>Largura</span>
-        <span id="valor-largura">60 cm</span>
-    </div>
+        <div class="visualizador-3d">
 
-<input
-        type="range"
-        id="barra-largura"
-        min="40"
-        max="100"
-        value="60"
-        step="1">
-</div>
-<!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes -->
-<div class="controle-medida">
-    <div class="controle-medida-topo">
-        <span>Profundidade</span>
-        <span id="valor-profundidade">10 cm</span>
-    </div>
+            <model-viewer
+                id="modelo3D"
+                src="img/Nicho.glb"
+                autoplay
+                auto-rotate
+                camera-controls
+                rotation-per-second="-20deg"
+                interaction-prompt="none"
+                camera-orbit="90deg 75deg 30000m"
+                style="width: 900px; height: 600px;">
+            </model-viewer>
 
-    <div id="barra-profundidade" class="opcoes-profundidade">
+        </div>
 
-        <button value="10">10 cm</button>
-        <button value="14">14 cm</button>
-        <button value="19">19 cm</button>
+
+        <div class="seletor-texturas">
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+<button><img><span></span></button>
+        </div>
 
     </div>
-</div>
-<!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes --><!-- Separador de Partes -->
+
+
+    <!-- CONTROLE DE ALTURA -->
+    <div class="controle-medida">
+
+        <div class="controle-medida-topo">
+            <span>Altura</span>
+            <span id="valor-altura">60 cm</span>
+        </div>
+
+        <input
+            type="range"
+            id="barra-altura"
+            min="40"
+            max="100"
+            value="60"
+            step="1">
+
+    </div>
+
+
+    <!-- CONTROLE DE LARGURA -->
+    <div class="controle-medida">
+
+        <div class="controle-medida-topo">
+            <span>Largura</span>
+            <span id="valor-largura">60 cm</span>
+        </div>
+
+        <input
+            type="range"
+            id="barra-largura"
+            min="40"
+            max="100"
+            value="60"
+            step="1">
+
+    </div>
+
+
+    <!-- CONTROLE DE PROFUNDIDADE -->
+    <div class="controle-medida">
+
+        <div class="controle-medida-topo">
+            <span>Profundidade</span>
+            <span id="valor-profundidade">10 cm</span>
+        </div>
+
+        <div id="barra-profundidade" class="opcoes-profundidade">
+
+            <button value="10">10 cm</button>
+            <button value="14">14 cm</button>
+            <button value="19">19 cm</button>
+
+        </div>
+
+    </div>
+
 </section>
 
 
@@ -933,6 +972,7 @@
     <script src="Extras/Modelos3D/Altura3D.js"></script>
     <script src="Extras/Modelos3D/Largura3D.js"></script>
     <script src="Extras/Modelos3D/Profundidade3D.js"></script>
+    <script src="Extras/Modelos3D/Outros3D.js"></script>
 <!--<script src="Extras/Modelos3D/Outros.js"></script> -->
 </body>
 

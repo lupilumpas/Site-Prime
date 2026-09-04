@@ -1,15 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // =========================================================
-    // MODELO 3D
-    // =========================================================
-
-    const modelo = document.getElementById("modelo3D");
-
-    let hierarquia = null;
-    let modeloPronto = false;
-
-    // =========================================================
     // CONFIGURAÇÃO DA PROFUNDIDADE
     // =========================================================
 
@@ -20,44 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // -1 = lado contrário
     const DIRECAO_PROFUNDIDADE = -1;
 
-    // Quanto a peça se desloca na posição (quanto maior, mais longe do centro)
-const FORCA_DESLOCAMENTO = -3;   // ← MEXA AQUI
-
 const FORCA_FUNDO = 10;   // quanto mais alto, mais ele anda
-
-    // =========================================================
-    // CORES
-    // =========================================================
-
-    const coresMateriais = [
-        [1, 0, 0, 1],       // 0 - Vermelho
-        [0, 1, 0, 1],       // 1 - Verde
-        [0, 0, 1, 1],       // 2 - Azul
-        [1, 1, 0, 1],       // 3 - Amarelo
-        [1, 0, 1, 1],       // 4 - Rosa
-        [0, 1, 1, 1],       // 5 - Ciano
-        [1, 0.5, 0, 1],     // 6 - Laranja
-        [0.5, 0, 1, 1],     // 7 - Roxo
-        [0, 0, 0, 1]        // 8 - Preto
-    ];
 
     // =========================================================
     // CARREGAR MODELO
     // =========================================================
 
 modelo.addEventListener("load", () => {
-
-    const scene = modelo.model;
-
-    const simbolos = Object.getOwnPropertySymbols(scene);
-    const simboloHierarquia = simbolos.find(
-        simbolo => String(simbolo) === "Symbol(hierarchy)"
-    );
-
-    hierarquia = scene[simboloHierarquia];
-
-    pintarTodasAsPecas();
-    modeloPronto = true;
 
     // Define 10 cm como valor inicial
     const botaoInicial = document.querySelector(
@@ -68,23 +28,6 @@ modelo.addEventListener("load", () => {
         botaoInicial.click();
     }
 });
-
-    // =========================================================
-    // PINTAR TODAS AS PEÇAS
-    // =========================================================
-
-    function pintarTodasAsPecas() {
-        hierarquia.forEach((parte, indice) => {
-            if (!parte.materials || !(parte.materials instanceof Map)) return;
-
-            parte.materials.forEach((material) => {
-                if (!material || !material.pbrMetallicRoughness) return;
-
-                const cor = coresMateriais[indice % coresMateriais.length];
-                material.pbrMetallicRoughness.setBaseColorFactor(cor);
-            });
-        });
-    }
 
     // =========================================================
     // BARRA DE PROFUNDIDADE
@@ -208,37 +151,6 @@ parte.mesh.scale[eixoEscala] =
 parte.mesh.position.x =
     posicaoOriginal.x +
     (diferencaP * FMP[indice]);
-
-    console.log(
-    "X:", parte.mesh.scale.x,
-    "Y:", parte.mesh.scale.y,
-    "Z:", parte.mesh.scale.z
-);
-
-console.log(
-    "Peça", indice,
-    "scale:",
-    parte.mesh.scale.x,
-    parte.mesh.scale.y,
-    parte.mesh.scale.z
-);
-
-console.log(
-    "rotation:",
-    parte.mesh.rotation.x,
-    parte.mesh.rotation.y,
-    parte.mesh.rotation.z
-);
-
-    // ---------------------------------------------
-    // TESTE
-    // ---------------------------------------------
-
-    console.log(`Peça ${indice}`);
-    console.log("Eixo da escala:", eixoEscala);
-    console.log("Eixo do movimento: z");
-    console.log("Z original:", posicaoOriginal.z);
-
 });
         // -------------------------------------------------
         // 2. PEÇAS QUE SÓ SE MOVEM (fundo - 8)

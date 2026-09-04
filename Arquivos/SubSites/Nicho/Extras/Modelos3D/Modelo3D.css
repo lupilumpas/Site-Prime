@@ -21,9 +21,9 @@
     width: 900px;
     max-width: 90%;
     height: 600px;
-    margin: auto;
+    margin: 20px;
 
-    background: #f5f2ed;
+    background: rgb(31,30,30);
     border-radius: 15px;
     overflow: hidden;
 
@@ -41,7 +41,7 @@
 
 .controle-medida {
     width: 700px;
-    margin: 20px auto 0;
+    margin: 20px 20px 0;
 }
 
 .controle-medida-topo {
@@ -180,4 +180,57 @@
 .opcoes-profundidade button.selecionado {
     background: #ddd;
     border-color: #333;
+}
+
+.seletor-texturas {
+    display: grid;
+    grid-template-rows: repeat(8, 70px);
+    grid-auto-flow: column;
+    grid-auto-columns: 200px;
+
+    gap: 10px;
+
+    width: max-content;
+}
+
+.seletor-texturas button {
+    width: 200px;
+    height: 70px;
+
+    padding: 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+
+    overflow: hidden;
+    cursor: pointer;
+    position: relative; /* ADICIONE */
+}
+
+.seletor-texturas button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.area-modelo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.seletor-texturas button.selecionado {
+    border: 3px solid #333;
+}
+
+.seletor-texturas button span {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    pointer-events: none;
 }

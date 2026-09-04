@@ -1,112 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // =========================================================
-    // MODELO 3D
-    // =========================================================
-
-    const modelo = document.getElementById("modelo3D");
-
-    let hierarquia = null;
-    let modeloPronto = false;
-
-    // =========================================================
     // CONFIGURAÇÃO
     // =========================================================
 
     // Altura original do modelo
     const LARGURA_ORIGINAL = 60;
-
-    // =========================================================
-    // CORES
-    // =========================================================
-
-    const coresMateriais = [
-        [1, 0, 0, 1],       // 0 - Vermelho - parede lateral esquerda interna
-        [0, 1, 0, 1],       // 1 - Verde - parede lateral superior interna
-        [0, 0, 1, 1],       // 2 - Azul - parede lateral direita interna
-        [1, 1, 0, 1],       // 3 - Amarelo - parede lateral inferior interna
-        [1, 0, 1, 1],       // 4 - Rosa - moldura externa inferior
-        [0, 1, 1, 1],       // 5 - Ciano - moldura externa esquerda
-        [1, 0.5, 0, 1],     // 6 - Laranja - moldura externa superior
-        [0.5, 0, 1, 1],     // 7 - Roxo - moldura externa direita
-        [0, 0, 0, 1]        // 8 - Preto - fundo
-    ];
-
-    // =========================================================
-    // CARREGAR MODELO
-    // =========================================================
-
-    modelo.addEventListener("load", () => {
-
-    const scene = modelo.model;
-
-        // =====================================================
-        // LOCALIZAR HIERARQUIA
-        // =====================================================
-
-        const simbolos =
-            Object.getOwnPropertySymbols(scene);
-
-        const simboloHierarquia =
-            simbolos.find(
-                simbolo =>
-                    String(simbolo) === "Symbol(hierarchy)"
-            );
-
-        hierarquia =
-            scene[simboloHierarquia];
-
-        // =====================================================
-        // PINTAR PEÇAS
-        // =====================================================
-
-        pintarTodasAsPecas();
-
-
-        modeloPronto = true;
-
-    });
-
-
-    // =========================================================
-    // PINTAR TODAS AS PEÇAS
-    // =========================================================
-
-    function pintarTodasAsPecas() {
-
-        hierarquia.forEach((parteL, indice) => {
-
-                if (!parteL.materials) {
-                    return;
-                }
-
-                if (!(parteL.materials instanceof Map)) {
-                    return;
-                }
-
-                parteL.materials.forEach((material) => {
-
-                    if (
-                        !material ||
-                        !material.pbrMetallicRoughness
-                    ) {
-                        return;
-                    }
-
-                    const cor =
-                        coresMateriais[
-                            indice % coresMateriais.length
-                        ];
-
-                    material
-                        .pbrMetallicRoughness
-                        .setBaseColorFactor(cor);
-
-                });
-
-        });
-
-    }
 
 // =========================================================
 // BARRA DE Largura
