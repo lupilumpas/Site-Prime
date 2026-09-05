@@ -859,106 +859,103 @@
     <p>Arraste para girar o modelo e use a roda do mouse para aproximar ou afastar.</p>
 
 
-    <!-- ÁREA DO MODELO + TEXTURAS -->
-    <div class="area-modelo">
+<div class="area-modelo">
 
-        <div class="visualizador-3d">
+    <div class="visualizador-3d">
 
-            <model-viewer
-                id="modelo3D"
-                src="img/Nicho.glb"
-                autoplay
-                auto-rotate
-                camera-controls
-                rotation-per-second="-20deg"
-                interaction-prompt="none"
-                camera-orbit="90deg 75deg 30000m"
-                style="width: 900px; height: 600px;">
-            </model-viewer>
+        <model-viewer
+            id="modelo3D"
+            src="img/Nicho.glb"
+            auto-rotate
+            camera-controls
+            rotation-per-second="-20deg"
+            interaction-prompt="none"
+            camera-orbit="90deg 75deg 30000m"
+            style="width: 800px; height: 600px;">
+        </model-viewer>
 
-        </div>
-
-
-        <div class="seletor-texturas">
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-<button><img><span></span></button>
-        </div>
+        <button id="pararRotacao">⏸ Parar rotação</button>
 
     </div>
 
 
-    <!-- CONTROLE DE ALTURA -->
-    <div class="controle-medida">
+    <div class="seletor-texturas">
 
-        <div class="controle-medida-topo">
-            <span>Altura</span>
-            <span id="valor-altura">60 cm</span>
-        </div>
-
-        <input
-            type="range"
-            id="barra-altura"
-            min="40"
-            max="100"
-            value="60"
-            step="1">
-
-    </div>
-
-
-    <!-- CONTROLE DE LARGURA -->
-    <div class="controle-medida">
-
-        <div class="controle-medida-topo">
-            <span>Largura</span>
-            <span id="valor-largura">60 cm</span>
-        </div>
-
-        <input
-            type="range"
-            id="barra-largura"
-            min="40"
-            max="100"
-            value="60"
-            step="1">
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
+        <button><img><span></span></button>
 
     </div>
 
 
-    <!-- CONTROLE DE PROFUNDIDADE -->
-    <div class="controle-medida">
+<div class="seletor-partes-internas">
 
-        <div class="controle-medida-topo">
-            <span>Profundidade</span>
-            <span id="valor-profundidade">10 cm</span>
-        </div>
+    <button class="botao-principal" data-parte="opcao0">
+        <img src="Extras/Opções/Sem divisão.png">
+    </button>
 
-        <div id="barra-profundidade" class="opcoes-profundidade">
+    <div class="grade-opcoes">
 
-            <button value="10">10 cm</button>
-            <button value="14">14 cm</button>
-            <button value="19">19 cm</button>
+        <button data-parte="opcao1">
+            <img src="Extras/Opções/Opção 1.png">
+        </button>
 
-        </div>
+        <button data-parte="opcao2">
+            <img src="Extras/Opções/Opção 2.png">
+        </button>
+
+        <button data-parte="opcao3">
+            <img src="Extras/Opções/Opção 3.png">
+        </button>
+
+        <button data-parte="opcao4">
+            <img src="Extras/Opções/Opção 4.png">
+        </button>
+
+        <button data-parte="opcao5">
+            <img src="Extras/Opções/Opção 5.png">
+        </button>
+
+        <button data-parte="opca6">
+            <img src="Extras/Opções/Opção 6.png">
+        </button>
+
+        <button data-parte="opcao7">
+            <img src="Extras/Opções/Opção 7.png">
+        </button>
+
+        <button data-parte="opcao10">
+            <img src="Extras/Opções/Opção 10.png">
+        </button>
+
+        <button data-parte="opcao8">
+            <img src="Extras/Opções/Opção 8.png">
+        </button>
+
+        <button data-parte="opcao9">
+            <img src="Extras/Opções/Opção 9.png">
+        </button>
 
     </div>
+
+</div>
+
+</div>
 
 </section>
-
 
 
 </main>
@@ -969,9 +966,6 @@
     <script src="Nicho.js"></script>
     <script src="Extras/Popup/ProdutosPopup.js"></script>
     <script src="Extras/Popup/ProdutosPopupAnimação.js"></script>
-    <script src="Extras/Modelos3D/Altura3D.js"></script>
-    <script src="Extras/Modelos3D/Largura3D.js"></script>
-    <script src="Extras/Modelos3D/Profundidade3D.js"></script>
     <script src="Extras/Modelos3D/Outros3D.js"></script>
 <!--<script src="Extras/Modelos3D/Outros.js"></script> -->
 </body>

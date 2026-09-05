@@ -1,5 +1,22 @@
 const modelo = document.getElementById("modelo3D");
 
+function forcarRender() {
+    if (!modelo) return;
+
+    const simbolos = Object.getOwnPropertySymbols(modelo);
+    const simboloScene = simbolos.find(s => String(s) === "Symbol(scene)");
+
+    if (simboloScene && modelo[simboloScene]) {
+        const scene = modelo[simboloScene];
+        scene.queueRender();
+        // scene.updateShadow(); // descomente se usar sombra
+    }
+}
+
+modelo.addEventListener("camera-change", () => {
+    console.log("CAMERA:", modelo.getCameraOrbit().theta);
+});
+
 let hierarquia = null;
 let modeloPronto = false;
 
@@ -28,16 +45,42 @@ modelo.addEventListener("load", () => {
     hierarquia =
         scene[simboloHierarquia];
 
+        console.log("=== HIERARQUIA ===");
+console.log(hierarquia);
+console.log("=== OBJETOS DO MODELO ===");
+hierarquia.forEach((parte, indice) => {
+    console.log(indice, parte.name);
+});
 
     // Modelo carregado
     modeloPronto = true;
 
         // Ativa Branco ao iniciar
     const botaoBranco = document.querySelector(
-        '.seletor-texturas button[data-textura="branco"]'
+        '.seletor-texturas button[data-textura="Branco"]'
     );
 
     botaoBranco.click();
+
+    const primeiraOpcao = document.querySelector(
+    '.seletor-partes-internas button[data-parte="opcao1"]'
+);
+
+primeiraOpcao.click();
+
+});
+
+const botaoRotacao = document.getElementById("pararRotacao");
+
+botaoRotacao.addEventListener("click", () => {
+
+    modelo.autoRotate = !modelo.autoRotate;
+
+    if (modelo.autoRotate) {
+        botaoRotacao.textContent = "⏸ Parar rotação";
+    } else {
+        botaoRotacao.textContent = "▶ Continuar rotação";
+    }
 
 });
 
@@ -208,6 +251,183 @@ const caminho = configuracao.imagem;
 
         });
 
+    });
+
+});
+
+// =========================================================
+// PARTES INTERNAS
+// =========================================================
+
+const botoesPartesInternas = document.querySelectorAll(
+    ".seletor-partes-internas button"
+);
+
+const configuracoesInternas = {
+
+    opcao0: [
+    ],
+    
+    opcao1: [
+        "Cube",
+        "Cube009"
+    ],
+
+    opcao2: [
+        "Cube010",
+        "Cube011"
+    ],
+
+    opcao3: [
+        "Cube013"
+    ],
+
+    opcao4: [
+        "Cube012"
+    ],
+
+    opcao5: [
+        "Cube014",
+        "Cube015"
+    ],
+
+    opcao6: [
+        "Cube016",
+        "Cube017"
+    ],
+
+    opcao7: [
+        "Cube018",
+        "Cube019",
+        "Cube020",
+        "Cube021"
+    ],
+
+    opcao8: [
+        "Cube022",
+        "Cube023",
+        "Cube025"
+    ],
+        opcao9: [
+        "Cube024",
+        "Cube026",
+        "Cube027"
+    ],
+        opcao10: [
+        "Cube028",
+        "Cube029",
+        "Cube030",
+        "Cube031"
+    ]
+
+};
+
+function encontrarObjeto(nome, objeto = hierarquia) {
+
+    if (!objeto) return null;
+
+    if (objeto.name === nome) {
+        return objeto;
+    }
+
+    if (objeto.children) {
+
+        for (const filho of objeto.children) {
+
+            const encontrado = encontrarObjeto(nome, filho);
+
+            if (encontrado) {
+                return encontrado;
+            }
+
+        }
+
+    }
+
+    return null;
+}
+
+botoesPartesInternas.forEach((botao) => {
+
+    botao.addEventListener("click", () => {
+
+        const opcao = botao.dataset.parte;
+
+        console.log("================================");
+        console.log("CLICOU:", opcao);
+
+
+        // =====================================================
+        // SELEÇÃO DO BOTÃO
+        // =====================================================
+
+        botoesPartesInternas.forEach((b) => {
+            b.classList.remove("selecionado");
+        });
+
+        botao.classList.add("selecionado");
+
+
+        // =====================================================
+        // ESCONDER TODAS AS PEÇAS INTERNAS
+        // =====================================================
+
+        Object.values(configuracoesInternas)
+            .flat()
+            .forEach((nome) => {
+
+                // Primeiro tenta encontrar pela hierarquia
+                let objeto = hierarquia.find(
+                    (parte) => parte.name === nome
+                );
+
+                // Se não encontrar, usa encontrarObjeto()
+                if (!objeto) {
+                    objeto = encontrarObjeto(nome);
+                }
+
+                console.log("Escondendo:", nome, "=>", objeto);
+
+                if (objeto && objeto.mesh) {
+
+                    objeto.mesh.visible = false;
+
+                    console.log(
+                        "Visible agora:",
+                        objeto.mesh.visible
+                    );
+
+                }
+
+            });
+
+
+        // =====================================================
+        // MOSTRAR A OPÇÃO ESCOLHIDA
+        // =====================================================
+
+        configuracoesInternas[opcao].forEach((nome) => {
+
+            let objeto = hierarquia.find(
+                (parte) => parte.name === nome
+            );
+
+            // Se não encontrar, usa encontrarObjeto()
+            if (!objeto) {
+                objeto = encontrarObjeto(nome);
+            }
+
+            console.log("Mostrando:", nome, "=>", objeto);
+
+            if (objeto && objeto.mesh) {
+
+                objeto.mesh.visible = true;
+
+            }
+
+        });
+// === FORÇA O RENDER ===
+        forcarRender();
     });
 
 });

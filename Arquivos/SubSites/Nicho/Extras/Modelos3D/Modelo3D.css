@@ -18,16 +18,26 @@
 }
 
 .visualizador-3d {
-    width: 900px;
+    width: 800px;
     max-width: 90%;
     height: 600px;
     margin: 20px;
 
     background: rgb(31,30,30);
     border-radius: 15px;
-    overflow: hidden;
+    position: relative;
 
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+#pararRotacao {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 10;
+
+    padding: 10px 15px;
+    cursor: pointer;
 }
 
 .visualizador-3d model-viewer {
@@ -69,7 +79,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 30px;
+    gap: 10px;
 }
 
 .seletor-texturas button.selecionado {
@@ -86,4 +96,52 @@
 
     font-weight: bold;
     pointer-events: none;
+}
+
+.seletor-partes-internas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: max-content;
+}
+
+.seletor-partes-internas button {
+    width: 200px;
+    height: 150px;
+    padding: 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    background: white;
+}
+
+.seletor-partes-internas button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seletor-partes-internas button:hover {
+    border-color: #333;
+}
+
+.seletor-partes-internas button.selecionado {
+    border: 3px solid #333;
+}
+.grade-opcoes {
+    display: grid;
+    grid-template-rows: repeat(4, 150px);
+    grid-auto-flow: column;
+    grid-auto-columns: 200px;
+    gap: 10px;
+}
+
+.seletor-partes-internas {
+    transform: translateY(-160px);
+}
+
+.botao-principal {
+    transform: translateX(210px);
 }
