@@ -31,23 +31,15 @@ background: radial-gradient(
 
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 800px;
     display: grid;
     place-items: center;
     overflow: hidden;
-    background:
-        radial-gradient(circle at 50% 35%, rgba(0, 255, 42, 0.35), transparent 35%),
-        linear-gradient(135deg, #0f170e, #173317 50%, #0d0d0d);
-}
 
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: -20%;
-    background:
-        linear-gradient(115deg, transparent 40%, rgba(255,255,255,.04) 41%, transparent 42%),
-        linear-gradient(25deg, transparent 55%, rgba(255,255,255,.03) 56%, transparent 57%);
-    transform: rotate(-3deg);
+    background-image: url("Fundo escadinha.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-content {
