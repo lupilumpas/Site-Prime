@@ -339,13 +339,20 @@
     line-height: 1.6;
 }
 
-/*.tonalidades {
+/* ========================================= */
+/* Tonalidades da ovais da descrição         */
+/* ========================================= */
+.grupo-tonalidades {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.grupo-tonalidades .tonalidades {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    align-items: center;
 }
-
 .tonalidades span {
     display: inline-block;
     padding: 7px 10px;
@@ -355,50 +362,100 @@
     color: #33291f;
 }
 .tonalidades .branco {
-    background-image: url("Fundinho/");
+    background-image: url("../../../../Extras\ Gerais/Texturas/Branco.png");
     background-size: cover;
     background-position: center;
 }
-
 .tonalidades .camurca {
-    background-image: url("Fundinho/");
-    background-size: cover;
-    background-position: center;
-}
-
-.tonalidades .envelhecido {
-    background-image: url("Fundinho/");
-    background-size: cover;
-    background-position: center;
-}
-
-.tonalidades .cerejeira-claro {
-    background-image: url("Fundinho/");
-    background-size: cover;
-    background-position: center;
-}
-
-.tonalidades .cerejeira-escuro {
-    background-image: url("Fundinho/");
-    background-size: cover;
-    background-position: center;
-}
-
-.tonalidades .cinza-claro {
-    background-image: url("Fundinho/");
-    background-size: cover;
-    background-position: center;
-}
-
-.tonalidades .cinza-escuro {
-    background-image: url("Fundinho/");
+    background-image: url("../../../../Extras\ Gerais/Texturas/Camurça.png");
     background-size: cover;
     background-position: center;
     color: white;
 }
-
+.tonalidades .envelhecido {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Envelhecido.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .cerejeira-claro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cerejeira\ Claro.png");
+    background-size: cover;
+    background-position: center;
+}
+.tonalidades .cerejeira-escuro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cerejeira\ Escuro.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .cinza-claro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Claro.png");
+    background-size: cover;
+    background-position: center;
+}
+.tonalidades .cinza-escuro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Escuro.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
 .tonalidades .imbuia {
-    background-image: url("Fundinho/");
+    background-image: url("../../../../Extras\ Gerais/Texturas/Imbuia.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .caramelo {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Caramelo.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .rose {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Rosê.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .por-do-sol {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Por\ do\ sôl.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .safari {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Safari.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .pastel {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Pastel.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .mogno {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Mogno.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .preto {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Preto.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .cinza-claro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Claro.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.tonalidades .cinza-escuro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Escuro.png");
     background-size: cover;
     background-position: center;
     color: white;

@@ -90,97 +90,97 @@ const configuracaoTexturas = [
     {
         nome: "Branco",
         textura: "Branco",
-        imagem: "Extras/Texturas/Branco.png",
+        imagem: "../../Extras Gerais/Texturas/Branco.png",
         corTexto: "black"
     },
     {
         nome: "Camurça",
         textura: "Camurça",
-        imagem: "Extras/Texturas/Camurça.png",
+        imagem: "../../Extras Gerais/Texturas/Camurça.png",
         corTexto: "black"
     },
     {
         nome: "Envelhecido",
         textura: "Envelhecido",
-        imagem: "Extras/Texturas/Envelhecido.png",
+        imagem: "../../Extras Gerais/Texturas/Envelhecido.png",
         corTexto: "white"
     },
     {
         nome: "Cerejeira Claro",
         textura: "Cerejeira Claro",
-        imagem: "Extras/Texturas/Cerejeira Claro.png",
+        imagem: "../../Extras Gerais/Texturas/Cerejeira Claro.png",
         corTexto: "white"
     },
     {
         nome: "Cerejeira Escuro",
         textura: "Cerejeira Escuro",
-        imagem: "Extras/Texturas/Cerejeira Escuro.png",
+        imagem: "../../Extras Gerais/Texturas/Cerejeira Escuro.png",
         corTexto: "white"
     },
     {
         nome: "Cinza Claro",
         textura: "Cinza Claro",
-        imagem: "Extras/Texturas/Cinza Claro.png",
+        imagem: "../../Extras Gerais/Texturas/Cinza Claro.png",
         corTexto: "white"
     },
     {
         nome: "Cinza Escuro",
         textura: "Cinza Escuro",
-        imagem: "Extras/Texturas/Cinza Escuro.png",
+        imagem: "../../Extras Gerais/Texturas/Cinza Escuro.png",
         corTexto: "white"
     },
     {
         nome: "Imbuia",
         textura: "Imbuia",
-        imagem: "Extras/Texturas/Imbuia.png",
+        imagem: "../../Extras Gerais/Texturas/Imbuia.png",
         corTexto: "white"
     },
     {
         nome: "Mogno",
         textura: "Mogno",
-        imagem: "Extras/Texturas/Mogno.png",
+        imagem: "../../Extras Gerais/Texturas/Mogno.png",
         corTexto: "white"
     },
     {
         nome: "Cru",
         textura: "Cru",
-        imagem: "Extras/Texturas/Cru.png",
+        imagem: "../../Extras Gerais/Texturas/Cru.png",
         corTexto: "black"
     },
     {
         nome: "Por do sôl",
         textura: "Por do sôl",
-        imagem: "Extras/Texturas/Por do sôl.png",
+        imagem: "../../Extras Gerais/Texturas/Por do sôl.png",
         corTexto: "white"
     },
     {
         nome: "Preto",
         textura: "Preto",
-        imagem: "Extras/Texturas/Preto.png",
+        imagem: "../../Extras Gerais/Texturas/Preto.png",
         corTexto: "white"
     },
     {
         nome: "Caramelo",
         textura: "Caramelo",
-        imagem: "Extras/Texturas/Caramelo.png",
+        imagem: "../../Extras Gerais/Texturas/Caramelo.png",
         corTexto: "black"
     },
     {
         nome: "Pastel",
         textura: "Pastel",
-        imagem: "Extras/Texturas/Pastel.png",
+        imagem: "../../Extras Gerais/Texturas/Pastel.png",
         corTexto: "white"
     },
     {
         nome: "Rosê",
         textura: "Rosê",
-        imagem: "Extras/Texturas/Rosê.png",
+        imagem: "../../Extras Gerais/Texturas/Rosê.png",
         corTexto: "white"
     },
     {
         nome: "Safari",
         textura: "Safari",
-        imagem: "Extras/Texturas/Safari.png",
+        imagem: "../../Extras Gerais/Texturas/Safari.png",
         corTexto: "white"
     },
 ];
@@ -199,8 +199,8 @@ botoesTextura.forEach((botao, indice) => {
 
 });
 
-const normalPath = "Extras/Texturas/Normal.png";
-const roughnessPath = "Extras/Texturas/Roughness.png";
+const normalPath = "../../../../Extras Gerais/Texturas/Normal.png";
+const roughnessPath = "../../../../Extras Gerais/Texturas/Roughness.png";
 
 botoesTextura.forEach((botao, indice) => {
 

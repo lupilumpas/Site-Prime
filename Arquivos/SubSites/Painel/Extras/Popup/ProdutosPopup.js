@@ -56,7 +56,8 @@ const produtos = [
 const linkWhatsApp = "https://api.whatsapp.com/send/?phone=5541991371245&text=";
 
 const descricaoProduto = [ 
-`<p>Painel estilo treliçado nas cores das imagens.</p>
+`
+<p>Painel estilo treliçado nas cores das imagens.</p>
 <h1>DIMENSÕES PAINEL :</h1>
 <p>Altura: 120 cm</p>
 <p>Largura: 60 cm</p>
@@ -65,16 +66,38 @@ const descricaoProduto = [
 <p>Profundidade: 14 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
-<p1 class="tonalidades">
-    <span class="branco">Branco</span>
-    <span class="camurca">Camurça</span>
-    <span class="envelhecido">Envelhecido</span>
-    <span class="cerejeira-claro">Cerejeira Claro</span>
-    <span class="cerejeira-escuro">Cerejeira Escuro</span>
-    <span class="cinza-claro">Cinza Claro</span>
-    <span class="cinza-escuro">Cinza Escuro</span>
-    <span class="imbuia">Imbuia</span>
-</p1> <br>
+<div class="grupo-tonalidades">
+    <strong>Tons rústicos:</strong>
+    <p1 class="tonalidades">
+        <span class="caramelo">Caramelo</span>
+        <span class="rose">Rosê</span>
+        <span class="por-do-sol">Pôr do sol</span>
+        <span class="safari">Safari</span>
+        <span class="envelhecido">Envelhecido</span>
+        <span class="pastel">Pastel</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons amadeirados:</strong>
+    <p1 class="tonalidades">
+        <span class="mogno">Mogno</span>
+        <span class="imbuia">Imbuia</span>
+        <span class="cerejeira-claro">Cerejeira Claro</span>
+        <span class="cerejeira-escuro">Cerejeira Escuro</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons cheios:</strong>
+    <p1 class="tonalidades">
+        <span class="branco">Branco</span>
+        <span class="preto">Preto</span>
+        <span class="cinza-claro">Cinza Claro</span>
+        <span class="cinza-escuro">Cinza Escuro</span>
+        <span class="camurca">Camurça</span>
+    </p1>
+</div>
 <p1>Mogno, Cru, Por do sôl, Preto, Caramelo, Pastel, Rosê, Safari</p1>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <p>
@@ -133,69 +156,65 @@ const descricaoProduto = [
 <p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
 <p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
-<br>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
     <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
 </p>
 `,
-//feito até aqui as atualizçoes de <p> e <h1e3>
+
 `
-Painel estilo treliçado nas cores das imagens.
+<p>Painel estilo treliçado nas cores das imagens.</p>
+<h1>DIMENSÕES PAINEL :</h1>
+<p>Altura: 120 cm</p>
+<p>Largura: 80 cm</p>
+<h3>DIMENSÕES DOS CACHEPOS:</h3>
+<p>4 chachepos Largura: 50 x 14 cm</p>
 <br>
-DIMENSÕES PAINEL :<br>
-Altura: 120 cm<br>
-Largura: 80 cm <br>
-DIMENSÕES DOS CACHEPOS:<br>
-4 chachepos Largura: 50 x 14 cm<br>
-<br>
-FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
-RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
-<br>
-FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
-<br>
-PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
-<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
-    Acessar site
-</a>
+<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
+<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
+<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
+<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
+<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
+<p>
+    PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+    <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
+</p>
 `,
 `
-Painel estilo treliçado nas cores das imagens.
+<p>Painel estilo treliçado nas cores das imagens.</p>
+<h1>DIMENSÕES PAINEL :</h1>
+<p>Altura: 60 cm</p>
+<p>Largura: 100 cm</p>
+<h3>DIMENSÕES DOS CACHEPOS:</h3>
+<p>4 chachepos Largura: 60 x 14 cm</p>
 <br>
-DIMENSÕES PAINEL :<br>
-Altura: 60 cm<br>
-Largura: 100 cm <br>
-DIMENSÕES DOS CACHEPOS:<br>
-4 chachepos Largura: 60 x 14 cm<br>
-<br>
-FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
-RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
-<br>
-FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
-<br>
-PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
-<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
-    Acessar site
-</a>
+<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
+<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
+<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
+<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
+<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
+<p>
+    PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+    <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
+</p>
 `,
 `
-Painel estilo ripado nas cores das imagens.
+<p>Painel estilo ripado nas cores das imagens.</p>
+<h1>DIMENSÕES PAINEL :</h1>
+<p>Altura: 100 cm</p>
+<p>Largura: 50 cm</p>
+<h3>DIMENSÕES DOS CACHEPOS:</h3>
+<p>3 chachepos Largura: 30 x 14 cm</p>
 <br>
-DIMENSÕES PAINEL :<br>
-Altura: 100 cm<br>
-Largura: 50 cm <br>
-DIMENSÕES DOS CACHEPOS:<br>
-3 chachepos Largura: 30 x 14 cm<br>
-<br>
-FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES: <br>
-RÚSTICOS FOSCOS E QUEIMADO/SAFARI, IMBUIA, CEREJEIRA, MOGNO, BRANCO, PRETO, CINZA E CAMURÇA |<br>
-<br>
-FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<br>
-<br>
-PARA COMPRAS VIA MERCADOLIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
-<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">
-    Acessar site
-</a>
+<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
+<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
+<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
+<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
+<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
+<p>
+    PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+    <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
+</p>
 `,
 ];
 
