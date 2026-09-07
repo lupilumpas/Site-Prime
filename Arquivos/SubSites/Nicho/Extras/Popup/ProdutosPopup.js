@@ -27,7 +27,7 @@ const produtos = [
     "Cinza Escuro",
     "Imbuia",
     "Mogno",
-    "Cru",
+    "Cru ou Natural",
     "Por do Sôl",
     "Preto",
     "Caramelo",

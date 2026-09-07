@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17120d">
+<title>Livro Interativo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">✦</span>
+    <span>Biblioteca</span>
+  </div>
+  <div class="top-status">
+    <span id="pageIndicator">Capa</span>
+    <span class="separator">•</span>
+    <span>5 páginas</span>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+  <div class="book-shadow"></div>
+  <section class="book" id="book" aria-label="Livro interativo">
+
+    <div class="cover back-cover" id="backCover">
+      <div class="cover-inner">
+        <div class="cover-pattern"></div>
+        <div class="back-content">
+          <div class="back-symbol">✦</div>
+          <p class="back-title">FIM</p>
+          <p class="back-description">Obrigado por virar cada página.</p>
+          <button class="restart-button" id="restartButton">Voltar ao início</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper-stack left-stack"></div>
+    <div class="paper-stack right-stack"></div>
+
+    <div class="page left-page" id="leftPage">
+      <div class="page-content" id="leftContent"></div>
+      <div class="page-number" id="leftNumber"></div>
+    </div>
+
+    <div class="page right-page" id="rightPage">
+      <div class="page-content" id="rightContent"></div>
+      <div class="page-number" id="rightNumber"></div>
+    </div>
+
+    <div class="cover front-cover" id="frontCover">
+      <div class="cover-inner">
+        <div class="cover-frame"></div>
+        <div class="cover-decoration top-left">❧</div>
+        <div class="cover-decoration top-right">❧</div>
+        <div class="cover-decoration bottom-left">❧</div>
+        <div class="cover-decoration bottom-right">❧</div>
+        <div class="cover-main">
+          <span class="eyebrow">UMA HISTÓRIA</span>
+          <h1>Entre<br><em>Páginas</em></h1>
+          <div class="cover-divider"><span>✦</span></div>
+          <p>Um pequeno livro interativo</p>
+        </div>
+        <div class="cover-footer">VOLUME I</div>
+      </div>
+    </div>
+
+    <div class="spine-highlight"></div>
+  </section>
+</main>
+
+<nav class="controls" aria-label="Controles do livro">
+  <button class="control-button" id="prevButton" aria-label="Página anterior">
+    <span class="control-icon">←</span>
+    <span>Anterior</span>
+  </button>
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span id="progressText">Capa</span>
+      <span id="progressCount">1 / 5</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+  <button class="control-button primary" id="nextButton" aria-label="Próxima página">
+    <span>Próxima</span>
+    <span class="control-icon">→</span>
+  </button>
+</nav>
+
+<div class="hint" id="hint">
+  <span class="hint-key">←</span>
+  <span>Use as setas do teclado ou clique nas páginas para navegar</span>
+  <span class="hint-key">→</span>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
