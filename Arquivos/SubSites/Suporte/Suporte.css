@@ -164,17 +164,6 @@ button {
   z-index: 1;
 }
 
-.page-number {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 10px;
-  color: #a28e71;
-  letter-spacing: .1em;
-}
-
 .controls {
     position: fixed;
     top: 50%;
@@ -327,13 +316,42 @@ body.state-end .controls {
 }
 
 .page-title {
-    padding: 0px 0px 0px 20px;
+    padding: 0;
+    margin: 0;
 }
 
-.left-page .chapter-kicker {
-    padding: 0px 0px 0px 55px;
-}
 
 .right-page .chapter-kicker {
     padding: 0px 0px 0px 0px;
+}
+
+.left-page .page-image {
+    position: absolute;
+    width: 561px;
+    height: 735px;
+    left: 48%;
+    top: 50%;
+    transform: translate(-49.8%, -50.3%);
+    z-index: 0;
+}
+
+.left-page .page-number {
+    position: absolute;
+    left: 50%;
+    top: 93%;
+    transform: translate(-56%, -59%);
+    font-size: 25px;
+    color: #00fffe;
+    letter-spacing: .1em;
+    z-index: 2;
+}
+
+.right-page .page-number {
+    position: absolute;
+    left: 49%;
+    top: 94%;
+    transform: translate(-51%, -77%);
+    font-size: 25px;
+    color: #00fffe;
+    letter-spacing: .1em;
 }
