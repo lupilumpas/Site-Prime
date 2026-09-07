@@ -16,7 +16,7 @@ const pages = [
       number: "01",
       html: `
         <div class="content-enter">
-          <div class="chapter-kicker">Capítulo I</div>
+          <div class="chapter-kicker" data-indice="01">Capítulo I</div>
           <h2 class="page-title">O começo de uma<br><em>pequena jornada</em></h2>
           <div class="page-rule"></div>
           <p class="page-text dropcap">
@@ -253,37 +253,19 @@ const pages = [
 ];
 
 const book = document.getElementById("book");
-const frontCover = document.getElementById("frontCover");
-const backCover = document.getElementById("backCover");
 const leftContent = document.getElementById("leftContent");
 const rightContent = document.getElementById("rightContent");
 const leftNumber = document.getElementById("leftNumber");
 const rightNumber = document.getElementById("rightNumber");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
-const pageIndicator = document.getElementById("pageIndicator");
-const progressText = document.getElementById("progressText");
-const progressCount = document.getElementById("progressCount");
-const progressBar = document.getElementById("progressBar");
 const toast = document.getElementById("toast");
-const restartButton = document.getElementById("restartButton");
 const stage = document.getElementById("stage");
 
 let currentPage = 0;
-let isAnimating = false;
 let toastTimer = null;
 
 const totalPages = pages.length;
-
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max);
-}
-
-function getCurrentSpread() {
-  if (currentPage <= 0) return null;
-  if (currentPage >= totalPages - 1) return null;
-  return pages[currentPage];
-}
 
 function setPageContent(element, html) {
   element.innerHTML = html || "";
@@ -311,46 +293,38 @@ function updateContent() {
 }
 
 function updateLabels() {
-  const current = pages[currentPage];
-  pageIndicator.textContent = current.title;
-  progressText.textContent = current.title;
-  progressCount.textContent = `${currentPage + 1} / ${totalPages}`;
-
-  const percent = ((currentPage + 1) / totalPages) * 100;
-  progressBar.style.width = `${percent}%`;
-
   prevButton.disabled = currentPage === 0;
   nextButton.disabled = currentPage === totalPages - 1;
 }
 
 function updateCoverState() {
+  book.classList.remove("book-cover-only");
+  book.classList.remove("book-open");
+  book.classList.remove("book-end");
+
+  document.body.classList.remove(
+    "state-cover",
+    "state-open",
+    "state-end"
+  );
+
   if (currentPage === 0) {
-    frontCover.style.transform = "rotateY(0deg)";
-    frontCover.style.boxShadow = "0 18px 38px rgba(0, 0, 0, .42)";
-    book.classList.remove("book-open");
+    book.classList.add("book-cover-only");
+    document.body.classList.add("state-cover");
     return;
   }
 
-  if (currentPage === totalPages - 1) {
-    frontCover.style.transform = "rotateY(-180deg)";
-    frontCover.style.boxShadow = "none";
-    book.classList.add("book-open");
+  if (pages[currentPage].type === "end") {
+    book.classList.add("book-end");
+    document.body.classList.add("state-end");
     return;
   }
 
-  frontCover.style.transform = "rotateY(-180deg)";
-  frontCover.style.boxShadow = "none";
   book.classList.add("book-open");
+  document.body.classList.add("state-open");
 }
 
-function render(immediate = false) {
-  if (immediate) {
-    updateContent();
-    updateLabels();
-    updateCoverState();
-    return;
-  }
-
+function render() {
   updateContent();
   updateLabels();
   updateCoverState();
@@ -360,44 +334,6 @@ function showToast(message) {
   clearTimeout(toastTimer);
   toast.textContent = message;
   toast.classList.add("show");
-
-  toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 1600);
-}
-
-function animateNavigation(direction) {
-  if (isAnimating) return;
-  isAnimating = true;
-
-  const oldPage = currentPage;
-  currentPage = clamp(currentPage + direction, 0, totalPages - 1);
-
-  if (currentPage === oldPage) {
-    isAnimating = false;
-    return;
-  }
-
-  const duration = 950;
-
-  if (direction > 0) {
-    if (oldPage === 0) {
-      frontCover.style.transitionDuration = "950ms";
-      frontCover.style.transform = "rotateY(-180deg)";
-      book.classList.add("book-open");
-    }
-  } else {
-    if (currentPage === 0) {
-      frontCover.style.transitionDuration = "950ms";
-      frontCover.style.transform = "rotateY(0deg)";
-      book.classList.remove("book-open");
-    }
-  }
-
-  setTimeout(() => {
-    render();
-    isAnimating = false;
-  }, duration);
 }
 
 function nextPage() {
@@ -406,7 +342,8 @@ function nextPage() {
     return;
   }
 
-  animateNavigation(1);
+  currentPage++;
+  render();
 }
 
 function previousPage() {
@@ -415,27 +352,18 @@ function previousPage() {
     return;
   }
 
-  animateNavigation(-1);
+  currentPage--;
+  render();
 }
 
 function restart() {
-  if (isAnimating) return;
-
   if (currentPage === 0) {
     showToast("O livro já está na capa.");
     return;
   }
 
-  isAnimating = true;
   currentPage = 0;
-  frontCover.style.transitionDuration = "950ms";
-  frontCover.style.transform = "rotateY(0deg)";
-  book.classList.remove("book-open");
-
-  setTimeout(() => {
-    render();
-    isAnimating = false;
-  }, 950);
+  render();
 }
 
 function handleKeyboard(event) {
@@ -456,19 +384,9 @@ function handleKeyboard(event) {
     restart();
     return;
   }
-
-  if (event.key === "End") {
-    event.preventDefault();
-
-    if (!isAnimating) {
-      currentPage = totalPages - 1;
-      render();
-    }
-  }
 }
 
 function handleBookClick(event) {
-  if (isAnimating) return;
 
   const rect = stage.getBoundingClientRect();
   const x = event.clientX - rect.left;
@@ -502,74 +420,12 @@ function handleTouchEnd(event) {
   }
 }
 
-function addButtonFeedback(button) {
-  button.addEventListener("pointerdown", () => {
-    button.style.transform = "scale(.97)";
-  });
-
-  button.addEventListener("pointerup", () => {
-    button.style.transform = "";
-  });
-
-  button.addEventListener("pointerleave", () => {
-    button.style.transform = "";
-  });
-}
-
 prevButton.addEventListener("click", previousPage);
 nextButton.addEventListener("click", nextPage);
-restartButton.addEventListener("click", restart);
 document.addEventListener("keydown", handleKeyboard);
 
 stage.addEventListener("click", handleBookClick);
 stage.addEventListener("touchstart", handleTouchStart, { passive: true });
 stage.addEventListener("touchend", handleTouchEnd, { passive: true });
 
-addButtonFeedback(prevButton);
-addButtonFeedback(nextButton);
-
-let pointerX = 0;
-let pointerY = 0;
-
-document.addEventListener("pointermove", event => {
-  pointerX = event.clientX;
-  pointerY = event.clientY;
-});
-
-function subtleParallax() {
-  if (window.innerWidth < 800) {
-    requestAnimationFrame(subtleParallax);
-    return;
-  }
-
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
-
-  const offsetX = (pointerX - centerX) / centerX;
-  const offsetY = (pointerY - centerY) / centerY;
-
-  const rotateX = offsetY * -1.3;
-  const rotateZ = offsetX * .35;
-
-  if (!isAnimating) {
-    book.style.transform = `rotateX(${rotateX}deg) rotateZ(${rotateZ}deg)`;
-  }
-
-  requestAnimationFrame(subtleParallax);
-}
-
-window.addEventListener("resize", () => {
-  book.style.transform = "";
-});
-
-render(true);
-subtleParallax();
-
-setTimeout(() => {
-  const hint = document.getElementById("hint");
-  hint.style.opacity = ".55";
-}, 2500);
-
-setTimeout(() => {
-  showToast("Use ← e → para virar as páginas");
-}, 900);
+render();
