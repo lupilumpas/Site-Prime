@@ -28,16 +28,18 @@ const pages = [
           <div class="page-rule"></div>
           <p class="page-text">
 <strong>
-Transforme seu espaço com a Floreira Flutuante, um design elegante e funcional que agrega charme e beleza a qualquer ambiente. Com dimensões de 60 cm de comprimento, 60 cm de altura e 14 cm de profundidade, este modelo é ideal para exibir suas plantas, livros ou objetos decorativos com sofisticação.
-Feita em madeira de pinus, a Floreira Flutuante oferece durabilidade e um toque natural, perfeita para quem valoriza a estética e a qualidade nos detalhes. Seu estilo flutuante permite uma instalação simples, sem a necessidade de montagem complexa, facilitando a decoração do seu lar.
-Aposte na versatilidade desta prateleira que harmoniza com diversos estilos de decoração, desde o contemporâneo até o rústico. Ideal para salas, escritórios ou ambientes externos, a Floreira Flutuante traz leveza e modernidade para sua casa, realçando sua personalidade e criatividade.
-Prateleira flutuante para flores, livros e objetos pessoais,
-Medidas:
-Altura : 60 cm
-Largura: 60 cm
-Profundidade: 14 cm
-Entre andares fica com 17 cm.
-Tom madeira
+Transforme seu espaço com a Floreira Flutuante, um design elegante e funcional que agrega charme e beleza a qualquer ambiente.<br>
+Com dimensões de 60 cm de comprimento, 60 cm de altura e 14 cm de profundidade, este modelo é ideal para exibir suas plantas, livros ou objetos decorativos com sofisticação.<br>
+Feita em madeira de pinus, a Floreira Flutuante oferece durabilidade e um toque natural, perfeita para quem valoriza a estética e a qualidade nos detalhes.<br>
+Seu estilo flutuante permite uma instalação simples, sem a necessidade de montagem complexa, facilitando a decoração do seu lar.<br>
+Aposte na versatilidade desta prateleira que harmoniza com diversos estilos de decoração, desde o contemporâneo até o rústico.<br>
+Ideal para salas, escritórios ou ambientes externos, a Floreira Flutuante traz leveza e modernidade para sua casa, realçando sua personalidade e criatividade.<br>
+Prateleira flutuante para flores, livros e objetos pessoais.<br>
+Medidas:<br>
+Altura : 60 cm<br>
+Largura: 60 cm<br>
+Profundidade: 14 cm<br>
+Entre andares fica com 17 cm.<br>
 PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
 <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
       `
