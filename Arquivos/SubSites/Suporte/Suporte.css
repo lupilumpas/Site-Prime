@@ -14,6 +14,7 @@
   --brown-deep: #24150e;
   --cover: #342016;
   --cover-light: #4c3020;
+  --white: #ffffff;
   --page-width: 710px;
   --page-height: 850px;
   --radius: 8px;
@@ -39,7 +40,7 @@ body {
     radial-gradient(circle at 50% 45%, rgba(110, 77, 44, .16), transparent 34%),
     radial-gradient(circle at 20% 80%, rgba(197, 151, 79, .08), transparent 28%),
     #16110d;
-  overflow-x: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -142,7 +143,10 @@ button {
 }
 
 .left-page .page-content {
-  padding: 60px 90px 60px 65px;
+    position: relative;
+    height: 100%;
+    z-index: 1;
+    padding: 0;
 }
 
 .right-page .page-content {
@@ -354,4 +358,450 @@ body.state-end .controls {
     font-size: 25px;
     color: #00fffe;
     letter-spacing: .1em;
+}
+
+/* Ícone normal */
+
+.WhatsApp-icon {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+
+/* Conteúdo expandido */
+
+.WhatsApp-expand {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: scale(.8);
+
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* QR Code */
+
+.hero-image-left {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+}
+
+
+/* Texto */
+
+.hero-left-text {
+    margin-top: 8px;
+
+    padding: 5px 10px;
+
+    color: var(--white);
+
+    font-family: Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    background: #25D366;
+
+    border-radius: 5px;
+}
+
+
+.whatsapp-button {
+    position: absolute;
+
+    left: 25px;
+    bottom: 25px;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+
+    background: #25D366;
+    border-radius: 50%;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.whatsapp-button img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+}
+
+.hero-right-link {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 100;
+
+    text-decoration: none;
+}
+
+.hero-right-content {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+    border-radius: 50%;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+.instagram-icon {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+/* ================================
+   INSTAGRAM EXPANSÃO AO PASSAR O MOUSE
+   ================================ */
+
+.instagram-expand {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: scale(.8);
+
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.hero-image-right {
+    width: 150px;
+    height: 160px;
+
+    object-fit: contain;
+}
+
+.hero-right-text {
+    margin-top: 8px;
+
+    padding: 5px 10px;
+
+    color: var(--white);
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    background-image: url("Img/Img/Fundo\ instagram.png");
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 5px;
+}
+
+/* ================================
+   WHATSAPP EXPANSÃO AO PASSAR O MOUSE
+   ================================ */
+
+.hero-left-link {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+
+    z-index: 100;
+
+    text-decoration: none;
+}
+
+.hero-left-content {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--white);
+    border-radius: 50%;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+/* ================================
+   EXPANSÃO
+   ================================ */
+
+.hero-left-link:hover .hero-left-content {
+    width: 190px;
+    height: 220px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+
+/* Esconde o ícone */
+
+.hero-left-link:hover .WhatsApp-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+
+/* Mostra QR + texto */
+
+.hero-left-link:hover .WhatsApp-expand {
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: scale(1);
+}
+
+/* ================================
+   EXPANSÃO AO PASSAR O MOUSE
+   ================================ */
+
+.hero-right-link:hover .hero-right-content {
+    width: 190px;
+    height: 220px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+.hero-right-link:hover .instagram-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+.hero-right-link:hover .instagram-expand {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* =========================================================
+   GALERIA DE FOTOS DO PRODUTO
+   ========================================================= */
+
+.galeria-produto {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 15px;
+}
+
+
+/* ================================
+   CONTROLES DAS FOTOS
+   ================================ */
+
+.galeria-controles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    margin-bottom: 25px;
+
+    z-index: 5;
+}
+
+
+/* Texto "Trocar fotos" */
+
+.galeria-controles span {
+    font-family: Arial, sans-serif;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: #33271d;
+
+    white-space: nowrap;
+}
+
+
+/* Setas */
+
+.galeria-anterior,
+.galeria-proxima {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: transparent;
+
+    color: #33271d;
+
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition:
+        transform .2s ease,
+        color .2s ease,
+        opacity .2s ease;
+}
+
+
+/* Animação ao passar o mouse */
+
+.galeria-anterior:hover:not(:disabled) {
+    transform: translateX(-5px) scale(1.08);
+}
+
+.galeria-proxima:hover:not(:disabled) {
+    transform: translateX(5px) scale(1.08);
+}
+
+
+/* Botão desativado */
+
+.galeria-anterior:disabled,
+.galeria-proxima:disabled {
+    opacity: .25;
+    cursor: default;
+}
+
+
+/* ================================
+   IMAGEM
+   ================================ */
+
+.galeria-imagem {
+    width: 561px;
+    height: 735px;
+
+    object-fit: contain;
+
+    display: block;
+
+    z-index: 1;
+}
+
+
+/* ================================
+   CONTADOR
+   ================================ */
+
+.galeria-contador {
+    margin-top: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #33271d;
+    position: absolute !important;
+    z-index: 5;
+    top: 30px;
+left: 50%;
+transform: translateX(-50%);
+
+}
+
+.left-page .galeria-produto {
+    position: relative;
+    width: 710px;
+    height: 850px;
+
+    display: block;
+    padding: 0;
+}
+
+.left-page .galeria-imagem {
+    position: absolute;
+
+    width: 562px !important;
+    height: 736px !important;
+
+    top: 55px !important;
+    left: 61.5px !important;
+
+    object-fit: contain !important;
 }

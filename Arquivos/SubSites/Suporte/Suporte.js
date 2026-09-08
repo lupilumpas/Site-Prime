@@ -4,6 +4,12 @@
 
 "use strict";
 
+const imagensPorProduto = {
+    "Produto 1": 6,
+    "Produto 2": 3,
+    "Produto 3": 5
+};
+
 const pages = [
   {
     type: "cover",
@@ -14,9 +20,29 @@ const pages = [
     left: {
       number: "01",
       html: `
-        <div class="content-enter">
-          <img src="Img/Produto 1.png" alt="" class="page-image">
+    <div class="content-enter">
+      <div class="galeria-produto" data-produto="Produto 1">
+
+        <div class="galeria-controles">
+
+          <button class="galeria-anterior" type="button">
+            ←
+          </button>
+
+          <span>Trocar fotos</span>
+
+          <button class="galeria-proxima" type="button">
+            →
+          </button>
+
         </div>
+
+        <img class="galeria-imagem" src="" alt="Imagem do produto">
+
+        <div class="galeria-contador"></div>
+
+      </div>
+    </div>
       `
     },
     right: {
@@ -40,6 +66,7 @@ Altura : 60 cm<br>
 Largura: 60 cm<br>
 Profundidade: 14 cm<br>
 Entre andares fica com 17 cm.<br>
+
 PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
 <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
       `
@@ -72,6 +99,54 @@ function setPageContent(element, html) {
   element.innerHTML = html || "";
 }
 
+function iniciarGaleria() {
+  const galerias = document.querySelectorAll(".galeria-produto");
+
+  galerias.forEach(galeria => {
+    const nomePasta = galeria.dataset.produto;
+    const imagem = galeria.querySelector(".galeria-imagem");
+    const anterior = galeria.querySelector(".galeria-anterior");
+    const proxima = galeria.querySelector(".galeria-proxima");
+    const contador = galeria.querySelector(".galeria-contador");
+
+    const quantidade = imagensPorProduto[nomePasta] || 0;
+    const imagens = [];
+
+    for (let i = 1; i <= quantidade; i++) {
+      const caminho = `Img/Produtos/${nomePasta}/${String(i).padStart(2, "0")}.png`;
+      imagens.push(caminho);
+    }
+
+    let indiceAtual = 0;
+
+    function atualizarGaleria() {
+      if (imagens.length === 0) return;
+
+      imagem.src = imagens[indiceAtual];
+      contador.textContent = `${indiceAtual + 1} / ${imagens.length}`;
+
+      anterior.disabled = indiceAtual === 0;
+      proxima.disabled = indiceAtual === imagens.length - 1;
+    }
+
+    anterior.addEventListener("click", () => {
+      if (indiceAtual <= 0) return;
+
+      indiceAtual--;
+      atualizarGaleria();
+    });
+
+    proxima.addEventListener("click", () => {
+      if (indiceAtual >= imagens.length - 1) return;
+
+      indiceAtual++;
+      atualizarGaleria();
+    });
+
+    atualizarGaleria();
+  });
+}
+
 function updateContent() {
   const current = pages[currentPage];
 
@@ -90,6 +165,7 @@ function updateContent() {
     setPageContent(rightContent, current.right.html);
     leftNumber.textContent = current.left.number;
     rightNumber.textContent = current.right.number;
+        iniciarGaleria();
   }
 }
 
