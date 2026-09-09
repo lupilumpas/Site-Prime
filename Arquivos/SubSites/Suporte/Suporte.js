@@ -4,6 +4,8 @@
 
 "use strict";
 
+const numeroSku = [106, 0, 0, 0, 0];
+
 const imagensPorProduto = {
     "Produto 1": 6,
     "Produto 2": 3,
@@ -19,6 +21,41 @@ const pages = [
     type: "spread",
     left: {
       number: "01",
+      html: `
+    <div class="content-enter">
+    <div class="IndicePagina2">
+
+        <h1>ÍNDICE</h1>
+
+        <div id="listaIndice"></div>
+
+    </div>
+</div>
+      `
+    },
+    right: {
+      number: "02",
+      html: `
+    <div class="content-enter">
+      <div class="Indice">
+
+        <img class="indice-imagem" src="Img/Img/Foto 1.png" alt="">
+                <img class="indice-imagem2" src="Img/Img/Foto 2.png" alt="">
+
+                  <p class="indice-text">Suportes de Chao</p>
+                  <p2 class="indice-text">~</p2>
+                  <p1 class="indice-text">Suportes em madeira <br>para plantas e objetos.</p1>
+
+        <div class="galeria-contador"></div>
+      </div>
+    </div>
+      `
+    }
+  },
+    {
+    type: "spread",
+    left: {
+      number: "03",
       html: `
     <div class="content-enter">
       <div class="galeria-produto" data-produto="Produto 1">
@@ -46,7 +83,7 @@ const pages = [
       `
     },
     right: {
-      number: "02",
+      number: "04",
       html: `
         <div class="content-enter">
           <div class="chapter-kicker">Sku 106</div>
@@ -77,7 +114,6 @@ PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
     title: "Contracapa"
   }
 ];
-
 
 
 const book = document.getElementById("book");
@@ -147,6 +183,33 @@ function iniciarGaleria() {
   });
 }
 
+function gerarIndice() {
+    const lista = document.getElementById("listaIndice");
+    if (!lista) return;
+
+    lista.innerHTML = "";
+
+    numeroSku.forEach((sku, indice) => {
+
+        const numeroIndice = String(indice + 1).padStart(2, "0");
+        const pagina = indice + 2;
+
+        const item = document.createElement("a");
+
+        item.href = "#";
+        item.className = "indice-item";
+        item.dataset.pagina = pagina;
+
+        item.innerHTML = `
+            <span>${numeroIndice} -- Sku${sku}</span>
+            <span class="indice-linha"></span>
+            <span>${pages[pagina]?.left?.number || ""} e ${pages[pagina]?.right?.number || ""}</span>
+        `;
+
+        lista.appendChild(item);
+    });
+}
+
 function updateContent() {
   const current = pages[currentPage];
 
@@ -166,6 +229,7 @@ function updateContent() {
     leftNumber.textContent = current.left.number;
     rightNumber.textContent = current.right.number;
         iniciarGaleria();
+        gerarIndice();
   }
 }
 
@@ -275,4 +339,26 @@ document.addEventListener("keydown", handleKeyboard);
 stage.addEventListener("touchstart", handleTouchStart, { passive: true });
 stage.addEventListener("touchend", handleTouchEnd, { passive: true });
 
-render();
+document.addEventListener("click", (event) => {
+
+    const item = event.target.closest(".IndicePagina2 .indice-item");
+
+    if (!item) return;
+
+    event.preventDefault();
+
+    const pagina = Number(item.dataset.pagina);
+
+    if (pagina < 0 || pagina >= totalPages) return;
+
+    currentPage = pagina;
+    render();
+});
+
+document.querySelectorAll(".marca-tab-1, .marca-tab-2, .marca-tab-3").forEach(botao => {
+    botao.addEventListener("click", () => {
+        currentPage = Number(botao.dataset.pagina);
+        render();
+    });
+});
+    render();
