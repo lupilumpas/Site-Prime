@@ -1,7 +1,6 @@
 /* =========================================================
    LIVRO INTERATIVO — ESTILO PRINCIPAL
    ========================================================= */
-
 :root {
   --ink: #33271d;
   --muted-ink: #786a5a;
@@ -20,17 +19,14 @@
   --radius: 8px;
   --shadow: rgba(24, 14, 8, 0.28);
 }
-
 * {
   box-sizing: border-box;
 }
-
 html {
   width: 100%;
   min-height: 100%;
   background: #16110d;
 }
-
 body {
   margin: 0;
   min-height: 100vh;
@@ -44,7 +40,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 button {
   font: inherit;
 }
@@ -695,6 +690,7 @@ body.state-end .controls {
     color: #33271d;
 
     white-space: nowrap;
+        user-select: none;
 }
 
 
@@ -723,7 +719,7 @@ body.state-end .controls {
     cursor: pointer;
 
     padding: 0;
-
+    user-select: none;
     transition:
         transform .2s ease,
         color .2s ease,
@@ -785,6 +781,7 @@ body.state-end .controls {
     top: 30px;
 left: 50%;
 transform: translateX(-50%);
+    user-select: none;
 
 }
 
@@ -841,7 +838,7 @@ p.indice-text {
     color: #14bf3b;
     top: 385px;
     left: 110px;
-        user-select: none;
+    user-select: none;
 }
 
 p1.indice-text {
@@ -979,4 +976,31 @@ p2.indice-text {
 .marca-tab-3:hover {
     transform: translateX(-15px) scaleX(1.1);
     background: #e3c27e;
+}
+
+.content-enter p10 {
+    position: absolute;
+    top: 600px;
+    left: 33%;
+    font-size: 35px;
+    font-family: serif;
+}
+
+.meu-botao {
+    position: absolute;
+    top: 660px;
+    left: 15%;
+    width: 500px;
+    height: 100px;
+    font-size: 45px;
+    color: #cf0404;
+}
+
+.meu-botao:hover {
+    color: #6b9bd3;
+    font-size: 80px;
+
+    transition:
+        font-size .4s ease,
+        color .8s ease;
 }
