@@ -993,14 +993,16 @@ p2.indice-text {
     width: 500px;
     height: 100px;
     font-size: 45px;
-    color: #cf0404;
+    color: #000000;
+    background-color: #FFDF97;
+        transition:
+        font-size .4s ease,
+        color .8s ease;
 }
 
 .meu-botao:hover {
-    color: #6b9bd3;
+    color: #6bd36e;
     font-size: 80px;
 
-    transition:
-        font-size .4s ease,
-        color .8s ease;
+
 }
