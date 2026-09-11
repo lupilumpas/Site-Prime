@@ -12,6 +12,9 @@ const imagensPorProduto = {
     [numeroSku[2]]: 6
 };
 
+const precoP10 = "Preço:";
+const WhatsDescricao = "Olá! Vim pela página JDM Madeiras e gostaria de solicitar um orçamento para";
+
 const pages = [
   {
     type: "cover",
@@ -52,6 +55,7 @@ const pages = [
       `
     }
   },
+    /*  Daqui ate proximo (/*), a parte do livro que eu posso copiar e colar, pra criar um novo produto*/
     {
     type: "spread",
     left: {
@@ -107,14 +111,15 @@ PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL. Ac
 PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
 <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
 
-<p10>Preço: 299,99</p10>    
+<p10>${precoP10} 299,99</p10>    
 
-<button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=', '_blank')">
+<button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=${WhatsDescricao} Prateleira Flutuante Plantas Objetos Madeira Maciça', '_blank')">
     Comprar
 </button>
       `
     }
   },
+  /*  Até aqui, a parte do livro que eu posso copiar e colar, pra criar um novo produto*/
   {
     type: "end",
     title: "Contracapa"
