@@ -73,11 +73,11 @@ function atualizarProduto() {
    FUNDO ALEATÓRIO DO NICHO (imagens da pasta img/fundos/)
    ========================================================= */
 const fundosNicho = [
-    "nicho-fundo-1.png",
-    "nicho-fundo-2.png",
+    "Img/nicho-fundo-1.png",
+/*  "nicho-fundo-2.png",
     "nicho-fundo-3.png",
     "nicho-fundo-4.png",
-    "nicho-fundo-5.png"
+    "nicho-fundo-5.png"  */
 ];
 
 function aplicarFundoAleatorio() {

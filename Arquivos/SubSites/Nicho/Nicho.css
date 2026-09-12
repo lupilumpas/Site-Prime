@@ -60,8 +60,7 @@ img {
 .secao-nicho {
     position: relative;
     width: 100%;
-    min-height: 1819px;
-    padding: 60px 20px 120px;
+    min-height: auto;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -72,10 +71,10 @@ img {
 .fundo-nicho {
     position: absolute;
     inset: 0;
-    background-size: cover;
+background-size: 100% auto;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.25;
+    opacity: 0.70;
     z-index: 0;
     transition: background-image 0.8s ease;
 }
@@ -84,28 +83,27 @@ img {
 .conteudo-nicho {
     position: relative;
     z-index: 2;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    grid-template-rows: auto auto;
-    gap: 30px;
     max-width: 1100px;
     width: 100%;
+    height: 1860px;
     align-items: center;
 }
 
 /* Bloco da churrasqueira (os 2 retângulos juntos) */
-.bloco-churrasqueira {
+/*.bloco-churrasqueira {
     grid-column: 1;
     grid-row: 1 / 3;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+}*/
 
 .churrasqueira-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 480px;
+    width: 715px;
+    height: 1530px;
+    left: -17.5%;
+    top: 188px;
     aspect-ratio: 4 / 5;
     background: linear-gradient(145deg, #3a3229, #2a221c);
     border-radius: 12px;
@@ -153,9 +151,12 @@ img {
 }
 
 .circulo-produto {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
+    position: relative;
+    width: 736px;
+    height: 659px;
+    top: -1347px;
+    left: 405px;
+    border-radius: 15%;
     background: linear-gradient(145deg, #ffffff, #f0ebe3);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
     display: flex;
@@ -214,12 +215,15 @@ img {
 
 .triangulo-descricao {
     position: relative;
+    top: -1273px;
+    left: 592px;
+    width: 732px;
+    height: 805px;
     background: #fff;
     padding: 28px 24px;
     border-radius: 12px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-    max-width: 320px;
-    clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+
     padding-bottom: 50px;
 }
 

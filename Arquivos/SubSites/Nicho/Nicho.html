@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JDM Madeiras | Nichos</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/Modelo3D.css">
+    <link rel="stylesheet" href="Nicho.css">
+    <link rel="stylesheet" href="Extras/Modelo3D.css">
+    <link rel="stylesheet" href="../../Extras Gerais/Ajustador.css">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -28,11 +29,7 @@
             <div class="bloco-churrasqueira">
                 <div class="churrasqueira-wrapper">
                     <!-- Imagem da churrasqueira (placeholder) -->
-                    <img src="img/churrasqueira.png" alt="Churrasqueira" class="img-churrasqueira" onerror="this.style.display='none'">
-                    <!-- Foto do nicho dentro da boca -->
-                    <div class="boca-churrasqueira">
-                        <img src="img/nicho-interno.png" alt="Nicho interno" class="img-nicho-interno" id="imgNichoInterno">
-                    </div>
+                    <img src="Img/Churrasqueira.png" alt="Churrasqueira" class="img-churrasqueira" onerror="this.style.display='none'">
                 </div>
             </div>
 
@@ -51,13 +48,11 @@
             </div>
 
             <!-- Triângulo / descrição -->
-            <div class="bloco-descricao">
                 <div class="triangulo-descricao">
                     <p id="descricaoProduto">
                         Nicho em MDF de alta qualidade, com acabamento premium e diversas opções de texturas. Ideal para organizar e decorar qualquer ambiente com estilo e praticidade.
                     </p>
                 </div>
-            </div>
         </div>
 
         <!-- Botões flutuantes WhatsApp e Instagram -->
@@ -66,12 +61,12 @@
            target="_blank"
            aria-label="Acessar WhatsApp">
             <div class="hero-left-content">
-                <img src="img/Whatsapp.png"
+                <img src="Img/Whatsapp.png"
                      class="WhatsApp-icon"
                      alt="WhatsApp"
                      onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2325D366%22><path d=%22M12 2C6.48 2 2 6.48 2 12c0 1.77.46 3.45 1.27 4.91L2 22l5.23-1.37A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.52 0-2.98-.39-4.27-1.12l-.3-.18-3.12.82.83-3.04-.2-.32A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z%22/></svg>'">
                 <div class="WhatsApp-expand">
-                    <img src="img/QRCode Whats.png"
+                    <img src="Img/QRCode Whats.png"
                          class="hero-image-left"
                          alt="QR Code do WhatsApp"
                          onerror="this.style.display='none'">
@@ -87,12 +82,12 @@
            target="_blank"
            aria-label="Acessar Instagram">
             <div class="hero-right-content">
-                <img src="img/Instagram.png"
+                <img src="Img/Instagram.png"
                      class="instagram-icon"
                      alt="Instagram"
                      onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%23E1306C><path d=%22M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.63 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.63 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.3.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z%22/></svg>'">
                 <div class="instagram-expand">
-                    <img src="img/QRCode Insta.png"
+                    <img src="Img/QRCode Insta.png"
                          class="hero-image-right"
                          alt="QR Code do Instagram"
                          onerror="this.style.display='none'">
@@ -197,7 +192,8 @@
         <button class="lightbox-fechar" id="lightboxFechar">&times;</button>
     </div>
 
-    <script src="js/script.js"></script>
-    <script src="js/Outros3D.js"></script>
+    <script src="Nicho.js"></script>
+    <script src="Extras/Outros3D.js"></script>
+    <script src="../../Extras Gerais/Ajustador.js"></script>
 </body>
 </html>
