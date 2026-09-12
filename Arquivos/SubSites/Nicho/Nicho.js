@@ -42,6 +42,25 @@ const Valor = [
     "R$ 229,90"
 ];
 
+const ImagensNicho = [
+    "Img/ProdutosNicho1.png",  // Branco
+    "Img/Nicho2.png",  // Camurça
+    "Img/Nicho3.png",  // Envelhecido
+    "Img/Nicho4.png",  // Cerejeira Claro
+    "Img/Nicho5.png",  // Cerejeira Escuro
+    "Img/Nicho6.png",  // Cinza Claro
+    "Img/Nicho7.png",  // Cinza Escuro
+    "Img/Nicho8.png",  // Imbuia
+    "Img/Nicho9.png",  // Mogno
+    "Img/Nicho10.png", // Cru ou Natural
+    "Img/Nicho11.png", // Por do Sôl
+    "Img/Nicho12.png", // Preto
+    "Img/Nicho13.png", // Caramelo
+    "Img/Nicho14.png", // Pastel
+    "Img/Nicho15.png", // Rosê
+    "Img/Nicho16.png"  // Safari
+];
+
 // Link base do WhatsApp (o ${Produtos} será substituído)
 const WhatsLinkBase = "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20";
 
@@ -58,15 +77,18 @@ function atualizarProduto() {
     const textoPrecoEl = document.getElementById("textoPreco");
     const valorPrecoEl = document.getElementById("valorPreco");
     const botaoComprar = document.getElementById("botaoComprar");
-
+    const imagemNicho = document.getElementById("imagemNicho");
+    
     if (nomeEl) nomeEl.textContent = `Nicho ${Produtos[indiceAtual]}`;
     if (textoPrecoEl) textoPrecoEl.textContent = Preco;
     if (valorPrecoEl) valorPrecoEl.textContent = Valor[indiceAtual] || "Consulte";
-
     if (botaoComprar) {
         const produtoEncoded = encodeURIComponent(Produtos[indiceAtual]);
         botaoComprar.href = WhatsLinkBase + produtoEncoded;
-    }
+        }
+    if (imagemNicho) {
+    imagemNicho.src = ImagensNicho[indiceAtual];
+        }
 }
 
 /* =========================================================
