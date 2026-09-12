@@ -1,977 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <link rel="icon" type="image/png" href="../../Extras Gerais/Favicon Nicho.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Tampas para Churrasqueira</title>
-
-    <link rel="stylesheet" href="Nicho.css">
-    <link rel="stylesheet" href="Extras/Popup/ProdutosPopup.css">
-    <link rel="stylesheet" href="Extras/Popup/ProdutosPopupAnimação.css">
-    <link rel="stylesheet" href="Extras/Modelos3D/Modelo3D.css">
+    <title>JDM Madeiras | Nichos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/Modelo3D.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
-
 <body>
 
-    <main>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="hero-placeholder">
+            <!-- Coloque sua imagem de hero aqui depois -->
+            <span>Imagem do Hero (placeholder)</span>
+        </div>
+    </section>
 
-<section id="Inicio" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-        <h1>Tampas para churrasqueira</h1>
-    </div>
-</section>
+    <!-- ==================== SEÇÃO PRINCIPAL DO NICHO ==================== -->
+    <section class="secao-nicho" id="secao-nicho">
+        <!-- Fundo aleatório do nicho (T virado) -->
+        <div class="fundo-nicho" id="fundoNicho"></div>
 
+        <div class="conteudo-nicho">
+            <!-- Bloco esquerdo: churrasqueira + nicho dentro da boca -->
+            <div class="bloco-churrasqueira">
+                <div class="churrasqueira-wrapper">
+                    <!-- Imagem da churrasqueira (placeholder) -->
+                    <img src="img/churrasqueira.png" alt="Churrasqueira" class="img-churrasqueira" onerror="this.style.display='none'">
+                    <!-- Foto do nicho dentro da boca -->
+                    <div class="boca-churrasqueira">
+                        <img src="img/nicho-interno.png" alt="Nicho interno" class="img-nicho-interno" id="imgNichoInterno">
+                    </div>
+                </div>
+            </div>
 
-<section class="produtos" id="produtos">
+            <!-- Bloco direito: círculo com nome + preço + botão -->
+            <div class="bloco-info">
+                <div class="circulo-produto">
+                    <h2 id="nomeProduto">Nicho Branco</h2>
+                    <p class="preco-label">
+                        <span id="textoPreco">Preço:</span>
+                        <span id="valorPreco">R$ 0,00</span>
+                    </p>
+                    <a href="#" id="botaoComprar" class="botao-comprar" target="_blank">
+                        Comprar via WhatsApp
+                    </a>
+                </div>
+            </div>
 
-<div class="troca-fotos">
-
-    <span class="seta" id="setaEsquerda">←</span>
-
-    <span class="texto-troca">Trocar fotos</span>
-
-    <span class="seta" id="setaDireita">→</span>
-
-</div>
-
-    <div class="pagina">
-        <strong>Página <span id="paginaAtual">1</span></strong>
-    </div>
-
-    
-    <div class="produtos-container">
-
-        <!-- 1 -->
-        <div class="produto-card">
-    <img 
-    src="img/Kit 1/Branco.png"
-    data-original="img/Kit 1/Branco.png"
-    data-segunda="img/Kit 2/Branco.png"
-    data-terceira="img/Kit 3/Branco.png"
-    data-quarta="img/Kit 4/Branco.png"
-    data-quinta="img/Kit 5/Branco.png"
-    alt="Branco"
-    >
+            <!-- Triângulo / descrição -->
+            <div class="bloco-descricao">
+                <div class="triangulo-descricao">
+                    <p id="descricaoProduto">
+                        Nicho em MDF de alta qualidade, com acabamento premium e diversas opções de texturas. Ideal para organizar e decorar qualquer ambiente com estilo e praticidade.
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <!-- 2 -->
-        <div class="produto-card">
-    <img 
-    src="img/Kit 1/Camurça.png"
-    data-original="img/Kit 1/Camurça.png"
-    data-segunda="img/Kit 2/Camurça.png"
-    data-terceira="img/Kit 3/Camurça.png"
-    data-quarta="img/Kit 4/Camurça.png"
-    data-quinta="img/Kit 5/Camurça.png"
-    alt="Camurça"
-    >
+        <!-- Botões flutuantes WhatsApp e Instagram -->
+        <a href="https://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20o%20meu%20ambiente."
+           class="hero-left-link"
+           target="_blank"
+           aria-label="Acessar WhatsApp">
+            <div class="hero-left-content">
+                <img src="img/Whatsapp.png"
+                     class="WhatsApp-icon"
+                     alt="WhatsApp"
+                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2325D366%22><path d=%22M12 2C6.48 2 2 6.48 2 12c0 1.77.46 3.45 1.27 4.91L2 22l5.23-1.37A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.52 0-2.98-.39-4.27-1.12l-.3-.18-3.12.82.83-3.04-.2-.32A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z%22/></svg>'">
+                <div class="WhatsApp-expand">
+                    <img src="img/QRCode Whats.png"
+                         class="hero-image-left"
+                         alt="QR Code do WhatsApp"
+                         onerror="this.style.display='none'">
+                    <span class="hero-left-text">
+                        !Escaneie ou Clique!
+                    </span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.instagram.com/jdmnichos?igsi=bHQ1cHNqM205eTF1"
+           class="hero-right-link"
+           target="_blank"
+           aria-label="Acessar Instagram">
+            <div class="hero-right-content">
+                <img src="img/Instagram.png"
+                     class="instagram-icon"
+                     alt="Instagram"
+                     onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%23E1306C><path d=%22M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.63 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.63 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.3.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z%22/></svg>'">
+                <div class="instagram-expand">
+                    <img src="img/QRCode Insta.png"
+                         class="hero-image-right"
+                         alt="QR Code do Instagram"
+                         onerror="this.style.display='none'">
+                    <span class="hero-right-text">
+                        !Escaneie ou Clique!
+                    </span>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <!-- ==================== MODELO 3D ==================== -->
+    <section class="modelos-3d">
+        <h2>Veja nosso nicho em 3D</h2>
+        <p>Arraste para girar o modelo e use a roda do mouse para aproximar ou afastar.</p>
+        <div class="area-modelo">
+            <div class="visualizador-3d">
+                <model-viewer
+                    id="modelo3D"
+                    src="img/Nicho.glb"
+                    auto-rotate
+                    camera-controls
+                    rotation-per-second="-20deg"
+                    interaction-prompt="none"
+                    camera-orbit="90deg 75deg 30000m"
+                    style="width: 800px; height: 600px;">
+                </model-viewer>
+                <button id="pararRotacao">⏸ Parar rotação</button>
+            </div>
+
+            <div class="seletor-texturas">
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+                <button><img><span></span></button>
+            </div>
+
+            <div class="seletor-partes-internas">
+                <button class="botao-principal" data-parte="opcao0">
+                    <img src="Extras/Opções/Sem divisão.png" alt="Sem divisão">
+                </button>
+                <div class="grade-opcoes">
+                    <button data-parte="opcao1">
+                        <img src="Extras/Opções/Opção 1.png" alt="Opção 1">
+                    </button>
+                    <button data-parte="opcao2">
+                        <img src="Extras/Opções/Opção 2.png" alt="Opção 2">
+                    </button>
+                    <button data-parte="opcao3">
+                        <img src="Extras/Opções/Opção 3.png" alt="Opção 3">
+                    </button>
+                    <button data-parte="opcao4">
+                        <img src="Extras/Opções/Opção 4.png" alt="Opção 4">
+                    </button>
+                    <button data-parte="opcao5">
+                        <img src="Extras/Opções/Opção 5.png" alt="Opção 5">
+                    </button>
+                    <button data-parte="opcao6">
+                        <img src="Extras/Opções/Opção 6.png" alt="Opção 6">
+                    </button>
+                    <button data-parte="opcao7">
+                        <img src="Extras/Opções/Opção 7.png" alt="Opção 7">
+                    </button>
+                    <button data-parte="opcao10">
+                        <img src="Extras/Opções/Opção 10.png" alt="Opção 10">
+                    </button>
+                    <button data-parte="opcao8">
+                        <img src="Extras/Opções/Opção 8.png" alt="Opção 8">
+                    </button>
+                    <button data-parte="opcao9">
+                        <img src="Extras/Opções/Opção 9.png" alt="Opção 9">
+                    </button>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- 3 -->
-        <div class="produto-card">
-        <img 
-    src="img/Kit 1/Envelhecido.png"
-    data-original="img/Kit 1/Envelhecido.png"
-    data-segunda="img/Kit 2/Envelhecido.png"
-    data-terceira="img/Kit 3/Envelhecido.png"
-    data-quarta="img/Kit 4/Envelhecido.png"
-    data-quinta="img/Kit 5/Envelhecido.png"
-    alt="Envelhecido"
-    >
+    <!-- ==================== GALERIA ==================== -->
+    <section class="galeria" id="galeria">
+        <h2>Galeria de Nichos</h2>
+        <div class="galeria-grid" id="galeriaGrid">
+            <!-- 6 slots preenchidos via JS -->
         </div>
+        <button class="botao-galeria" id="botaoGaleria">Ver mais fotos</button>
+    </section>
 
-        <!-- 4 -->
-        <div class="produto-card">
-            <img 
-    src="img/Kit 1/Cerejeira Claro.png"
-    data-original="img/Kit 1/Cerejeira Claro.png"
-    data-segunda="img/Kit 2/Cerejeira Claro.png"
-    data-terceira="img/Kit 3/Cerejeira Claro.png"
-    data-quarta="img/Kit 4/Cerejeira Claro.png"
-    data-quinta="img/Kit 5/Cerejeira Claro.png"
-    alt="Cerejeira Claro"
-    >
-        </div>
-
-        <!-- 5 -->
-        <div class="produto-card">
-    <img 
-    src="img/Kit 1/Cerejeira Escuro.png"
-    data-original="img/Kit 1/Cerejeira Escuro.png"
-    data-segunda="img/Kit 2/Cerejeira Escuro.png"
-    data-terceira="img/Kit 3/Cerejeira Escuro.png"
-    data-quarta="img/Kit 4/Cerejeira Escuro.png"
-    data-quinta="img/Kit 5/Cerejeira Escuro.png"
-    alt="Cerejeira Escuro"
-    >
-    
-        </div>
-
-        <!-- 6 -->
-        <div class="produto-card">
-    <img 
-    src="img/Kit 1/Cinza Claro.png"
-    data-original="img/Kit 1/Cinza Claro.png"
-    data-segunda="img/Kit 2/Cinza Claro.png"
-    data-terceira="img/Kit 3/Cinza Claro.png"
-    data-quarta="img/Kit 4/Cinza Claro.png"
-    data-quinta="img/Kit 5/Cinza Claro.png"
-    alt="Cinza Claro"
-    >
-        </div>
-
-        <!-- 7 -->
-        <div class="produto-card">
-    <img 
-    src="img/Kit 1/Cinza Escuro.png"
-    data-original="img/Kit 1/Cinza Escuro.png"
-    data-segunda="img/Kit 2/Cinza Escuro.png"
-    data-terceira="img/Kit 3/Cinza Escuro.png"
-    data-quarta="img/Kit 4/Cinza Escuro.png"
-    data-quinta="img/Kit 5/Cinza Escuro.png"
-    alt="Cinza Escuro"
-    >
-        </div>
-
-        <!-- 8 -->
-        <div class="produto-card">
-    <img 
-    src="img/Kit 1/Imbuia.png"
-    data-original="img/Kit 1/Imbuia.png"
-    data-segunda="img/Kit 2/Imbuia.png"
-    data-terceira="img/Kit 3/Imbuia.png"
-    data-quarta="img/Kit 4/Imbuia.png"
-    data-quinta="img/Kit 5/Imbuia.png"
-    alt="Imbuia"
-    >
-        </div>
-
-        <!-- 9 -->
-        <div class="produto-card segunda-linha">
-    <img 
-    src="img/Kit 1/Mogno.png"
-    data-original="img/Kit 1/Mogno.png"
-    data-segunda="img/Kit 2/Mogno.png"
-    data-terceira="img/Kit 3/Mogno.png"
-    data-quarta="img/Kit 4/Mogno.png"
-    data-quinta="img/Kit 5/Mogno.png"
-    alt="Mogno"
-    >
-        </div>
-
-        <!-- 10 -->
-        <div class="produto-card segunda-linha">
-        <img 
-    src="img/Kit 1/Cru ou Natural.png"
-    data-original="img/Kit 1/Cru ou Natural.png"
-    data-segunda="img/Kit 2/Cru ou Natural.png"
-    data-terceira="img/Kit 3/Cru ou Natural.png"
-    data-quarta="img/Kit 4/Cru ou Natural.png"
-    data-quinta="img/Kit 5/Cru ou Natural.png"
-    alt="Cru ou Natural"
-    >
-        </div>
-
-        <!-- 11 -->
-        <div class="produto-card segunda-linha">
-        <img 
-    src="img/Kit 1/Por do Sôl.png"
-    data-original="img/Kit 1/Por do Sôl.png"
-    data-segunda="img/Kit 2/Por do Sôl.png"
-    data-terceira="img/Kit 3/Por do Sôl.png"
-    data-quarta="img/Kit 4/Por do Sôl.png"
-    data-quinta="img/Kit 5/Por do Sôl.png"
-    alt="Por do Sôl"
-    >
-        </div>
-
-        <!-- 12 -->
-        <div class="produto-card segunda-linha">
-    <img 
-    src="img/Kit 1/Preto.png"
-    data-original="img/Kit 1/Preto.png"
-    data-segunda="img/Kit 2/Preto.png"
-    data-terceira="img/Kit 3/Preto.png"
-    data-quarta="img/Kit 4/Preto.png"
-    data-quinta="img/Kit 5/Preto.png"
-    alt="Preto"
-    >
-        </div>
-
-        <!-- 13 -->
-        <div class="produto-card segunda-linha">
-        <img 
-    src="img/Kit 1/Caramelo.png"
-    data-original="img/Kit 1/Caramelo.png"
-    data-segunda="img/Kit 2/Caramelo.png"
-    data-terceira="img/Kit 3/Caramelo.png"
-    data-quarta="img/Kit 4/Caramelo.png"
-    data-quinta="img/Kit 5/Caramelo.png"
-    alt="Caramelo"
-    >
-        </div>
-
-        <!-- 14 -->
-        <div class="produto-card segunda-linha">
-        <img 
-    src="img/Kit 1/Pastel.png"
-    data-original="img/Kit 1/Pastel.png"
-    data-segunda="img/Kit 2/Pastel.png"
-    data-terceira="img/Kit 3/Pastel.png"
-    data-quarta="img/Kit 4/Pastel.png"
-    data-quinta="img/Kit 5/Pastel.png"
-    alt="Pastel"
-    >
-        </div>
-
-        <!-- 15 -->
-        <div class="produto-card segunda-linha">
-        <img 
-    src="img/Kit 1/Rosê.png"
-    data-original="img/Kit 1/Rosê.png"
-    data-segunda="img/Kit 2/Rosê.png"
-    data-terceira="img/Kit 3/Rosê.png"
-    data-quarta="img/Kit 4/Rosê.png"
-    data-quinta="img/Kit 5/Rosê.png"
-    alt="Rosê"
-    >
-        </div>
-                <!-- 16 -->
-        <div class="produto-card segunda-linha">
-        <img 
-    src="img/Kit 1/Safari.png"
-    data-original="img/Kit 1/Safari.png"
-    data-segunda="img/Kit 2/Safari.png"
-    data-terceira="img/Kit 3/Safari.png"
-    data-quarta="img/Kit 4/Safari.png"
-    data-quinta="img/Kit 5/Safari.png"
-    alt="Safari"
-    >
-        </div>
-
+    <!-- Lightbox fullscreen -->
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="Foto ampliada" id="lightboxImg">
+        <button class="lightbox-fechar" id="lightboxFechar">&times;</button>
     </div>
 
-<div class="descricao-kit" id="descricaoKit">
-    ...
-</div>
-
-</section>
-
-
-
-<!-- POPUP 1 -->
-<div class="popup-fundo" id="popup-1">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-<!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-<!-- POPUP 2 -->
-<div class="popup-fundo" id="popup-2">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-<!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 3 -->
-<div class="popup-fundo" id="popup-3">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 4 -->
-<div class="popup-fundo" id="popup-4">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 5 -->
-<div class="popup-fundo" id="popup-5">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 6 -->
-<div class="popup-fundo" id="popup-6">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 7 -->
-<div class="popup-fundo" id="popup-7">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 8 -->
-<div class="popup-fundo" id="popup-8">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 9 -->
-<div class="popup-fundo" id="popup-9">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 10 -->
-<div class="popup-fundo" id="popup-10">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 11 -->
-<div class="popup-fundo" id="popup-11">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 12 -->
-<div class="popup-fundo" id="popup-12">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 13 -->
-<div class="popup-fundo" id="popup-13">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 14 -->
-<div class="popup-fundo" id="popup-14">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 15 -->
-<div class="popup-fundo" id="popup-15">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-</div>
-<!-- POPUP 16 -->
-<div class="popup-fundo" id="popup-16">
-    <div class="popup-produto">
-        <span class="popup-fechar">×</span>
-<div class="popup-imagens">
-            <img class="Imagem-Anterior-2">
-            <img class="Imagem-Anterior">
-            <img class="Imagem-central">
-            <!-- ================================= -->
-<!-- ANTES E DEPOIS -->
-<!-- ================================= -->
-
-<div class="aed-container">
-
-<img class="aed-imagem-A">
-<img class="aed-imagem-D">
-
-<div class="aed-barra">
-<div class="aed-botao"></div>
-</div>
-
-</div>
-<!-- ================================= -->
-<!-- Até aqui -->
-<!-- ================================= -->
-            <img class="Imagem-Seguinte">
-            <img class="Imagem-Seguinte-2">
-</div>
-        <h2></h2>
-<p class="popup-descricao"></p>
-        <div class="popup-preco"></div>
-        <a href="#" class="popup-comprar">
-            Comprar
-        </a>
-    </div>
-</div>
-
-
-<section class="modelos-3d">
-
-    <h2>Veja nosso nicho em 3D</h2>
-
-    <p>Arraste para girar o modelo e use a roda do mouse para aproximar ou afastar.</p>
-
-
-<div class="area-modelo">
-
-    <div class="visualizador-3d">
-
-        <model-viewer
-            id="modelo3D"
-            src="img/Nicho.glb"
-            auto-rotate
-            camera-controls
-            rotation-per-second="-20deg"
-            interaction-prompt="none"
-            camera-orbit="90deg 75deg 30000m"
-            style="width: 800px; height: 600px;">
-        </model-viewer>
-
-        <button id="pararRotacao">⏸ Parar rotação</button>
-
-    </div>
-
-
-    <div class="seletor-texturas">
-
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-        <button><img><span></span></button>
-
-    </div>
-
-
-<div class="seletor-partes-internas">
-
-    <button class="botao-principal" data-parte="opcao0">
-        <img src="Extras/Opções/Sem divisão.png">
-    </button>
-
-    <div class="grade-opcoes">
-
-        <button data-parte="opcao1">
-            <img src="Extras/Opções/Opção 1.png">
-        </button>
-
-        <button data-parte="opcao2">
-            <img src="Extras/Opções/Opção 2.png">
-        </button>
-
-        <button data-parte="opcao3">
-            <img src="Extras/Opções/Opção 3.png">
-        </button>
-
-        <button data-parte="opcao4">
-            <img src="Extras/Opções/Opção 4.png">
-        </button>
-
-        <button data-parte="opcao5">
-            <img src="Extras/Opções/Opção 5.png">
-        </button>
-
-        <button data-parte="opca6">
-            <img src="Extras/Opções/Opção 6.png">
-        </button>
-
-        <button data-parte="opcao7">
-            <img src="Extras/Opções/Opção 7.png">
-        </button>
-
-        <button data-parte="opcao10">
-            <img src="Extras/Opções/Opção 10.png">
-        </button>
-
-        <button data-parte="opcao8">
-            <img src="Extras/Opções/Opção 8.png">
-        </button>
-
-        <button data-parte="opcao9">
-            <img src="Extras/Opções/Opção 9.png">
-        </button>
-
-    </div>
-
-</div>
-
-</div>
-
-</section>
-
-
-</main>
-
-<script type="module"
-    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-</script>
-    <script src="Nicho.js"></script>
-    <script src="../Extras Gerais/Proteção-Imagens.js"></script>
-    <script src="Extras/Popup/ProdutosPopup.js"></script>
-    <script src="Extras/Popup/ProdutosPopupAnimação.js"></script>
-    <script src="Extras/Modelos3D/Outros3D.js"></script>
-<!--<script src="Extras/Modelos3D/Outros.js"></script> -->
+    <script src="js/script.js"></script>
+    <script src="js/Outros3D.js"></script>
 </body>
-
 </html>

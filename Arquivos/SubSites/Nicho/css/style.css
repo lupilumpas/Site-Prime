@@ -1,0 +1,572 @@
+/* ================================
+   VARIÁVEIS E RESET
+   ================================ */
+:root {
+    --white: #ffffff;
+    --dark: #33291f;
+    --gray: #6d6258;
+    --whatsapp: #25D366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #f8f5f1;
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ================================
+   HERO
+   ================================ */
+.hero {
+    width: 100%;
+    height: 70vh;
+    min-height: 420px;
+    background: #e8e0d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-placeholder {
+    width: 90%;
+    max-width: 1200px;
+    height: 80%;
+    border: 3px dashed #b8a99a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9a8b7a;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ================================
+   SEÇÃO PRINCIPAL DO NICHO
+   ================================ */
+.secao-nicho {
+    position: relative;
+    width: 100%;
+    min-height: 1819px;
+    padding: 60px 20px 120px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fundo do nicho (T virado) - imagem aleatória */
+.fundo-nicho {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+    z-index: 0;
+    transition: background-image 0.8s ease;
+}
+
+/* Conteúdo principal */
+.conteudo-nicho {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-rows: auto auto;
+    gap: 30px;
+    max-width: 1100px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Bloco da churrasqueira (os 2 retângulos juntos) */
+.bloco-churrasqueira {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.churrasqueira-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(145deg, #3a3229, #2a221c);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-churrasqueira {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Boca da churrasqueira onde fica a foto do nicho */
+.boca-churrasqueira {
+    position: relative;
+    z-index: 2;
+    width: 70%;
+    height: 55%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+    background: #1a1510;
+}
+
+.img-nicho-interno {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bloco do círculo (nome + preço + botão) */
+.bloco-info {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo-produto {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #f0ebe3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 12px;
+}
+
+.circulo-produto h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.25;
+}
+
+.preco-label {
+    font-size: 1.05rem;
+    color: var(--gray);
+}
+
+#valorPreco {
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 1.25rem;
+}
+
+.botao-comprar {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 12px 22px;
+    background: var(--whatsapp);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+.botao-comprar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+}
+
+/* Triângulo / descrição */
+.bloco-descricao {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.triangulo-descricao {
+    position: relative;
+    background: #fff;
+    padding: 28px 24px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    max-width: 320px;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+    padding-bottom: 50px;
+}
+
+.triangulo-descricao p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--gray);
+    text-align: center;
+}
+
+/* ================================
+   BOTÕES FLUTUANTES WHATS / INSTA
+   ================================ */
+.hero-left-link {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    z-index: 10;
+    text-decoration: none;
+}
+
+.hero-left-content {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+.WhatsApp-icon {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+.WhatsApp-expand {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.8);
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.hero-image-left {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.hero-left-text {
+    margin-top: 8px;
+    padding: 5px 10px;
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    background: #25D366;
+    border-radius: 5px;
+}
+
+.hero-left-link:hover .hero-left-content {
+    width: 190px;
+    height: 220px;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+.hero-left-link:hover .WhatsApp-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+.hero-left-link:hover .WhatsApp-expand {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* Instagram */
+.hero-right-link {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    z-index: 10;
+    text-decoration: none;
+}
+
+.hero-right-content {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+.instagram-icon {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+.instagram-expand {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.8);
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.hero-image-right {
+    width: 150px;
+    height: 160px;
+    object-fit: contain;
+}
+
+.hero-right-text {
+    margin-top: 8px;
+    padding: 5px 10px;
+    color: var(--white);
+    font-family: "Inter", Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    background-image: url("img/Fundo instagram.png");
+    background-size: cover;
+    background-position: center;
+    background-color: #E1306C;
+    border-radius: 5px;
+}
+
+.hero-right-link:hover .hero-right-content {
+    width: 190px;
+    height: 220px;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+.hero-right-link:hover .instagram-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+.hero-right-link:hover .instagram-expand {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* ================================
+   GALERIA
+   ================================ */
+.galeria {
+    padding: 80px 20px 100px;
+    text-align: center;
+    background: #fff;
+}
+
+.galeria h2 {
+    color: var(--dark);
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+
+.galeria-item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: scale(1.03);
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.6s ease;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox.ativo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    transform: scale(0.3);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 8px;
+}
+
+.lightbox.ativo img {
+    transform: scale(1);
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10000;
+    transition: transform 0.2s ease;
+}
+
+.lightbox-fechar:hover {
+    transform: scale(1.2);
+}
+
+.botao-galeria {
+    padding: 14px 36px;
+    background: var(--dark);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.botao-galeria:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ================================
+   RESPONSIVO
+   ================================ */
+@media (max-width: 900px) {
+    .conteudo-nicho {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .bloco-churrasqueira {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .bloco-info {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .bloco-descricao {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .circulo-produto {
+        width: 240px;
+        height: 240px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-left-link,
+    .hero-right-link {
+        bottom: 15px;
+    }
+
+    .hero-left-link {
+        left: 15px;
+    }
+
+    .hero-right-link {
+        right: 15px;
+    }
+}

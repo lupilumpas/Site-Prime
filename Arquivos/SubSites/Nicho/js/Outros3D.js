@@ -1,0 +1,323 @@
+const modelo = document.getElementById("modelo3D");
+
+function forcarRender() {
+    if (!modelo) return;
+    const simbolos = Object.getOwnPropertySymbols(modelo);
+    const simboloScene = simbolos.find(s => String(s) === "Symbol(scene)");
+    if (simboloScene && modelo[simboloScene]) {
+        const scene = modelo[simboloScene];
+        scene.queueRender();
+        // scene.updateShadow(); // descomente se usar sombra
+    }
+}
+
+modelo.addEventListener("camera-change", () => {
+    console.log("CAMERA:", modelo.getCameraOrbit().theta);
+});
+
+let hierarquia = null;
+let modeloPronto = false;
+
+// =========================================================
+// CARREGAR MODELO
+// =========================================================
+modelo.addEventListener("load", () => {
+    const scene = modelo.model;
+
+    // =====================================================
+    // LOCALIZAR HIERARQUIA
+    // =====================================================
+    const simbolos = Object.getOwnPropertySymbols(scene);
+    const simboloHierarquia = simbolos.find(
+        simbolo => String(simbolo) === "Symbol(hierarchy)"
+    );
+
+    hierarquia = scene[simboloHierarquia];
+
+    console.log("=== HIERARQUIA ===");
+    console.log(hierarquia);
+    console.log("=== OBJETOS DO MODELO ===");
+    hierarquia.forEach((parte, indice) => {
+        console.log(indice, parte.name);
+    });
+
+    // Modelo carregado
+    modeloPronto = true;
+
+    // Ativa Branco ao iniciar
+    const botaoBranco = document.querySelector(
+        '.seletor-texturas button[data-textura="Branco"]'
+    );
+    if (botaoBranco) botaoBranco.click();
+
+    const primeiraOpcao = document.querySelector(
+        '.seletor-partes-internas button[data-parte="opcao1"]'
+    );
+    if (primeiraOpcao) primeiraOpcao.click();
+});
+
+const botaoRotacao = document.getElementById("pararRotacao");
+if (botaoRotacao) {
+    botaoRotacao.addEventListener("click", () => {
+        modelo.autoRotate = !modelo.autoRotate;
+        if (modelo.autoRotate) {
+            botaoRotacao.textContent = "⏸ Parar rotação";
+        } else {
+            botaoRotacao.textContent = "▶ Continuar rotação";
+        }
+    });
+}
+
+const botoesTextura = document.querySelectorAll(".seletor-texturas button");
+
+const configuracaoTexturas = [
+    {
+        nome: "Branco",
+        textura: "Branco",
+        imagem: "../../Extras Gerais/Texturas/Branco.png",
+        corTexto: "black"
+    },
+    {
+        nome: "Camurça",
+        textura: "Camurça",
+        imagem: "../../Extras Gerais/Texturas/Camurça.png",
+        corTexto: "black"
+    },
+    {
+        nome: "Envelhecido",
+        textura: "Envelhecido",
+        imagem: "../../Extras Gerais/Texturas/Envelhecido.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Cerejeira Claro",
+        textura: "Cerejeira Claro",
+        imagem: "../../Extras Gerais/Texturas/Cerejeira Claro.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Cerejeira Escuro",
+        textura: "Cerejeira Escuro",
+        imagem: "../../Extras Gerais/Texturas/Cerejeira Escuro.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Cinza Claro",
+        textura: "Cinza Claro",
+        imagem: "../../Extras Gerais/Texturas/Cinza Claro.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Cinza Escuro",
+        textura: "Cinza Escuro",
+        imagem: "../../Extras Gerais/Texturas/Cinza Escuro.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Imbuia",
+        textura: "Imbuia",
+        imagem: "../../Extras Gerais/Texturas/Imbuia.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Mogno",
+        textura: "Mogno",
+        imagem: "../../Extras Gerais/Texturas/Mogno.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Cru",
+        textura: "Cru",
+        imagem: "../../Extras Gerais/Texturas/Cru.png",
+        corTexto: "black"
+    },
+    {
+        nome: "Por do sôl",
+        textura: "Por do sôl",
+        imagem: "../../Extras Gerais/Texturas/Por do sôl.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Preto",
+        textura: "Preto",
+        imagem: "../../Extras Gerais/Texturas/Preto.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Caramelo",
+        textura: "Caramelo",
+        imagem: "../../Extras Gerais/Texturas/Caramelo.png",
+        corTexto: "black"
+    },
+    {
+        nome: "Pastel",
+        textura: "Pastel",
+        imagem: "../../Extras Gerais/Texturas/Pastel.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Rosê",
+        textura: "Rosê",
+        imagem: "../../Extras Gerais/Texturas/Rosê.png",
+        corTexto: "white"
+    },
+    {
+        nome: "Safari",
+        textura: "Safari",
+        imagem: "../../Extras Gerais/Texturas/Safari.png",
+        corTexto: "white"
+    },
+];
+
+botoesTextura.forEach((botao, indice) => {
+    const configuracao = configuracaoTexturas[indice];
+    if (!configuracao) return;
+    botao.dataset.textura = configuracao.textura;
+    const img = botao.querySelector("img");
+    const span = botao.querySelector("span");
+    if (img) img.src = configuracao.imagem;
+    if (span) {
+        span.textContent = configuracao.nome;
+        span.style.color = configuracao.corTexto;
+    }
+});
+
+const normalPath = "../../../../Extras Gerais/Texturas/Normal.png";
+const roughnessPath = "../../../../Extras Gerais/Texturas/Roughness.png";
+
+botoesTextura.forEach((botao) => {
+    botao.addEventListener("click", async () => {
+        // Remove o destaque de todos
+        botoesTextura.forEach((b) => {
+            b.classList.remove("selecionado");
+        });
+        // Destaca o botão clicado
+        botao.classList.add("selecionado");
+
+        const textura = botao.dataset.textura;
+        const configuracao = configuracaoTexturas.find(
+            (config) => config.textura === textura
+        );
+        if (!configuracao) return;
+
+        const caminho = configuracao.imagem;
+
+        try {
+            const baseColor = await modelo.createTexture(caminho);
+            const normal = await modelo.createTexture(normalPath);
+            const roughness = await modelo.createTexture(roughnessPath);
+
+            if (!hierarquia) return;
+
+            hierarquia.forEach((parte) => {
+                if (!parte.materials) return;
+                if (!(parte.materials instanceof Map)) return;
+
+                parte.materials.forEach((material) => {
+                    if (!material?.pbrMetallicRoughness) return;
+
+                    material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]);
+                    material.pbrMetallicRoughness.baseColorTexture?.setTexture(baseColor);
+                    material.normalTexture?.setTexture(normal);
+                    material.pbrMetallicRoughness.roughnessTexture?.setTexture(roughness);
+                });
+            });
+        } catch (err) {
+            console.warn("Erro ao aplicar textura:", err);
+        }
+    });
+});
+
+// =========================================================
+// PARTES INTERNAS
+// =========================================================
+const botoesPartesInternas = document.querySelectorAll(
+    ".seletor-partes-internas button"
+);
+
+const configuracoesInternas = {
+    opcao0: [],
+    opcao1: ["Cube", "Cube009"],
+    opcao2: ["Cube010", "Cube011"],
+    opcao3: ["Cube013"],
+    opcao4: ["Cube012"],
+    opcao5: ["Cube014", "Cube015"],
+    opcao6: ["Cube016", "Cube017"],
+    opcao7: ["Cube018", "Cube019", "Cube020", "Cube021"],
+    opcao8: ["Cube022", "Cube023", "Cube025"],
+    opcao9: ["Cube024", "Cube026", "Cube027"],
+    opcao10: ["Cube028", "Cube029", "Cube030", "Cube031"]
+};
+
+function encontrarObjeto(nome, objeto = hierarquia) {
+    if (!objeto) return null;
+    if (objeto.name === nome) {
+        return objeto;
+    }
+    if (objeto.children) {
+        for (const filho of objeto.children) {
+            const encontrado = encontrarObjeto(nome, filho);
+            if (encontrado) {
+                return encontrado;
+            }
+        }
+    }
+    return null;
+}
+
+botoesPartesInternas.forEach((botao) => {
+    botao.addEventListener("click", () => {
+        const opcao = botao.dataset.parte;
+        console.log("================================");
+        console.log("CLICOU:", opcao);
+
+        // =====================================================
+        // SELEÇÃO DO BOTÃO
+        // =====================================================
+        botoesPartesInternas.forEach((b) => {
+            b.classList.remove("selecionado");
+        });
+        botao.classList.add("selecionado");
+
+        if (!hierarquia) return;
+
+        // =====================================================
+        // ESCONDER TODAS AS PEÇAS INTERNAS
+        // =====================================================
+        Object.values(configuracoesInternas)
+            .flat()
+            .forEach((nome) => {
+                let objeto = hierarquia.find(
+                    (parte) => parte.name === nome
+                );
+                if (!objeto) {
+                    objeto = encontrarObjeto(nome);
+                }
+                console.log("Escondendo:", nome, "=>", objeto);
+                if (objeto && objeto.mesh) {
+                    objeto.mesh.visible = false;
+                    console.log("Visible agora:", objeto.mesh.visible);
+                }
+            });
+
+        // =====================================================
+        // MOSTRAR A OPÇÃO ESCOLHIDA
+        // =====================================================
+        const lista = configuracoesInternas[opcao] || [];
+        lista.forEach((nome) => {
+            let objeto = hierarquia.find(
+                (parte) => parte.name === nome
+            );
+            if (!objeto) {
+                objeto = encontrarObjeto(nome);
+            }
+            console.log("Mostrando:", nome, "=>", objeto);
+            if (objeto && objeto.mesh) {
+                objeto.mesh.visible = true;
+            }
+        });
+
+        // === FORÇA O RENDER ===
+        forcarRender();
+    });
+});

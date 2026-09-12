@@ -1,0 +1,1 @@
+cd /d "C:\Users\sonho\Pictures\Projeto Meu Site" && npx serve .
