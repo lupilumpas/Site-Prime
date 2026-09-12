@@ -60,18 +60,20 @@ img {
 .secao-nicho {
     position: relative;
     width: 100%;
-    min-height: auto;
+    min-height: 900px;          /* ajuste conforme o design */
+    height: auto;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 40px 20px;         /* espaço controlado, sem margins enormes */
 }
 
-/* Fundo do nicho (T virado) - imagem aleatória */
+/* Fundo do nicho */
 .fundo-nicho {
     position: absolute;
     inset: 0;
-background-size: 100% auto;
+    background-size: 60% 100%;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.70;
@@ -85,25 +87,20 @@ background-size: 100% auto;
     z-index: 2;
     max-width: 1100px;
     width: 100%;
-    height: 1860px;
-    align-items: center;
-}
-
-/* Bloco da churrasqueira (os 2 retângulos juntos) */
-/*.bloco-churrasqueira {
-    grid-column: 1;
-    grid-row: 1 / 3;
-    display: flex;
+    height: 100%;               /* ocupa a altura da seção */
+    display: flex;              /* ou grid se preferir */
     align-items: center;
     justify-content: center;
-}*/
+    gap: 40px;                  /* controle o espaçamento aqui */
+}
 
+/* Wrapper da churrasqueira – SEM top/left enormes */
 .churrasqueira-wrapper {
     position: relative;
-    width: 715px;
-    height: 1530px;
-    left: -17.5%;
-    top: 188px;
+    width: 425px;
+    height: 750px;              
+    left: 241px;
+    top: 12px;
     aspect-ratio: 4 / 5;
     background: linear-gradient(145deg, #3a3229, #2a221c);
     border-radius: 12px;
@@ -112,6 +109,7 @@ background-size: 100% auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .img-churrasqueira {
@@ -123,7 +121,7 @@ background-size: 100% auto;
     z-index: 1;
 }
 
-/* Boca da churrasqueira onde fica a foto do nicho */
+/* Boca da churrasqueira */
 .boca-churrasqueira {
     position: relative;
     z-index: 2;
@@ -150,12 +148,13 @@ background-size: 100% auto;
     align-items: center;
 }
 
+/* Bloco de info (círculo) */
 .circulo-produto {
     position: relative;
-    width: 736px;
-    height: 659px;
-    top: -1347px;
-    left: 405px;
+    width: 433px;
+    height: 323px;
+    top: -204px;
+    left: 249px;
     border-radius: 15%;
     background: linear-gradient(145deg, #ffffff, #f0ebe3);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
@@ -166,29 +165,33 @@ background-size: 100% auto;
     text-align: center;
     padding: 30px 20px;
     gap: 12px;
+    flex-shrink: 0;
 }
 
 .circulo-produto h2 {
-    font-size: 1.35rem;
-    font-weight: 700;
+    position: relative;
+    font-size: 2.35rem;
+    font-weight: 500;
     color: var(--dark);
     line-height: 1.25;
 }
 
 .preco-label {
-    font-size: 1.05rem;
+    font-size: 2.05rem;
     color: var(--gray);
 }
 
 #valorPreco {
     font-weight: 700;
     color: var(--dark);
-    font-size: 1.25rem;
+    font-size: 2.25rem;
 }
 
 .botao-comprar {
     display: inline-block;
-    margin-top: 8px;
+    position: relative;
+    top: 50px;
+    left: 0px;
     padding: 12px 22px;
     background: var(--whatsapp);
     color: white;
@@ -213,18 +216,18 @@ background-size: 100% auto;
     justify-content: center;
 }
 
+/* Descrição */
 .triangulo-descricao {
     position: relative;
-    top: -1273px;
-    left: 592px;
-    width: 732px;
-    height: 805px;
+    width: 437px;
+    top: 188px;
+    left: -224px;
+    height: 388px;               /* deixe a altura se ajustar ao conteúdo */
     background: #fff;
-    padding: 28px 24px;
+    padding: 28px 24px 40px;
     border-radius: 12px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-
-    padding-bottom: 50px;
+    flex-shrink: 0;
 }
 
 .triangulo-descricao p {
