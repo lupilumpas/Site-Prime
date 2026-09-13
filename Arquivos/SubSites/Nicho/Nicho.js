@@ -24,41 +24,41 @@ const Preco = "Preço:";
 
 // Valores de exemplo (ajuste depois com os preços reais)
 const Valor = [
-    "R$ 189,90",
-    "R$ 199,90",
-    "R$ 209,90",
-    "R$ 219,90",
-    "R$ 229,90",
-    "R$ 199,90",
-    "R$ 209,90",
-    "R$ 239,90",
-    "R$ 249,90",
-    "R$ 179,90",
-    "R$ 259,90",
-    "R$ 189,90",
-    "R$ 199,90",
-    "R$ 209,90",
-    "R$ 219,90",
-    "R$ 229,90"
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99",
+    "R$ 2,99"
 ];
 
 const ImagensNicho = [
-    "Img/ProdutosNicho1.png",  // Branco
-    "Img/Nicho2.png",  // Camurça
-    "Img/Nicho3.png",  // Envelhecido
-    "Img/Nicho4.png",  // Cerejeira Claro
-    "Img/Nicho5.png",  // Cerejeira Escuro
-    "Img/Nicho6.png",  // Cinza Claro
-    "Img/Nicho7.png",  // Cinza Escuro
-    "Img/Nicho8.png",  // Imbuia
-    "Img/Nicho9.png",  // Mogno
-    "Img/Nicho10.png", // Cru ou Natural
-    "Img/Nicho11.png", // Por do Sôl
-    "Img/Nicho12.png", // Preto
-    "Img/Nicho13.png", // Caramelo
-    "Img/Nicho14.png", // Pastel
-    "Img/Nicho15.png", // Rosê
-    "Img/Nicho16.png"  // Safari
+    "Img/Produtos/Churrasqueira/Branco.png",  // Branco
+    "Img/Produtos/Churrasqueira/Camurça.png",  // Camurça
+    "Img/Produtos/Churrasqueira/Envelhecido.png",  // Envelhecido
+    "Img/Produtos/Churrasqueira/Cerejeira Claro.png",  // Cerejeira Claro
+    "Img/Produtos/Churrasqueira/Cerejeira Escuro.png",  // Cerejeira Escuro
+    "Img/Produtos/Churrasqueira/Cinza Claro.png",  // Cinza Claro
+    "Img/Produtos/Churrasqueira/Cinza Escuro.png",  // Cinza Escuro
+    "Img/Produtos/Churrasqueira/Imbuia.png",  // Imbuia
+    "Img/Produtos/Churrasqueira/Mogno.png",  // Mogno
+    "Img/Produtos/Churrasqueira/Cru.png", // Cru ou Natural
+    "Img/Produtos/Churrasqueira/Por do Sôl.png", // Por do Sôl
+    "Img/Produtos/Churrasqueira/Preto.png", // Preto
+    "Img/Produtos/Churrasqueira/Caramelo.png", // Caramelo
+    "Img/Produtos/Churrasqueira/Pastel.png", // Pastel
+    "Img/Produtos/Churrasqueira/Rosê.png", // Rosê
+    "Img/Produtos/Churrasqueira/Safari.png"  // Safari
 ];
 
 // Link base do WhatsApp (o ${Produtos} será substituído)
