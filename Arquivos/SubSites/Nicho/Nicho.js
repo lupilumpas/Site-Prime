@@ -291,10 +291,13 @@ const botaoGaleria = document.getElementById("botaoGaleria");
 if (botaoGaleria) {
     botaoGaleria.addEventListener("click", () => {
 
-        if (window.location.protocol === "file:") {
-            window.location.href = botaoGaleria.dataset.local;
+        const caminhoLocal = botaoGaleria.dataset.local;
+        const caminhoOnline = botaoGaleria.getAttribute("href");
+
+        if (window.location.hostname === "localhost") {
+            window.location.href = caminhoLocal;
         } else {
-            window.location.href = botaoGaleria.dataset.online;
+            window.location.href = caminhoOnline;
         }
 
     });
