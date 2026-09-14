@@ -129,7 +129,7 @@ const quantidadeFotos = {
     "Branco": 23,
     "Camurça": 4,
     "Envelhecido": 10,
-    "Cerejeira Claro": 26,
+    "Cerejeira Claro": 23,
     "Cerejeira Escuro": 10,
     "Cinza Claro": 11,
     "Cinza Escuro": 3,
