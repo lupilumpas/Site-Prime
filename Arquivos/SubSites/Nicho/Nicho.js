@@ -24,22 +24,22 @@ const Preco = "Preço:";
 
 // Valores de exemplo (ajuste depois com os preços reais)
 const Valor = [
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99",
-    "R$ 2,99"
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99",
+//    "R$ 0,99"
 ];
 
 const ImagensNicho = [
@@ -62,7 +62,7 @@ const ImagensNicho = [
 ];
 
 // Link base do WhatsApp (o ${Produtos} será substituído)
-const WhatsLinkBase = "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20nicho%20";
+const WhatsLinkBase = "http://api.whatsapp.com/send/?phone=5541991371245&text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20JDM%20Madeiras%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20Nicho:%20";
 
 /* =========================================================
    ÍNDICE ALEATÓRIO DO PRODUTO (usado em vários lugares)
@@ -81,7 +81,7 @@ function atualizarProduto() {
     
     if (nomeEl) nomeEl.textContent = `Nicho ${Produtos[indiceAtual]}`;
     if (textoPrecoEl) textoPrecoEl.textContent = Preco;
-    if (valorPrecoEl) valorPrecoEl.textContent = Valor[indiceAtual] || "Consulte";
+    if (valorPrecoEl) valorPrecoEl.textContent = Valor[indiceAtual] || "";
     if (botaoComprar) {
         const produtoEncoded = encodeURIComponent(Produtos[indiceAtual]);
         botaoComprar.href = WhatsLinkBase + produtoEncoded;
@@ -89,17 +89,29 @@ function atualizarProduto() {
     if (imagemNicho) {
     imagemNicho.src = ImagensNicho[indiceAtual];
         }
+    aplicarFundoAleatorio();
 }
 
 /* =========================================================
    FUNDO ALEATÓRIO DO NICHO (imagens da pasta img/fundos/)
    ========================================================= */
 const fundosNicho = [
-    "Img/nicho-fundo-1.png",
-/*  "nicho-fundo-2.png",
-    "nicho-fundo-3.png",
-    "nicho-fundo-4.png",
-    "nicho-fundo-5.png"  */
+    "Img/Produtos/Fundo/Branco.png",  // Branco
+    "Img/Produtos/Fundo/Camurça.png",  // Camurça
+    "Img/Produtos/Fundo/Envelhecido.png",  // Envelhecido
+    "Img/Produtos/Fundo/Cerejeira Claro.png",  // Cerejeira Claro
+    "Img/Produtos/Fundo/Cerejeira Escuro.png",  // Cerejeira Escuro
+    "Img/Produtos/Fundo/Cinza Claro.png",  // Cinza Claro
+    "Img/Produtos/Fundo/Cinza Escuro.png",  // Cinza Escuro
+    "Img/Produtos/Fundo/Imbuia.png",  // Imbuia
+    "Img/Produtos/Fundo/Mogno.png",  // Mogno
+    "Img/Produtos/Fundo/Cru.png", // Cru ou Natural
+    "Img/Produtos/Fundo/Por do Sôl.png", // Por do Sôl
+    "Img/Produtos/Fundo/Preto.png", // Preto
+    "Img/Produtos/Fundo/Caramelo.png", // Caramelo
+    "Img/Produtos/Fundo/Pastel.png", // Pastel
+    "Img/Produtos/Fundo/Rosê.png", // Rosê
+    "Img/Produtos/Fundo/Safari.png"  // Safari
 ];
 
 function aplicarFundoAleatorio() {
@@ -107,25 +119,30 @@ function aplicarFundoAleatorio() {
     if (!fundoEl || fundosNicho.length === 0) return;
 
     const indice = Math.floor(Math.random() * fundosNicho.length);
-    fundoEl.style.backgroundImage = `url('${fundosNicho[indice]}')`;
+    fundoEl.style.backgroundImage = `url('${fundosNicho[indiceAtual]}')`;
 }
 
 /* =========================================================
    GALERIA
    ========================================================= */
 const fotosGaleria = [
-    "img/galeria/foto1.jpg",
-    "img/galeria/foto2.jpg",
-    "img/galeria/foto3.jpg",
-    "img/galeria/foto4.jpg",
-    "img/galeria/foto5.jpg",
-    "img/galeria/foto6.jpg",
-    "img/galeria/foto7.jpg",
-    "img/galeria/foto8.jpg",
-    "img/galeria/foto9.jpg",
-    "img/galeria/foto10.jpg",
-    "img/galeria/foto11.jpg",
-    "img/galeria/foto12.jpg"
+    "Img/Produtos/Fundo/Branco.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png",
+    "Img/Produtos/Fundo/.png"
+    
 ];
 
 // Fallback caso as imagens não existam ainda
@@ -212,6 +229,33 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarProduto();
     aplicarFundoAleatorio();
     inicializarGaleria();
+
+    const nichoAnterior = document.getElementById("nichoAnterior");
+const nichoProximo = document.getElementById("nichoProximo");
+
+if (nichoAnterior) {
+    nichoAnterior.addEventListener("click", () => {
+        indiceAtual--;
+
+        if (indiceAtual < 0) {
+            indiceAtual = Produtos.length - 1;
+        }
+
+        atualizarProduto();
+    });
+}
+
+if (nichoProximo) {
+    nichoProximo.addEventListener("click", () => {
+        indiceAtual++;
+
+        if (indiceAtual >= Produtos.length) {
+            indiceAtual = 0;
+        }
+
+        atualizarProduto();
+    });
+}
 
     // Botão da galeria (por enquanto não faz nada)
     const botaoGaleria = document.getElementById("botaoGaleria");

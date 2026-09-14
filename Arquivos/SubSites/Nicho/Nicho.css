@@ -188,7 +188,7 @@ img {
 .botao-comprar {
     display: inline-block;
     position: relative;
-    top: 50px;
+    top: 80px;
     left: 0px;
     padding: 12px 22px;
     background: var(--whatsapp);
@@ -575,4 +575,29 @@ img {
     .hero-right-link {
         right: 15px;
     }
+}
+
+.setas-nicho {
+    position: relative;
+    display: flex;
+    left: -1.5%;
+    top: -60px;
+    gap: 310px;
+}
+
+.setas-nicho button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: var(--dark);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.setas-nicho button:hover {
+    transform: scale(1.1);
+    background: #514337;
 }
