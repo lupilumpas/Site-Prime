@@ -182,8 +182,8 @@ botoesTextura.forEach((botao, indice) => {
     }
 });
 
-const normalPath = "../../../../Extras Gerais/Texturas/Normal.png";
-const roughnessPath = "../../../../Extras Gerais/Texturas/Roughness.png";
+const normalPath = "../../Extras Gerais/Texturas/Normal.png";
+const roughnessPath = "../../Extras Gerais/Texturas/Roughness.png";
 
 botoesTextura.forEach((botao) => {
     botao.addEventListener("click", async () => {
