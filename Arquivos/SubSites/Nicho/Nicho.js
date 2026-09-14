@@ -125,25 +125,34 @@ function aplicarFundoAleatorio() {
 /* =========================================================
    GALERIA
    ========================================================= */
-const fotosGaleria = [
-    "Img/Produtos/Fundo/Branco.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png",
-    "Img/Produtos/Fundo/.png"
-    
-];
+const quantidadeFotos = {
+    "Branco": 26,
+    "Camurça": 4,
+    "Envelhecido": 10,
+    "Cerejeira Claro": 26,
+    "Cerejeira Escuro": 10,
+    "Cinza Claro": 11,
+    "Cinza Escuro": 3,
+    "Imbuia": 41,
+    "Mogno": 0,
+    "Cru ou Natural": 7,
+    "Por do Sôl": 8,
+    "Preto": 34,
+    "Caramelo": 7,
+    "Pastel": 30,
+    "Rosê": 6,
+    "Safari": 5
+};
+
+const fotosGaleria = [];
+
+for (const [cor, quantidade] of Object.entries(quantidadeFotos)) {
+    for (let i = 1; i <= quantidade; i++) {
+        fotosGaleria.push(
+            `Img/Produtos/Galeria/${cor}/ (${i}).png`
+        );
+    }
+}
 
 // Fallback caso as imagens não existam ainda
 function criarPlaceholder(src) {
@@ -155,19 +164,29 @@ function inicializarGaleria() {
     const grid = document.getElementById("galeriaGrid");
     if (!grid) return;
 
-    // Cria 6 slots
+    const imagensDisponiveis = [...fotosGaleria];
+
+    // Cria 6 slots sem repetir imagens
     for (let i = 0; i < 6; i++) {
+        if (imagensDisponiveis.length === 0) break;
+
         const item = document.createElement("div");
         item.className = "galeria-item";
         item.dataset.index = i;
 
         const img = document.createElement("img");
-        const fotoInicial = fotosGaleria[i % fotosGaleria.length];
+
+        // Escolhe uma imagem aleatória das disponíveis
+        const indiceAleatorio = Math.floor(
+            Math.random() * imagensDisponiveis.length
+        );
+
+        const fotoInicial = imagensDisponiveis.splice(indiceAleatorio, 1)[0];
+
         img.src = criarPlaceholder(fotoInicial);
         img.alt = `Foto ${i + 1}`;
         img.loading = "lazy";
 
-        // Fallback visual se a imagem não carregar
         img.onerror = function () {
             this.style.background = "linear-gradient(135deg, #d4c4b0, #b8a48e)";
             this.style.minHeight = "180px";
@@ -177,22 +196,32 @@ function inicializarGaleria() {
         item.appendChild(img);
         grid.appendChild(item);
 
-        // Clique abre lightbox
         item.addEventListener("click", () => abrirLightbox(img.src));
     }
 
-    // A cada 5 segundos troca uma foto aleatória
     setInterval(trocarFotoAleatoria, 5000);
 }
 
 function trocarFotoAleatoria() {
     const itens = document.querySelectorAll(".galeria-item img");
-    if (itens.length === 0 || fotosGaleria.length === 0) return;
+
+    if (itens.length === 0 || fotosGaleria.length <= itens.length) return;
+
+    const imagensEmUso = Array.from(itens).map(img => img.src);
+
+    const imagensDisponiveis = fotosGaleria.filter(foto => {
+        return !imagensEmUso.some(imgSrc => imgSrc.includes(foto));
+    });
+
+    if (imagensDisponiveis.length === 0) return;
 
     const slot = Math.floor(Math.random() * itens.length);
-    const novaFoto = fotosGaleria[Math.floor(Math.random() * fotosGaleria.length)];
+    const novaFoto = imagensDisponiveis[
+        Math.floor(Math.random() * imagensDisponiveis.length)
+    ];
 
     const img = itens[slot];
+
     img.style.opacity = "0";
 
     setTimeout(() => {
