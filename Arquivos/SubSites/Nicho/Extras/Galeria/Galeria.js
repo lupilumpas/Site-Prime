@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".filtros button").forEach(botao => {
         botao.addEventListener("click", () => {
             mostrarGaleria(botao.dataset.cor);
+        window.location.hash = botao.dataset.cor;
         });
     });
 
