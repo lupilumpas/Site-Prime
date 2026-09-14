@@ -286,12 +286,17 @@ if (nichoProximo) {
     });
 }
 
-// Botão da galeria
 const botaoGaleria = document.getElementById("botaoGaleria");
 
 if (botaoGaleria) {
     botaoGaleria.addEventListener("click", () => {
-    window.location.href = "Extras/Galeria/Galeria.html";
+
+        if (window.location.protocol === "file:") {
+            window.location.href = botaoGaleria.dataset.local;
+        } else {
+            window.location.href = botaoGaleria.dataset.online;
+        }
+
     });
 }
 
