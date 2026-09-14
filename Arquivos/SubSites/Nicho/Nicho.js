@@ -286,14 +286,14 @@ if (nichoProximo) {
     });
 }
 
-    // Botão da galeria (por enquanto não faz nada)
-    const botaoGaleria = document.getElementById("botaoGaleria");
-    if (botaoGaleria) {
-        botaoGaleria.addEventListener("click", (e) => {
-            e.preventDefault();
-            // Por enquanto não faz nada
-        });
-    }
+// Botão da galeria
+const botaoGaleria = document.getElementById("botaoGaleria");
+
+if (botaoGaleria) {
+    botaoGaleria.addEventListener("click", () => {
+    window.location.href = "Extras/Galeria/Galeria.html";
+    });
+}
 
     // Fechar lightbox
     const btnFechar = document.getElementById("lightboxFechar");
