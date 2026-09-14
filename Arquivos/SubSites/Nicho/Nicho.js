@@ -126,7 +126,7 @@ function aplicarFundoAleatorio() {
    GALERIA
    ========================================================= */
 const quantidadeFotos = {
-    "Branco": 26,
+    "Branco": 23,
     "Camurça": 4,
     "Envelhecido": 10,
     "Cerejeira Claro": 26,
