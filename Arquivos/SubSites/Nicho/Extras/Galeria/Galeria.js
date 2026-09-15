@@ -38,6 +38,9 @@ for (const [cor, quantidade] of Object.entries(quantidadeFotos)) {
 
 function mostrarGaleria(cor = "todos") {
     const grid = document.getElementById("galeriaGrid");
+
+    if (!grid) return;
+
     grid.innerHTML = "";
 
     const fotos = cor === "todos"
@@ -49,6 +52,7 @@ function mostrarGaleria(cor = "todos") {
         item.className = "galeria-item";
 
         const img = document.createElement("img");
+
         img.src = foto.src;
         img.alt = `${foto.cor} - Foto ${index + 1}`;
         img.loading = "lazy";
@@ -74,6 +78,8 @@ function abrirLightbox(src) {
     const lightbox = document.getElementById("lightbox");
     const img = document.getElementById("lightboxImg");
 
+    if (!lightbox || !img) return;
+
     img.src = src;
     lightbox.classList.add("ativo");
     document.body.style.overflow = "hidden";
@@ -81,6 +87,8 @@ function abrirLightbox(src) {
 
 function fecharLightbox() {
     const lightbox = document.getElementById("lightbox");
+
+    if (!lightbox) return;
 
     lightbox.classList.remove("ativo");
     document.body.style.overflow = "";
@@ -94,26 +102,93 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mostrarGaleria();
 
+    /* =====================================================
+       FILTROS
+       ===================================================== */
+
     document.querySelectorAll(".filtros button").forEach(botao => {
+
         botao.addEventListener("click", () => {
+
             mostrarGaleria(botao.dataset.cor);
-        window.location.hash = botao.dataset.cor;
+
+            window.location.hash = botao.dataset.cor;
+
         });
+
     });
 
-    document.getElementById("lightboxFechar")
-        .addEventListener("click", fecharLightbox);
+    /* =====================================================
+       BOTÃO VOLTAR
+       ===================================================== */
 
-    document.getElementById("lightbox")
-        .addEventListener("click", (e) => {
-            if (e.target.id === "lightbox") {
-                fecharLightbox();
+    const botaoVoltar = document.querySelector(".voltar");
+
+    if (botaoVoltar) {
+
+        botaoVoltar.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            const caminhoLocal = botaoVoltar.dataset.local;
+            const caminhoOnline = botaoVoltar.getAttribute("href");
+
+            if (
+                window.location.protocol === "file:" ||
+                window.location.hostname === "localhost" ||
+                window.location.hostname === "127.0.0.1"
+            ) {
+
+                window.location.href = caminhoLocal;
+
+            } else {
+
+                window.location.href = caminhoOnline;
+
             }
+
         });
 
+    }
+
+    /* =====================================================
+       FECHAR LIGHTBOX PELO BOTÃO
+       ===================================================== */
+
+    const botaoFechar = document.getElementById("lightboxFechar");
+
+    if (botaoFechar) {
+        botaoFechar.addEventListener("click", fecharLightbox);
+    }
+
+    /* =====================================================
+       FECHAR LIGHTBOX CLICANDO FORA
+       ===================================================== */
+
+    const lightbox = document.getElementById("lightbox");
+
+    if (lightbox) {
+
+        lightbox.addEventListener("click", (e) => {
+
+            if (e.target === lightbox) {
+                fecharLightbox();
+            }
+
+        });
+
+    }
+
+    /* =====================================================
+       FECHAR LIGHTBOX COM ESC
+       ===================================================== */
+
     document.addEventListener("keydown", (e) => {
+
         if (e.key === "Escape") {
             fecharLightbox();
         }
+
     });
+
 });

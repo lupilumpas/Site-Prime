@@ -289,20 +289,25 @@ if (nichoProximo) {
 const botaoGaleria = document.getElementById("botaoGaleria");
 
 if (botaoGaleria) {
-    botaoGaleria.addEventListener("click", () => {
+    botaoGaleria.addEventListener("click", (event) => {
+
+        event.preventDefault();
 
         const caminhoLocal = botaoGaleria.dataset.local;
         const caminhoOnline = botaoGaleria.getAttribute("href");
 
-        if (window.location.hostname === "localhost") {
-            window.location.href = caminhoLocal;
-        } else {
-            window.location.href = caminhoOnline;
-        }
+if (
+    window.location.protocol === "file:" ||
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+) {
+    window.location.href = caminhoLocal;
+} else {
+    window.location.href = caminhoOnline;
+}
 
     });
 }
-
     // Fechar lightbox
     const btnFechar = document.getElementById("lightboxFechar");
     const lightbox = document.getElementById("lightbox");
