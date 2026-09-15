@@ -204,7 +204,7 @@ if (visualizador3D) {
         textura === "Preto"
 
     ) {
-        visualizador3D.style.background = "white";
+        visualizador3D.style.background = "rgb(218,218,218)";
     } else {
         visualizador3D.style.background = "rgb(31,30,30)";
     }
