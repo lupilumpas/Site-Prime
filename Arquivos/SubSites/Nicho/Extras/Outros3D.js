@@ -198,9 +198,11 @@ botoesTextura.forEach((botao) => {
         const textura = botao.dataset.textura;
 if (visualizador3D) {
     if (
-        textura === "Branco" ||
-        textura === "Camurça" ||
-        textura === "Cinza Claro"
+        textura === "Mogno" ||
+        textura === "Envelhecido"||
+        textura === "Imbuia" ||
+        textura === "Preto"
+
     ) {
         visualizador3D.style.background = "white";
     } else {
