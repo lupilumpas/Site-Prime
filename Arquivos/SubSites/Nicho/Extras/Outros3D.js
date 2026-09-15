@@ -1,4 +1,5 @@
 const modelo = document.getElementById("modelo3D");
+const visualizador3D = document.querySelector(".visualizador-3d");
 
 function forcarRender() {
     if (!modelo) return;
@@ -195,6 +196,18 @@ botoesTextura.forEach((botao) => {
         botao.classList.add("selecionado");
 
         const textura = botao.dataset.textura;
+if (visualizador3D) {
+    if (
+        textura === "Branco" ||
+        textura === "Camurça" ||
+        textura === "Cinza Claro"
+    ) {
+        visualizador3D.style.background = "white";
+    } else {
+        visualizador3D.style.background = "rgb(31,30,30)";
+    }
+}
+
         const configuracao = configuracaoTexturas.find(
             (config) => config.textura === textura
         );
