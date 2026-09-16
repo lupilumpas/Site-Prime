@@ -86,9 +86,18 @@ function atualizarProduto() {
         const produtoEncoded = encodeURIComponent(Produtos[indiceAtual]);
         botaoComprar.href = WhatsLinkBase + produtoEncoded;
         }
-    if (imagemNicho) {
-    imagemNicho.src = ImagensNicho[indiceAtual];
-        }
+if (imagemNicho) {
+
+    imagemNicho.style.opacity = "0";
+
+    setTimeout(() => {
+
+        imagemNicho.src = ImagensNicho[indiceAtual];
+
+        imagemNicho.style.opacity = "1";
+
+    }, 200);
+}
     aplicarFundoAleatorio();
 }
 

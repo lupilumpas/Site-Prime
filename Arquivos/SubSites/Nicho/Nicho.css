@@ -146,6 +146,7 @@ img {
     object-fit: cover;
     left: 10%;
     top: 31.5%;
+    transition: opacity 0.8s ease;
 }
 
 .img-nicho-interno {
