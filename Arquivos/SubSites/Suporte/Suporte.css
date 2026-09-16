@@ -1,0 +1,1008 @@
+/* =========================================================
+   LIVRO INTERATIVO — ESTILO PRINCIPAL
+   ========================================================= */
+:root {
+  --ink: #33271d;
+  --muted-ink: #786a5a;
+  --paper: #f5eedf;
+  --paper-light: #fffaf0;
+  --paper-dark: #e4d7bd;
+  --gold: #c69a52;
+  --gold-light: #e3c27e;
+  --brown: #3c2417;
+  --brown-deep: #24150e;
+  --cover: #342016;
+  --cover-light: #4c3020;
+  --white: #ffffff;
+  --page-width: 710px;
+  --page-height: 850px;
+  --radius: 8px;
+  --shadow: rgba(24, 14, 8, 0.28);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  min-height: 100%;
+  background: #16110d;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(110, 77, 44, .16), transparent 34%),
+    radial-gradient(circle at 20% 80%, rgba(197, 151, 79, .08), transparent 28%),
+    #16110d;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+button {
+  font: inherit;
+}
+
+.ambient {
+  position: fixed;
+  pointer-events: none;
+  filter: blur(60px);
+  border-radius: 50%;
+  opacity: .35;
+}
+
+.ambient-one {
+  width: 280px;
+  height: 280px;
+  background: #6e4a2d;
+  left: -80px;
+  top: 15%;
+}
+
+.ambient-two {
+  width: 340px;
+  height: 340px;
+  background: #4d3925;
+  right: -100px;
+  bottom: 5%;
+}
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  perspective: 2200px;
+  position: relative;
+  padding: 10px 20px 20px;
+}
+
+.book-shadow {
+
+  position: absolute;
+  width: min(83vw, 1080px);
+  height: 50px;
+  bottom: 8%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .55);
+  filter: blur(25px);
+  transform: rotateX(65deg);
+}
+
+.book {
+  width: calc(var(--page-width) * 2);
+  height: var(--page-height);
+  position: relative;
+  transform-style: preserve-3d;
+  margin-top: 60px;
+}
+
+.book-part {
+  position: absolute;
+  top: 0;
+  width: var(--page-width);
+  height: var(--page-height);
+  overflow: hidden;
+  background: transparent;
+}
+
+.left-page{
+  left: 0;
+  transform-origin: right center;
+  border-radius: var(--radius) 2px 2px var(--radius);
+}
+
+.right-page {
+  right: 0;
+  transform-origin: left center;
+  border-radius: 2px var(--radius) var(--radius) 2px;
+}
+.book-part img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: fill;
+}
+
+.page-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 0;
+}
+
+.page-content {
+  position: relative;
+  height: 100%;
+  z-index: 1;
+}
+
+.left-page .page-content {
+    position: relative;
+    height: 100%;
+    z-index: 1;
+    padding: 0;
+}
+
+.right-page .page-content {
+    padding: 60px 90px 60px 95px;
+}
+
+.front-cover {
+  left: 0;
+  transform-origin: right center;
+  border-radius: 9px 2px 2px 9px;
+  z-index: 10;
+}
+
+.back-cover {
+  right: 0;
+  border-radius: 2px 9px 9px 2px;
+  transform-origin: left center;
+  transform: rotateY(0deg);
+  z-index: 1;
+}
+
+.controls {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 45px;
+
+    z-index: 30;
+    pointer-events: none;
+}
+
+.control-button {
+    pointer-events: auto;
+
+    min-width: 130px;
+    height: 52px;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border: 2px solid rgba(227, 194, 126, 0.65);
+    border-radius: 12px;
+
+    background: rgba(36, 21, 14, 0.92);
+    color: #f3dfb8;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: bold;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.45),
+        inset 0 0 15px rgba(227, 194, 126, 0.05);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.control-button:hover:not(:disabled) {
+    background: rgba(76, 48, 32, 0.98);
+
+    border-color: #e3c27e;
+
+    color: #fff3d5;
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.55),
+        0 0 18px rgba(227, 194, 126, 0.18);
+}
+
+.control-button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.control-button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.control-button.primary {
+    background: rgba(76, 48, 32, 0.95);
+    border-color: #d5ad68;
+}
+
+.control-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 120px;
+  transform: translate(-50%, 12px);
+  padding: 10px 15px;
+  background: #2c1d14;
+  border: 1px solid rgba(208, 168, 101, .3);
+  color: #d8bf95;
+  font: 10px Arial, sans-serif;
+  letter-spacing: .06em;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.book.book-cover-only .left-page,
+.book.book-cover-only .right-page,
+.book.book-cover-only .back-cover {
+    visibility: hidden;
+}
+
+.book.book-cover-only .front-cover {
+    visibility: visible;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.book.book-open .front-cover,
+.book.book-open .back-cover {
+    visibility: hidden;
+}
+
+.book.book-end .left-page,
+.book.book-end .right-page,
+.book.book-end .front-cover {
+    visibility: hidden;
+}
+
+.book.book-end .back-cover {
+    visibility: visible;
+    right: 50%;
+    transform: translateX(50%);
+}
+body.state-cover .controls {
+    padding-left: 430px;
+    padding-right: 430px;
+}
+
+body.state-open .controls {
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+body.state-end .controls {
+    padding-left: 430px;
+    padding-right: 430px;
+}
+
+.page-title {
+    padding: 0;
+    margin: 0;
+}
+
+
+.right-page .chapter-kicker {
+    padding: 0px 0px 0px 0px;
+}
+
+.left-page .page-image {
+    position: absolute;
+    width: 561px;
+    height: 735px;
+    left: 48%;
+    top: 50%;
+    transform: translate(-49.8%, -50.3%);
+    z-index: 0;
+}
+
+.left-page .page-number {
+    position: absolute;
+    left: 50%;
+    top: 93%;
+    transform: translate(-56%, -59%);
+    font-size: 25px;
+    color: #00fffe;
+    letter-spacing: .1em;
+    z-index: 2;
+}
+
+.right-page .page-number {
+    position: absolute;
+    left: 49%;
+    top: 94%;
+    transform: translate(-51%, -77%);
+    font-size: 25px;
+    color: #00fffe;
+    letter-spacing: .1em;
+}
+
+/* Ícone normal */
+
+.WhatsApp-icon {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+
+/* Conteúdo expandido */
+
+.WhatsApp-expand {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: scale(.8);
+
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* QR Code */
+
+.hero-image-left {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+}
+
+
+/* Texto */
+
+.hero-left-text {
+    margin-top: 8px;
+
+    padding: 5px 10px;
+
+    color: var(--white);
+
+    font-family: Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    background: #25D366;
+
+    border-radius: 5px;
+}
+
+
+.whatsapp-button {
+    position: absolute;
+
+    left: 25px;
+    bottom: 25px;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+
+    background: #25D366;
+    border-radius: 50%;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.whatsapp-button img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+}
+
+.hero-right-link {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 100;
+
+    text-decoration: none;
+}
+
+.hero-right-content {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+    border-radius: 50%;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+.instagram-icon {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+/* ================================
+   INSTAGRAM EXPANSÃO AO PASSAR O MOUSE
+   ================================ */
+
+.instagram-expand {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: scale(.8);
+
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.hero-image-right {
+    width: 150px;
+    height: 160px;
+
+    object-fit: contain;
+}
+
+.hero-right-text {
+    margin-top: 8px;
+
+    padding: 5px 10px;
+
+    color: var(--white);
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    background-image: url("Img/Img/Fundo\ instagram.png");
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 5px;
+}
+
+/* ================================
+   WHATSAPP EXPANSÃO AO PASSAR O MOUSE
+   ================================ */
+
+.hero-left-link {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+
+    z-index: 100;
+
+    text-decoration: none;
+}
+
+.hero-left-content {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--white);
+    border-radius: 50%;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+/* ================================
+   EXPANSÃO
+   ================================ */
+
+.hero-left-link:hover .hero-left-content {
+    width: 190px;
+    height: 220px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+
+/* Esconde o ícone */
+
+.hero-left-link:hover .WhatsApp-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+
+/* Mostra QR + texto */
+
+.hero-left-link:hover .WhatsApp-expand {
+    opacity: 1;
+    pointer-events: auto;
+
+    transform: scale(1);
+}
+
+/* ================================
+   EXPANSÃO AO PASSAR O MOUSE
+   ================================ */
+
+.hero-right-link:hover .hero-right-content {
+    width: 190px;
+    height: 220px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+.hero-right-link:hover .instagram-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+.hero-right-link:hover .instagram-expand {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* =========================================================
+   GALERIA DE FOTOS DO PRODUTO
+   ========================================================= */
+
+.galeria-produto {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 15px;
+}
+
+
+/* ================================
+   CONTROLES DAS FOTOS
+   ================================ */
+
+.galeria-controles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    margin-bottom: 25px;
+
+    z-index: 5;
+}
+
+
+/* Texto "Trocar fotos" */
+
+.galeria-controles span {
+    font-family: Arial, sans-serif;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: #33271d;
+
+    white-space: nowrap;
+        user-select: none;
+}
+
+
+/* Setas */
+
+.galeria-anterior,
+.galeria-proxima {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: transparent;
+
+    color: #33271d;
+
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    padding: 0;
+    user-select: none;
+    transition:
+        transform .2s ease,
+        color .2s ease,
+        opacity .2s ease;
+}
+
+
+/* Animação ao passar o mouse */
+
+.galeria-anterior:hover:not(:disabled) {
+    transform: translateX(-5px) scale(1.08);
+}
+
+.galeria-proxima:hover:not(:disabled) {
+    transform: translateX(5px) scale(1.08);
+}
+
+
+/* Botão desativado */
+
+.galeria-anterior:disabled,
+.galeria-proxima:disabled {
+    opacity: .25;
+    cursor: default;
+}
+
+
+/* ================================
+   IMAGEM
+   ================================ */
+
+.galeria-imagem {
+    width: 561px;
+    height: 735px;
+
+    object-fit: contain;
+
+    display: block;
+
+    z-index: 1;
+}
+
+
+/* ================================
+   CONTADOR
+   ================================ */
+
+.galeria-contador {
+    margin-top: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #33271d;
+    position: absolute !important;
+    z-index: 5;
+    top: 30px;
+left: 50%;
+transform: translateX(-50%);
+    user-select: none;
+
+}
+
+.left-page .galeria-produto {
+    position: relative;
+    width: 710px;
+    height: 850px;
+
+    display: block;
+    padding: 0;
+}
+
+.left-page .galeria-imagem {
+    position: absolute;
+
+    width: 562px !important;
+    height: 736px !important;
+
+    top: 55px !important;
+    left: 61.5px !important;
+
+    object-fit: contain !important;
+}
+
+.front-cover,
+.back-cover,
+.left-page,
+.right-page {
+    background: transparent;
+}
+
+img.indice-imagem{
+    position: absolute;
+    width: 281px;
+    height: 368px;
+    top: 55px;
+    left: 205px;
+}
+img.indice-imagem2{
+    position: absolute;
+    width: 536px;
+    height: 35px;
+    top: 435px;
+    left: 85px;
+}
+@font-face {
+    font-family: "Bigtimes";
+    src: url("../../Fontes/Bigtimes/Bigtimes.otf") format("opentype");
+}
+p.indice-text {
+    position: absolute;
+    font-size: 70px;
+    font-family: "Bigtimes", serif;
+    color: #14bf3b;
+    top: 385px;
+    left: 110px;
+    user-select: none;
+}
+
+p1.indice-text {
+    position: absolute;
+    font-size: 55px;
+    font-family: "Bigtimes", serif;
+    top: 525px;
+    left: 19.5%;
+        user-select: none;
+}
+
+p2.indice-text {
+    position: absolute;
+    font-size: 55px;
+    font-family: "Bigtimes", serif;
+    color: #14bf3b;
+    top: 450px;
+    left: 530px;
+        user-select: none;
+}
+
+/* =========================================================
+   ÍNDICE — PÁGINA 2
+   ========================================================= */
+
+.IndicePagina2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 67px 78px;
+    margin-top: 62px;
+    left: -13px;
+}
+
+@font-face {
+    font-family: "Chillin";
+    src: url("../../Fontes/chillin_on_sunday/Chillin\ on\ Sunday.ttf") format("opentype");
+}
+
+.IndicePagina2 h1 {
+    margin: -10px 0px 0px 170px;
+
+    font-family: Chillin, sans-serif;
+    font-size: 72px;
+    font-weight: normal;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+
+    color: #33271d;
+        user-select: none;
+}
+
+.IndicePagina2 .indice-item {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+    margin-bottom: 5px;
+
+    text-decoration: none;
+
+    color: #33271d;
+
+    font-family: Chillin, sans-serif;
+    font-size: 31px;
+
+    transition:
+        transform .25s ease,
+        color .25s ease;
+}
+
+.IndicePagina2 .indice-item:hover {
+    color: #14bf3b;
+    transform: translateX(8px);
+}
+
+.IndicePagina2 .indice-linha {
+    flex: 1;
+
+    border-bottom: 2px dotted rgba(51, 39, 29, .55);
+
+    transform: translateY(3px);
+}
+
+.IndicePagina2 .indice-item span:last-child {
+    min-width: 45px;
+    text-align: right;
+
+    margin-left: 0px;
+    margin-right: 3px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+}
+
+.marca-nav {
+    position: absolute;
+    right: 0;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 40;
+    transform: translateX(0px);
+}
+
+.marca-tab-1,
+.marca-tab-2,
+.marca-tab-3 {
+    width: 150px;
+    padding: 14px 20px;
+    
+    border: none;
+    border-radius: 8px 0 0 8px;
+
+    background: #c69a52;
+    color: #33271d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px 10px rgba(0,0,0,.25);
+
+    transition: .2s ease;
+}
+
+.marca-tab-1:hover,
+.marca-tab-2:hover,
+.marca-tab-3:hover {
+    transform: translateX(-15px) scaleX(1.1);
+    background: #e3c27e;
+}
+
+.content-enter p10 {
+    position: absolute;
+    top: 600px;
+    left: 34.5%;
+    font-size: 35px;
+    font-family: serif;
+}
+
+.meu-botao {
+    position: absolute;
+    top: 660px;
+    left: 15%;
+    width: 500px;
+    height: 100px;
+    font-size: 45px;
+    color: #000000;
+    background-color: #FFDF97;
+        transition:
+        font-size .4s ease,
+        color .8s ease;
+}
+
+.meu-botao:hover {
+    color: #6bd36e;
+    font-size: 80px;
+
+
+}
