@@ -126,22 +126,22 @@ function aplicarFundoAleatorio() {
    GALERIA
    ========================================================= */
 const quantidadeFotos = {
-    "Branco": 25,
-    "Camurça": 3,
-    "Envelhecido": 9,
-    "Cerejeira Claro": 17,
-    "Cerejeira Escuro": 9,
-    "Cinza Claro": 11,
-    "Cinza Escuro": 3,
-    "Imbuia": 34,
-    "Mogno": 0,
-    "Cru ou Natural": 7,
-    "Por do Sôl": 7,
-    "Preto": 28,
-    "Caramelo": 7,
-    "Pastel": 27,
-    "Rosê": 5,
-    "Safari": 5
+    "Branco": 26,
+    "Camurça": 4,
+    "Envelhecido": 10,
+    "Cerejeira Claro": 18,
+    "Cerejeira Escuro": 10,
+    "Cinza Claro": 12,
+    "Cinza Escuro": 4,
+    "Imbuia": 35,
+    "Mogno": 2,
+    "Cru ou Natural": 8,
+    "Por do Sôl": 8,
+    "Preto": 29,
+    "Caramelo": 8,
+    "Pastel": 28,
+    "Rosê": 6,
+    "Safari": 6
 };
 
 const fotosGaleria = [];
