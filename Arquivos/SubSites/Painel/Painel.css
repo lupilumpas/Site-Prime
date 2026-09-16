@@ -40,7 +40,7 @@ body {
 
     overflow: hidden;
 
-    background-image: url("img/img/Fundo\ Painel.png");
+    background-image: url("Img/Img/Fundo\ Painel.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -137,7 +137,7 @@ body {
 
     background-color: rgb(170, 170, 170);
 
-    background-image: url("img/img/Painel.png");
+    background-image: url("Img/Img/Painel.png");
 
     background-size: 100% auto;
 
@@ -606,7 +606,7 @@ body {
     padding: 0px 10px;
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.30)),
-        url("img/img/Main-nav.png");
+        url("Img/Img/Main-nav.png");
     border-radius: 8px;
 
     font-size: 18px;

@@ -256,7 +256,7 @@
 
     font-size: 19px;
 
-    margin-bottom: 20px; /*era 20, temporarioamente por conta do fundo das cores vai ficar 19*/
+    margin-bottom: 20px;
 
     height: 486px;
 
@@ -365,98 +365,115 @@
     background-image: url("../../../../Extras\ Gerais/Texturas/Branco.png");
     background-size: cover;
     background-position: center;
+    user-select: none;
 }
 .tonalidades .camurca {
     background-image: url("../../../../Extras\ Gerais/Texturas/Camurça.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none; 
 }
 .tonalidades .envelhecido {
     background-image: url("../../../../Extras\ Gerais/Texturas/Envelhecido.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .cerejeira-claro {
     background-image: url("../../../../Extras\ Gerais/Texturas/Cerejeira\ Claro.png");
     background-size: cover;
     background-position: center;
+    user-select: none;
 }
 .tonalidades .cerejeira-escuro {
     background-image: url("../../../../Extras\ Gerais/Texturas/Cerejeira\ Escuro.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .cinza-claro {
     background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Claro.png");
     background-size: cover;
     background-position: center;
+    user-select: none;
 }
 .tonalidades .cinza-escuro {
     background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Escuro.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .imbuia {
     background-image: url("../../../../Extras\ Gerais/Texturas/Imbuia.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .caramelo {
     background-image: url("../../../../Extras\ Gerais/Texturas/Caramelo.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .rose {
     background-image: url("../../../../Extras\ Gerais/Texturas/Rosê.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .por-do-sol {
     background-image: url("../../../../Extras\ Gerais/Texturas/Por\ do\ sôl.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .safari {
     background-image: url("../../../../Extras\ Gerais/Texturas/Safari.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .pastel {
     background-image: url("../../../../Extras\ Gerais/Texturas/Pastel.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .mogno {
     background-image: url("../../../../Extras\ Gerais/Texturas/Mogno.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .preto {
     background-image: url("../../../../Extras\ Gerais/Texturas/Preto.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .cinza-claro {
     background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Claro.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }
 .tonalidades .cinza-escuro {
     background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Escuro.png");
     background-size: cover;
     background-position: center;
     color: white;
+    user-select: none;
 }

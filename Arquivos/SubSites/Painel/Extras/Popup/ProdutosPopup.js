@@ -26,7 +26,7 @@ const NomesdosArquivos = [
     ["sku 72"],
     ["sku 77"],
     ["sku 80"],
-    ["sku 82 e 59"],
+    ["sku 82"],
     ["sku 88"],
     ["sku 89"],
     ["sku 90"],
@@ -34,12 +34,29 @@ const NomesdosArquivos = [
     ["sku 110 1", "sku 110 2"],
 ];
 
+const imagensProdutos = {
+    "sku 10": 9,
+    "sku 18": 5,
+    "sku 21": 7,
+    "sku 31": 12,
+    "sku 59": 7,
+    "sku 72": 6,
+    "sku 77": 7,
+    "sku 80": 5,
+    "sku 82": 5,
+    "sku 88": 5,
+    "sku 89": 5,
+    "sku 90": 5,
+    "sku 99": 5,
+    "sku 110": 5
+};
+
 const produtos = [
     "Floreira de parede <br>vertical jardim com 4 <br>cachepos 1,20x60  sku10",
     "Floreira de parede <br>horizontal jardim 3 <br>prateleiras sku18",
     "Floreira de parede <br>horizontal para jardim <br>externo com 5 cachepots <br>sku21",
     "Floreira de parede <br>vertical jardim 1,20x60 <br>com 4 cachepos sku31",
-    "Floreira de parede <br>vertical jardim com 4 <br>cachepos cor cerejeira <br>1,20x80 sku82",
+    "Floreira de parede <br>vertical jardim com 4 <br>cachepos cor cerejeira <br>1,20x80 sku59",
     "Floreira de parede <br>treliçada jardim horizontal  <br>100x60 cm sku72",
     "Floreira de parede <br>vertical externa com 3 <br>cachepos 1,00x50 cm <br>sku77",
     "",
@@ -66,6 +83,7 @@ const descricaoProduto = [
 <p>Profundidade: 14 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
+<br>
 <div class="grupo-tonalidades">
     <strong>Tons rústicos:</strong>
     <p1 class="tonalidades">
@@ -98,7 +116,7 @@ const descricaoProduto = [
         <span class="camurca">Camurça</span>
     </p1>
 </div>
-<p1>Mogno, Cru, Por do sôl, Preto, Caramelo, Pastel, Rosê, Safari</p1>
+<br>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
@@ -115,9 +133,40 @@ const descricaoProduto = [
 <p>Profundidade: 12 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
-<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
-<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
-<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
+<br>
+<div class="grupo-tonalidades">
+    <strong>Tons rústicos:</strong>
+    <p1 class="tonalidades">
+        <span class="caramelo">Caramelo</span>
+        <span class="rose">Rosê</span>
+        <span class="por-do-sol">Pôr do sol</span>
+        <span class="safari">Safari</span>
+        <span class="envelhecido">Envelhecido</span>
+        <span class="pastel">Pastel</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons amadeirados:</strong>
+    <p1 class="tonalidades">
+        <span class="mogno">Mogno</span>
+        <span class="imbuia">Imbuia</span>
+        <span class="cerejeira-claro">Cerejeira Claro</span>
+        <span class="cerejeira-escuro">Cerejeira Escuro</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons cheios:</strong>
+    <p1 class="tonalidades">
+        <span class="branco">Branco</span>
+        <span class="preto">Preto</span>
+        <span class="cinza-claro">Cinza Claro</span>
+        <span class="cinza-escuro">Cinza Escuro</span>
+        <span class="camurca">Camurça</span>
+    </p1>
+</div>
+<br>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
@@ -133,11 +182,42 @@ const descricaoProduto = [
 <p>4 chachepos Largura: 40 x 14 cm</p>
 <p>1 chachepo largura: 50 x 14 cm</p>
 <br>
-<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:<p>
-<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
-<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
-<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
-<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS<p>
+<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
+<br>
+<div class="grupo-tonalidades">
+    <strong>Tons rústicos:</strong>
+    <p1 class="tonalidades">
+        <span class="caramelo">Caramelo</span>
+        <span class="rose">Rosê</span>
+        <span class="por-do-sol">Pôr do sol</span>
+        <span class="safari">Safari</span>
+        <span class="envelhecido">Envelhecido</span>
+        <span class="pastel">Pastel</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons amadeirados:</strong>
+    <p1 class="tonalidades">
+        <span class="mogno">Mogno</span>
+        <span class="imbuia">Imbuia</span>
+        <span class="cerejeira-claro">Cerejeira Claro</span>
+        <span class="cerejeira-escuro">Cerejeira Escuro</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons cheios:</strong>
+    <p1 class="tonalidades">
+        <span class="branco">Branco</span>
+        <span class="preto">Preto</span>
+        <span class="cinza-claro">Cinza Claro</span>
+        <span class="cinza-escuro">Cinza Escuro</span>
+        <span class="camurca">Camurça</span>
+    </p1>
+</div>
+<br>
+<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
     <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
@@ -152,9 +232,40 @@ const descricaoProduto = [
 <p>4 chachepos Largura: 40 x 14 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
-<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
-<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
-<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
+<br>
+<div class="grupo-tonalidades">
+    <strong>Tons rústicos:</strong>
+    <p1 class="tonalidades">
+        <span class="caramelo">Caramelo</span>
+        <span class="rose">Rosê</span>
+        <span class="por-do-sol">Pôr do sol</span>
+        <span class="safari">Safari</span>
+        <span class="envelhecido">Envelhecido</span>
+        <span class="pastel">Pastel</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons amadeirados:</strong>
+    <p1 class="tonalidades">
+        <span class="mogno">Mogno</span>
+        <span class="imbuia">Imbuia</span>
+        <span class="cerejeira-claro">Cerejeira Claro</span>
+        <span class="cerejeira-escuro">Cerejeira Escuro</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons cheios:</strong>
+    <p1 class="tonalidades">
+        <span class="branco">Branco</span>
+        <span class="preto">Preto</span>
+        <span class="cinza-claro">Cinza Claro</span>
+        <span class="cinza-escuro">Cinza Escuro</span>
+        <span class="camurca">Camurça</span>
+    </p1>
+</div>
+<br>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
@@ -171,9 +282,40 @@ const descricaoProduto = [
 <p>4 chachepos Largura: 50 x 14 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
-<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
-<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
-<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
+<br>
+<div class="grupo-tonalidades">
+    <strong>Tons rústicos:</strong>
+    <p1 class="tonalidades">
+        <span class="caramelo">Caramelo</span>
+        <span class="rose">Rosê</span>
+        <span class="por-do-sol">Pôr do sol</span>
+        <span class="safari">Safari</span>
+        <span class="envelhecido">Envelhecido</span>
+        <span class="pastel">Pastel</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons amadeirados:</strong>
+    <p1 class="tonalidades">
+        <span class="mogno">Mogno</span>
+        <span class="imbuia">Imbuia</span>
+        <span class="cerejeira-claro">Cerejeira Claro</span>
+        <span class="cerejeira-escuro">Cerejeira Escuro</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons cheios:</strong>
+    <p1 class="tonalidades">
+        <span class="branco">Branco</span>
+        <span class="preto">Preto</span>
+        <span class="cinza-claro">Cinza Claro</span>
+        <span class="cinza-escuro">Cinza Escuro</span>
+        <span class="camurca">Camurça</span>
+    </p1>
+</div>
+<br>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
@@ -189,9 +331,40 @@ const descricaoProduto = [
 <p>4 chachepos Largura: 60 x 14 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
-<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
-<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
-<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
+<br>
+<div class="grupo-tonalidades">
+    <strong>Tons rústicos:</strong>
+    <p1 class="tonalidades">
+        <span class="caramelo">Caramelo</span>
+        <span class="rose">Rosê</span>
+        <span class="por-do-sol">Pôr do sol</span>
+        <span class="safari">Safari</span>
+        <span class="envelhecido">Envelhecido</span>
+        <span class="pastel">Pastel</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons amadeirados:</strong>
+    <p1 class="tonalidades">
+        <span class="mogno">Mogno</span>
+        <span class="imbuia">Imbuia</span>
+        <span class="cerejeira-claro">Cerejeira Claro</span>
+        <span class="cerejeira-escuro">Cerejeira Escuro</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons cheios:</strong>
+    <p1 class="tonalidades">
+        <span class="branco">Branco</span>
+        <span class="preto">Preto</span>
+        <span class="cinza-claro">Cinza Claro</span>
+        <span class="cinza-escuro">Cinza Escuro</span>
+        <span class="camurca">Camurça</span>
+    </p1>
+</div>
+<br>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
@@ -207,9 +380,40 @@ const descricaoProduto = [
 <p>3 chachepos Largura: 30 x 14 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
-<p><strong>Tons rústicos </strong>- caramelo, rosê, pôr do sol, safari, envelhecido, pastel</p>
-<p><strong>Tons amadeirados </strong>- mogno, imbuia, cerejeiras</p>
-<p><strong>Tons cheios:</strong> branco, preto, cinza, camurça</p>
+<br>
+<div class="grupo-tonalidades">
+    <strong>Tons rústicos:</strong>
+    <p1 class="tonalidades">
+        <span class="caramelo">Caramelo</span>
+        <span class="rose">Rosê</span>
+        <span class="por-do-sol">Pôr do sol</span>
+        <span class="safari">Safari</span>
+        <span class="envelhecido">Envelhecido</span>
+        <span class="pastel">Pastel</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons amadeirados:</strong>
+    <p1 class="tonalidades">
+        <span class="mogno">Mogno</span>
+        <span class="imbuia">Imbuia</span>
+        <span class="cerejeira-claro">Cerejeira Claro</span>
+        <span class="cerejeira-escuro">Cerejeira Escuro</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons cheios:</strong>
+    <p1 class="tonalidades">
+        <span class="branco">Branco</span>
+        <span class="preto">Preto</span>
+        <span class="cinza-claro">Cinza Claro</span>
+        <span class="cinza-escuro">Cinza Escuro</span>
+        <span class="camurca">Camurça</span>
+    </p1>
+</div>
+<br>
 <p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
 <p>
     PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
@@ -280,7 +484,7 @@ const capas = NomesdosArquivos[indice] || [];
 
 // Só configura a capa se existir
 if (capas.length > 0) {
-    imagem.src = `img/Capa/${capas[0]}.png`;
+    imagem.src = `Img/Capa/${capas[0]}.png`;
 }
 
     // Se tiver mais de uma capa, começa a alternar
@@ -301,7 +505,7 @@ imagem.style.opacity = "0";
 
 setTimeout(() => {
 
-    imagem.src = `img/Capa/${capas[capaAtual]}.png`;
+    imagem.src = `Img/Capa/${capas[capaAtual]}.png`;
 
     // espera a imagem nova carregar
     imagem.onload = () => {
@@ -421,30 +625,99 @@ if (!imagem1 || !imagem2 || !imagem3 || !imagem4 || !imagem5) {
             // ==========================================
             // CONTROLE DO CARROSSEL
             // ==========================================
-const nomesArquivo = NomesdosArquivos[indice] || [];
-const nomeArquivo = nomesArquivo[0] || "";   // pega o primeiro nome do array
-let paginaCarrossel = 1;
+const pastaProduto = NomesdosArquivos[indice][0];
 
-            function atualizarCarrossel() {
-                let kit1 = paginaCarrossel - 2;
-                let kit2 = paginaCarrossel - 1;
-                let kit3 = paginaCarrossel;
-                let kit4 = paginaCarrossel + 1;
-                let kit5 = paginaCarrossel + 2;
+const quantidadeImagens = imagensProdutos[pastaProduto] || 0;
 
-                if (kit1 < 1) kit1 += 5;
-                if (kit2 < 1) kit2 += 5;
-                if (kit4 > 5) kit4 -= 5;
-                if (kit5 > 5) kit5 -= 5;
+const imagensDoProduto = Array.from(
+    { length: quantidadeImagens },
+    (_, i) => `${i + 1}.png`
+);
 
-    imagem1.src = `img/Kit ${kit1}/${nomeArquivo}.png`;
-    imagem2.src = `img/Kit ${kit2}/${nomeArquivo}.png`;
-    imagem4.src = `img/Kit ${kit4}/${nomeArquivo}.png`;
-    imagem5.src = `img/Kit ${kit5}/${nomeArquivo}.png`;
+let paginaCarrossel = 0;
 
-    imagem3.style.display = "block";
-    imagem3.src = `img/Kit ${kit3}/${nomeArquivo}.png`;
-            }
+//     function atualizarCarrossel() {
+
+//     const totalImagens = imagensDoProduto.length;
+
+//     if (totalImagens === 0) {
+//         console.warn("Nenhuma imagem encontrada para:", pastaProduto);
+//         return;
+//     }
+
+//     function indiceCircular(indice) {
+//         return (indice + totalImagens) % totalImagens;
+//     }
+
+//     const indice1 = indiceCircular(paginaCarrossel - 2);
+//     const indice2 = indiceCircular(paginaCarrossel - 1);
+//     const indice3 = indiceCircular(paginaCarrossel);
+//     const indice4 = indiceCircular(paginaCarrossel + 1);
+//     const indice5 = indiceCircular(paginaCarrossel + 2);
+
+//     imagem1.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indice1]}`;
+//     imagem2.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indice2]}`;
+//     imagem3.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indice3]}`;
+//     imagem4.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indice4]}`;
+//     imagem5.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indice5]}`;
+
+//     imagem3.style.display = "block";
+// }
+
+function atualizarCarrossel() {
+
+    const totalImagens = imagensDoProduto.length;
+
+    if (totalImagens === 0) {
+        console.warn("Nenhuma imagem encontrada para:", pastaProduto);
+        return;
+    }
+
+    function indiceCircular(indice) {
+        return (indice + totalImagens) % totalImagens;
+    }
+
+    if (totalImagens >= 5) {
+
+        imagem1.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indiceCircular(paginaCarrossel - 2)]}`;
+        imagem2.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indiceCircular(paginaCarrossel - 1)]}`;
+        imagem3.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indiceCircular(paginaCarrossel)]}`;
+        imagem4.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indiceCircular(paginaCarrossel + 1)]}`;
+        imagem5.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[indiceCircular(paginaCarrossel + 2)]}`;
+
+        imagem1.style.display = "block";
+        imagem2.style.display = "block";
+        imagem3.style.display = "block";
+        imagem4.style.display = "block";
+        imagem5.style.display = "block";
+
+    } else {
+
+        imagem1.style.display = "none";
+        imagem2.style.display = "none";
+        imagem3.style.display = "none";
+        imagem4.style.display = "none";
+        imagem5.style.display = "none";
+
+        if (totalImagens >= 2) {
+            imagem2.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[0]}`;
+            imagem2.style.display = "block";
+        }
+
+        imagem3.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[totalImagens === 1 ? 0 : 1]}`;
+        imagem3.style.display = "block";
+
+        if (totalImagens >= 3) {
+            imagem4.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[2]}`;
+            imagem4.style.display = "block";
+        }
+
+        if (totalImagens >= 4) {
+            imagem5.src = `Img/Produtos/${pastaProduto}/${imagensDoProduto[3]}`;
+            imagem5.style.display = "block";
+        }
+    }
+}
 
             // ==========================================
             // PRIMEIRA CONFIGURAÇÃO
@@ -456,21 +729,31 @@ let paginaCarrossel = 1;
             // BOTÃO DIREITA
             // ==========================================
 
-            imagem4.onclick = () => {
-                paginaCarrossel++;
-                if (paginaCarrossel > 5) paginaCarrossel = 1;
-                atualizarCarrossel();
-            };
+imagem4.onclick = () => {
+
+    paginaCarrossel++;
+
+    if (paginaCarrossel >= imagensDoProduto.length) {
+        paginaCarrossel = 0;
+    }
+
+    atualizarCarrossel();
+};
 
             // ==========================================
             // BOTÃO ESQUERDA
             // ==========================================
 
-            imagem2.onclick = () => {
-                paginaCarrossel--;
-                if (paginaCarrossel < 1) paginaCarrossel = 5;
-                atualizarCarrossel();
-            };
+imagem2.onclick = () => {
+
+    paginaCarrossel--;
+
+    if (paginaCarrossel < 0) {
+        paginaCarrossel = imagensDoProduto.length - 1;
+    }
+
+    atualizarCarrossel();
+};
 
         }); // fim do click
 
