@@ -1,0 +1,152 @@
+/* =========================================================
+   HERO — CACHOEIRA VERTICAL
+   ========================================================= */
+
+.hero {
+    position: relative;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(16, 40, 30, .93),
+            rgba(16, 40, 30, .57),
+            rgba(16, 40, 30, .20)
+        ),
+        linear-gradient(
+            135deg,
+            #536c58,
+            #b19470 55%,
+            #334e3d
+        );
+}
+
+
+/* Área dos círculos */
+
+.hero-animation {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* Círculo */
+
+.hero-circle {
+    position: absolute;
+
+    top: -200px;
+
+    width: var(--size);
+    height: var(--size);
+
+    border: var(--border-size) solid
+        rgba(255, 255, 255, var(--opacity));
+
+    border-radius: 50%;
+
+    filter: blur(var(--blur));
+
+    opacity: 0;
+
+    animation:
+        waterfall
+        var(--duration)
+        linear
+        var(--delay)
+        infinite;
+
+        
+
+    will-change: transform;
+}
+
+
+/* =========================================================
+   QUEDA VERTICAL
+   ========================================================= */
+
+@keyframes waterfall {
+
+    0% {
+        transform:
+            translate(
+                var(--x-start),
+                0
+            );
+
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    25% {
+        transform:
+            translate(
+                var(--x-1),
+                200px
+            );
+    }
+
+    50% {
+        transform:
+            translate(
+                var(--x-2),
+                400px
+            );
+    }
+
+    75% {
+        transform:
+            translate(
+                var(--x-3),
+                600px
+            );
+    }
+
+    100% {
+        transform:
+            translate(
+                var(--x-end),
+                900px
+            );
+
+        opacity: 0;
+    }
+}
+
+
+/* Conteúdo */
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Overlay */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            92deg,
+            transparent 0,
+            transparent 38px,
+            rgba(255,255,255,.035) 39px,
+            transparent 42px
+        );
+}
+
