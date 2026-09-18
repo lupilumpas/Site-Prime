@@ -4,12 +4,17 @@
 
 "use strict";
 
-const numeroSku = [106, 0, 0, 0, 0];
+const numeroSku = [106, 109, 111, 108, 76, 8, 25, 33];
 
-const imagensPorProduto = {
-    [numeroSku[0]]: 6,
-    [numeroSku[1]]: 6,
-    [numeroSku[2]]: 6
+const imagensPorProduto = { //por enquanto vou deixar todos com 1 pq, as imagens tão bem merda, eu acho que pelo menos 5 de cada um seria bem legal, fazer umas 10 fotos e pegar as mais bonitas, seria uma boa ideia
+    [numeroSku[0]]: 1,
+    [numeroSku[1]]: 1,
+    [numeroSku[2]]: 1,
+    [numeroSku[3]]: 1,
+    [numeroSku[4]]: 1,
+    [numeroSku[5]]: 1,
+    [numeroSku[6]]: 1,
+    [numeroSku[7]]: 1,
 };
 
 const precoP10 = "Preço:";
@@ -91,7 +96,7 @@ const pages = [
       html: `
         <div class="content-enter">
           <div class="chapter-kicker">Sku 106</div>
-          <h2 class="page-title">Prateleira Flutuante <br>Plantas Objetos Madeira Maciça</h2>
+          <h2 class="page-title">Prateleira Flutuante Plantas <br>Objetos Madeira Maciça</h2>
           <div class="page-rule"></div>
           <p class="page-text">
 <strong>
@@ -105,13 +110,12 @@ Medidas:<br>
 Altura 60 cm:<br>
 Largura:60 cm<br>
 Profundidade: 14cm<br>
-Entre andares fica com 17cm.<br>
-PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL. Acessar site
+Entre andares fica com 17cm.<br><br>
 
 PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
 <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
 
-<p10>${precoP10} 299,99</p10>    
+<p10>${precoP10} 176,49</p10>
 
 <button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=${WhatsDescricao} Prateleira Flutuante Plantas Objetos Madeira Maciça', '_blank')">
     Comprar
@@ -120,6 +124,456 @@ PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
     }
   },
   /*  Até aqui, a parte do livro que eu posso copiar e colar, pra criar um novo produto*/
+      {
+    type: "spread",
+    left: {
+      number: "05",
+      html: `
+    <div class="content-enter">
+      <div class="galeria-produto" data-indice="1">
+
+        <div class="galeria-controles">
+
+          <button class="galeria-anterior" type="button">
+            ←
+          </button>
+
+          <span>Trocar fotos</span>
+
+          <button class="galeria-proxima" type="button">
+            →
+          </button>
+
+        </div>
+
+        <img class="galeria-imagem" src="" alt="Imagem do produto">
+
+        <div class="galeria-contador"></div>
+
+      </div>
+    </div>
+      `
+    },
+    right: {
+      number: "06",
+      html: `
+        <div class="content-enter">
+          <div class="chapter-kicker">Sku 109</div>
+          <h2 class="page-title">Prateleira Flutuante Plantas Objetos <br> Madeira Maciça Segunda Versão</h2>
+          <div class="page-rule"></div>
+          <p class="page-text">
+<strong>
+Transforme seu espaço com a Floreira de Chão, oferecendo um cantinho especial para suas flores.<br>
+<br>
+Suporte ecológico confeccionado com cuidado e capricho em pinus tonalizado com brilho suave.<br>
+<br>
+Suas plantas merecem destaque e seu ambiente a naturalidade da madeira maciça.<br>
+<br>
+Medidas:<br>
+Altura 70 cm:<br>
+Largura: 60 cm<br>
+Profundidade: 14 cm<br>
+Entre andares fica com 20 cm.<br><br>
+
+PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
+
+<p10>${precoP10} 176,49</p10>
+
+<button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=${WhatsDescricao} Prateleira Flutuante Plantas Objetos Madeira Maciça Segunda Versão', '_blank')">
+    Comprar
+</button>
+      `
+    }
+  },
+{ //Inicio 
+    type: "spread",
+    left: {
+      number: "07", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+    <div class="content-enter">
+      <div class="galeria-produto" data-indice="2">
+
+        <div class="galeria-controles">
+
+          <button class="galeria-anterior" type="button">
+            ←
+          </button>
+
+          <span>Trocar fotos</span>
+
+          <button class="galeria-proxima" type="button">
+            →
+          </button>
+
+        </div>
+
+        <img class="galeria-imagem" src="" alt="Imagem do produto">
+
+        <div class="galeria-contador"></div>
+
+      </div>
+    </div>
+      `
+//aqui tem que somar o data-indice da pagina anterior + 1, ou seja (0+1=1) assim ele reconhece as novas paginas
+    },
+    right: {
+      number: "08", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+        <div class="content-enter">
+          <div class="chapter-kicker">Sku 111</div>
+          <h2 class="page-title">Criado Mudo Para Cama Flutuante 50x50x19.</h2>
+          <div class="page-rule"></div>
+          <p class="page-text">
+<strong>
+Transforme seu espaço com a Floreira de Chão, oferecendo um cantinho especial para suas flores.<br>
+<br>
+Suporte ecológico confeccionado com cuidado e capricho em pinus tonalizado com brilho suave.<br>
+<br>
+Suas plantas merecem destaque e seu ambiente a naturalidade da madeira maciça.<br>
+<br>
+Medidas:<br>
+Altura ?? cm:<br>
+Largura: ?? cm<br>
+Profundidade: ?? cm<br>
+Entre andares fica com ??cm.<br><br>
+
+PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
+
+<p10>${precoP10} ???</p10>
+
+<button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=${WhatsDescricao} ???(aqui é o titulo do produto)', '_blank')">
+    Comprar
+</button>
+      `
+    }
+  }, //Fim
+  { //Inicio 
+    type: "spread",
+    left: {
+      number: "09", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+    <div class="content-enter">
+      <div class="galeria-produto" data-indice="3"> 
+
+        <div class="galeria-controles">
+
+          <button class="galeria-anterior" type="button">
+            ←
+          </button>
+
+          <span>Trocar fotos</span>
+
+          <button class="galeria-proxima" type="button">
+            →
+          </button>
+
+        </div>
+
+        <img class="galeria-imagem" src="" alt="Imagem do produto">
+
+        <div class="galeria-contador"></div>
+
+      </div>
+    </div>
+      `
+//no data-andice tem que somar o data-indice da pagina anterior + 1, ou seja (0+1=1) assim ele reconhece as novas paginas
+    },
+    right: {
+      number: "10", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+        <div class="content-enter">
+          <div class="chapter-kicker">Sku 108</div>
+          <h2 class="page-title">Prateleira De Canto Para Livros Ou Flores</h2>
+          <div class="page-rule"></div>
+          <p class="page-text">
+<strong>
+Transforme seu espaço com a Floreira de Chão, oferecendo um cantinho especial para suas flores.<br>
+<br>
+Suporte ecológico confeccionado com cuidado e capricho em pinus tonalizado com brilho suave.<br>
+<br>
+Suas plantas merecem destaque e seu ambiente a naturalidade da madeira maciça.<br>
+<br>
+Medidas:<br>
+Altura 80 cm:<br>
+Largura: 20 cm<br>
+Profundidade: 14 cm<br>
+Entre andares fica com 17 cm.<br><br>
+
+PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
+
+<p10>${precoP10} 216,78</p10>
+
+<button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=${WhatsDescricao} Prateleira De Canto Para Livros Ou Flores', '_blank')">
+    Comprar
+</button>
+      `
+    }
+  }, //Fim
+  { //Inicio 
+    type: "spread",
+    left: {
+      number: "11", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+    <div class="content-enter">
+      <div class="galeria-produto" data-indice="4">
+
+        <div class="galeria-controles">
+
+          <button class="galeria-anterior" type="button">
+            ←
+          </button>
+
+          <span>Trocar fotos</span>
+
+          <button class="galeria-proxima" type="button">
+            →
+          </button>
+
+        </div>
+
+        <img class="galeria-imagem" src="" alt="Imagem do produto">
+
+        <div class="galeria-contador"></div>
+
+      </div>
+    </div>
+      `
+//no data-andice tem que somar o data-indice da pagina anterior + 1, ou seja (0+1=1) assim ele reconhece as novas paginas
+    },
+    right: {
+      number: "12", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+        <div class="content-enter">
+          <div class="chapter-kicker">Sku 76</div>
+          <h2 class="page-title">Suporte Base Madeira Maciça P/ Ventilador Objetos Diversos</h2>
+          <div class="page-rule"></div>
+          <p class="page-text">
+<strong>
+Transforme seu espaço com a Floreira de Chão, oferecendo um cantinho especial para suas flores.<br>
+<br>
+Suporte ecológico confeccionado com cuidado e capricho em pinus tonalizado com brilho suave.<br>
+<br>
+Suas plantas merecem destaque e seu ambiente a naturalidade da madeira maciça.<br>
+<br>
+Medidas:<br>
+Altura 40 cm:<br>
+Largura: 40 cm<br>
+Profundidade: 40 cm<br>
+Entre andares fica com ??cm.<br><br>
+
+PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
+
+<p10>${precoP10} 170,33</p10>
+
+<button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=${WhatsDescricao} Suporte Base Madeira Maciça P/ Ventilador Objetos Diversos', '_blank')">
+    Comprar
+</button>
+      `
+    }
+  }, //Fim
+  { //Inicio 
+    type: "spread",
+    left: {
+      number: "13", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+    <div class="content-enter">
+      <div class="galeria-produto" data-indice="5">
+
+        <div class="galeria-controles">
+
+          <button class="galeria-anterior" type="button">
+            ←
+          </button>
+
+          <span>Trocar fotos</span>
+
+          <button class="galeria-proxima" type="button">
+            →
+          </button>
+
+        </div>
+
+        <img class="galeria-imagem" src="" alt="Imagem do produto">
+
+        <div class="galeria-contador"></div>
+
+      </div>
+    </div>
+      `
+//no data-andice tem que somar o data-indice da pagina anterior + 1, ou seja (0+1=1) assim ele reconhece as novas paginas
+    },
+    right: {
+      number: "14", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+        <div class="content-enter">
+          <div class="chapter-kicker">Sku 8</div>
+          <h2 class="page-title">Floreira Cavalete de madeira suporte para flores jardim</h2>
+          <div class="page-rule"></div>
+          <p class="page-text">
+<strong>
+Transforme seu espaço com a Floreira de Chão, oferecendo um cantinho especial para suas flores.<br>
+<br>
+Suporte ecológico confeccionado com cuidado e capricho em pinus tonalizado com brilho suave.<br>
+<br>
+Suas plantas merecem destaque e seu ambiente a naturalidade da madeira maciça.<br>
+<br>
+Medidas:<br>
+Altura 90 cm:<br>
+Largura: 67 cm<br>
+Profundidade: 36 cm (distância entre os pezinhos)<br>
+Altura entre degraus: 19cm<br>
+Base de baixo: 60x39cm<br>
+Base do meio: 60x30cm<br>
+Base de cima: 60x21cm<br><br>
+
+PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
+
+<p10>${precoP10} 205,43</p10>
+
+<button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=${WhatsDescricao} Floreira Cavalete de madeira suporte para flores jardim', '_blank')">
+    Comprar
+</button>
+      `
+    }
+  }, //Fim
+  { //Inicio 
+    type: "spread",
+    left: {
+      number: "15", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+    <div class="content-enter">
+      <div class="galeria-produto" data-indice="6">
+
+        <div class="galeria-controles">
+
+          <button class="galeria-anterior" type="button">
+            ←
+          </button>
+
+          <span>Trocar fotos</span>
+
+          <button class="galeria-proxima" type="button">
+            →
+          </button>
+
+        </div>
+
+        <img class="galeria-imagem" src="" alt="Imagem do produto">
+
+        <div class="galeria-contador"></div>
+
+      </div>
+    </div>
+      `
+//no data-andice tem que somar o data-indice da pagina anterior + 1, ou seja (0+1=1) assim ele reconhece as novas paginas
+    },
+    right: {
+      number: "16", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+        <div class="content-enter">
+          <div class="chapter-kicker">Sku 25</div>
+          <h2 class="page-title">Floreira de madeira suporte para flores jardim</h2>
+          <div class="page-rule"></div>
+          <p class="page-text">
+<strong>
+Transforme seu espaço com a Floreira de Chão, oferecendo um cantinho especial para suas flores.<br>
+<br>
+Suporte ecológico confeccionado com cuidado e capricho em pinus tonalizado com brilho suave.<br>
+<br>
+Suas plantas merecem destaque e seu ambiente a naturalidade da madeira maciça.<br>
+<br>
+Medidas:<br>
+Altura 116 cm:<br>
+Largura: 44 cm<br>
+Profundidade: ?? cm<br>
+4 andar....................24 cm<br>
+3 andar ...................41 cm<br>
+2 andar ...................59 cm<br>
+1 andar ...................79 cm<br>
+Entre andares fica com 22 cm.<br><br>
+
+PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
+
+<p10>${precoP10} 237,43</p10>
+
+<button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=${WhatsDescricao} Floreira de madeira suporte para flores jardim', '_blank')">
+    Comprar
+</button>
+      `
+    }
+  }, //Fim
+  { //Inicio 
+    type: "spread",
+    left: {
+      number: "17", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+    <div class="content-enter">
+      <div class="galeria-produto" data-indice="7">
+
+        <div class="galeria-controles">
+
+          <button class="galeria-anterior" type="button">
+            ←
+          </button>
+
+          <span>Trocar fotos</span>
+
+          <button class="galeria-proxima" type="button">
+            →
+          </button>
+
+        </div>
+
+        <img class="galeria-imagem" src="" alt="Imagem do produto">
+
+        <div class="galeria-contador"></div>
+
+      </div>
+    </div>
+      `
+//no data-andice tem que somar o data-indice da pagina anterior + 1, ou seja (0+1=1) assim ele reconhece as novas paginas
+    },
+    right: {
+      number: "18", //aqui é a mesma coisa o numero da pagina anterior mais +1
+      html: `
+        <div class="content-enter">
+          <div class="chapter-kicker">Sku 33</div>
+          <h2 class="page-title">Floreira de madeira suporte para flores jardim</h2>
+          <div class="page-rule"></div>
+          <p class="page-text">
+<strong>
+Transforme seu espaço com a Floreira de Chão, oferecendo um cantinho especial para suas flores.<br>
+<br>
+Suporte ecológico confeccionado com cuidado e capricho em pinus tonalizado com brilho suave.<br>
+<br>
+Suas plantas merecem destaque e seu ambiente a naturalidade da madeira maciça.<br>
+<br>
+Medidas:<br>
+Altura 89 cm:<br>
+Largura: 51 cm<br>
+Profundidade: 36 cm (distância entre os pezinhos)<br>
+Altura entre degraus: 19cm<br>
+Base de baixo: 44x39cm<br>
+Base do meio: 44x30cm<br>
+Base de cima: 44x21cm<br><br>
+
+PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+<a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a></strong></p>
+
+<p10>${precoP10} 220,89</p10>
+
+<button class="meu-botao" onclick="window.open('https://api.whatsapp.com/send/?phone=5541991371245&text=${WhatsDescricao} Floreira de madeira suporte para flores jardim', '_blank')">
+    Comprar
+</button>
+      `
+    }
+  }, //Fim
   {
     type: "end",
     title: "Contracapa"
