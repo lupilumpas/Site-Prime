@@ -127,7 +127,24 @@ function aplicarFundoAleatorio() {
     const fundoEl = document.getElementById("fundoNicho");
     if (!fundoEl || fundosNicho.length === 0) return;
 
-    const indice = Math.floor(Math.random() * fundosNicho.length);
+    const total = fundosNicho.length;
+
+    const indiceAnterior = (indiceAtual - 1 + total) % total;
+    const indiceProximo = (indiceAtual + 1) % total;
+
+    // Pré-carrega a imagem atual
+    const imagemAtual = new Image();
+    imagemAtual.src = fundosNicho[indiceAtual];
+
+    // Pré-carrega a imagem anterior
+    const imagemAnterior = new Image();
+    imagemAnterior.src = fundosNicho[indiceAnterior];
+
+    // Pré-carrega a imagem próxima
+    const imagemProxima = new Image();
+    imagemProxima.src = fundosNicho[indiceProximo];
+
+    // Aplica a imagem atual
     fundoEl.style.backgroundImage = `url('${fundosNicho[indiceAtual]}')`;
 }
 
@@ -222,21 +239,23 @@ function trocarFotoAleatoria() {
         return !imagensEmUso.some(imgSrc => imgSrc.includes(foto));
     });
 
-    if (imagensDisponiveis.length === 0) return;
+    if (imagensDisponiveis.length < itens.length) return;
 
-    const slot = Math.floor(Math.random() * itens.length);
-    const novaFoto = imagensDisponiveis[
-        Math.floor(Math.random() * imagensDisponiveis.length)
-    ];
+    // Embaralha as imagens disponíveis
+    const imagensNovas = [...imagensDisponiveis]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, itens.length);
 
-    const img = itens[slot];
+    itens.forEach((img, index) => {
 
-    img.style.opacity = "0";
+        img.style.opacity = "0";
 
-    setTimeout(() => {
-        img.src = novaFoto;
-        img.style.opacity = "1";
-    }, 400);
+        setTimeout(() => {
+            img.src = imagensNovas[index];
+            img.style.opacity = "1";
+        }, 400);
+
+    });
 }
 
 /* =========================================================
