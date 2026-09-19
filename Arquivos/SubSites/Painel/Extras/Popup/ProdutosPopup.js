@@ -1,16 +1,19 @@
 const precosProdutos = [
-    "R$ 209,99",
-    "R$ 299,99",
-    "R$ 319,99",
-    "R$ 210,99",
-    "R$ 298,99",
-    "R$ 259,99",
-    "R$ 219,99",
-    "R$ 588,41",
-    "R$ 712,29",
-    "R$ 196,14",
-    "R$ 258,07",
-    "R$ 0,0",
+    "R$ 226,07",
+    "R$ 278,72",
+    "R$ 350,98",
+    "R$ 252,91",
+    "R$ 277,69", //59
+    "R$ 257,04", //
+    "R$ 268,40", //
+    "R$ 268,40",//
+    "R$ 411,89",//
+    "R$ 277,69",//
+    "R$ 588,41",//
+    "R$ 712,29",//
+    "R$ 196,14",//
+    "R$ 277,50",//
+    "R$ 154,84",
 ];
 
 const NomesdosArquivos = [
@@ -28,6 +31,8 @@ const NomesdosArquivos = [
     ["sku 90"],
     ["sku 99"],
     ["sku 110 1", "sku 110 2"],
+    ["sku 71"]
+
 ];
 
 const imagensProdutos = {
@@ -44,7 +49,8 @@ const imagensProdutos = {
     "sku 89": 5, //
     "sku 90": 5, //
     "sku 99": 7, //
-    "sku 110": 10 //
+    "sku 110": 10, //
+    "sku 71": 6
 };
 
 const produtos = [
@@ -56,12 +62,13 @@ const produtos = [
     "Floreira de parede <br>treliçada jardim horizontal  <br>100x60 cm sku72",
     "Floreira de parede <br>vertical externa com 3 <br>cachepos 100x50 cm <br>sku77",
     "Floreira de parede <br>vertical jardim <br>com 6 andares sku80",
-    "Floreira de parede <br>vertical jardim <br>com 4 cachepos cor cerejeira.",
+    "Floreira de parede <br>vertical jardim <br>com 4 cachepos cor <br>cerejeira. sku82",
     "Floreira de parede <br>horizontal jardim <br>com 5 andares sku88",
     "Floreira de parede <br>vertical jardim <br>com 6 cachepos sku89",
     "Floreira de parede <br>vertical jardim <br>com 8 cachepos sku90",
     "Floreira de parede <br>vertical jardim <br>com 4 cachepos sku99",
-    "Floreira de parede <br>vertical ou horizontal <br>jardim com 4 cachepos <br>sku110"
+    "Floreira de parede <br>vertical ou horizontal <br>jardim com 4 cachepos <br>sku110",
+    "Floreira de parede <br>60x60 jardim suspenso <br>3 bases sku71"
 ];
 
 const linkWhatsApp = "https://api.whatsapp.com/send/?phone=5541991371245&text=";
@@ -322,7 +329,7 @@ const descricaoProduto = [
 <p>Altura: 60 cm</p>
 <p>Largura: 100 cm</p>
 <h3>DIMENSÕES DOS CACHEPOS:</h3>
-<p>4 chachepos Largura: 60 x 14 cm</p>
+<p>2 chachepos Largura: 60 x 14 cm</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
 <br>
@@ -618,7 +625,7 @@ const descricaoProduto = [
 <h1>DIMENSÕES PAINEL :</h1>
 <p>Altura: 240 cm</p>
 <p>Largura: 170 cm</p>
-<p>8 CACHEPOS DE 40cm X 15 cm</p>
+<p>8 CACHEPOS DE 40cm X 14 cm</p>
 <p>Altura cachepôs: 8,5cm EXTERNA / 6,5cm INTERNA</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
@@ -668,7 +675,7 @@ const descricaoProduto = [
 <p>Altura: 120 cm</p>
 <p>Largura: 60 cm</p>
 <h3>Extras</h3>
-<p>4 CACHEPOT DE 40 CM X 15 CM</p>
+<p>4 CACHEPOT DE 40 CM X 14 CM</p>
 <br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
 <br>
@@ -720,6 +727,55 @@ const descricaoProduto = [
 <p>2 CACHEPOT COM 35 CM FUNDURA 14 CM.</p>
 <br>
 <h1>OBS:Eles podem ser usados na vertical ou horizontal,pois são em módulos.</h1>
+<p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
+<br>
+<div class="grupo-tonalidades">
+    <strong>Tons rústicos:</strong>
+    <p1 class="tonalidades">
+        <span class="caramelo">Caramelo</span>
+        <span class="rose">Rosê</span>
+        <span class="por-do-sol">Pôr do sol</span>
+        <span class="safari">Safari</span>
+        <span class="envelhecido">Envelhecido</span>
+        <span class="pastel">Pastel</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons amadeirados:</strong>
+    <p1 class="tonalidades">
+        <span class="mogno">Mogno</span>
+        <span class="imbuia">Imbuia</span>
+        <span class="cerejeira-claro">Cerejeira Claro</span>
+        <span class="cerejeira-escuro">Cerejeira Escuro</span>
+    </p1>
+</div>
+
+<div class="grupo-tonalidades">
+    <strong>Tons cheios:</strong>
+    <p1 class="tonalidades">
+        <span class="branco">Branco</span>
+        <span class="preto">Preto</span>
+        <span class="cinza-claro">Cinza Claro</span>
+        <span class="cinza-escuro">Cinza Escuro</span>
+        <span class="camurca">Camurça</span>
+    </p1>
+</div>
+<br>
+<p>FAZEMOS OS CACHEPOS EM TAMANHOS MAIORES E FIXOS NO PAINEL - CONSULTE-NOS PELO WHATS</p>
+<p>
+    PARA COMPRAS VIA MERCADO LIVRE ACESSE NOSSO LINK E VISITE NOSSA LOJA VIRTUAL.
+    <a href="https://lista.mercadolivre.com.br/_CustId_28595610?item_id=MLB3971325067&category_id=MLB271323&seller_id=28595610&client=recoview-selleritems&recos_listing=true#origin=upp&component=sellerData&typeSeller=classic" target="_blank">Acessar site</a>
+</p>
+`,
+`
+<p>Painel estilo treliçado nas cores das imagens.</p>
+<h1>DIMENSÕES PAINEL :</h1>
+<p>Altura: 60 cm</p>
+<p>Largura: 60 cm</p>
+<h3>Bases:</h3>
+<p>3 BASES COM 40cm X 12cm</p>
+<br>
 <p>FAZEMOS OS PAINÉIS NO TAMANHO DO ESPAÇO DA SUA PAREDE; BASTA NOS PASSAR AS MEDIDAS PARA FAZERMOS O ORÇAMENTO. TRABALHAMOS COM AS TONALIDADES:</p>
 <br>
 <div class="grupo-tonalidades">
