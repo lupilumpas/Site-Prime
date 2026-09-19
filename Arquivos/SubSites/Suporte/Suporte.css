@@ -346,6 +346,7 @@ body.state-end .controls {
     color: #00fffe;
     letter-spacing: .1em;
     z-index: 2;
+    user-select: none;
 }
 
 .right-page .page-number {
@@ -356,6 +357,7 @@ body.state-end .controls {
     font-size: 25px;
     color: #00fffe;
     letter-spacing: .1em;
+    user-select: none;
 }
 
 /* Ícone normal */
@@ -948,7 +950,6 @@ p2.indice-text {
     transform: translateX(0px);
 }
 
-.marca-tab-1,
 .marca-tab-2,
 .marca-tab-3 {
     width: 150px;
@@ -971,7 +972,6 @@ p2.indice-text {
     transition: .2s ease;
 }
 
-.marca-tab-1:hover,
 .marca-tab-2:hover,
 .marca-tab-3:hover {
     transform: translateX(-15px) scaleX(1.1);
@@ -1005,4 +1005,11 @@ p2.indice-text {
     font-size: 80px;
 
 
+}
+
+#listaIndice {
+    height: 620px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 7px;
 }
