@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nichos | Galeria</title>
+    <link rel="stylesheet" href="Galeria.css">
+</head>
+<body>
+
+<header>
+<a
+href="/Nichos/"
+data-local="../../Nicho.html"
+class="voltar">
+← Voltar
+</a>
+    <h1>Galeria de Nichos</h1>
+</header>
+
+<main>
+    <div class="filtros">
+        <button data-cor="todos" id="Todos">Todas</button>
+        <button data-cor="Branco" id="Branco">Branco</button>
+        <button data-cor="Camurça" id="Camurça">Camurça</button>
+        <button data-cor="Envelhecido" id="Envelhecido">Envelhecido</button>
+        <button data-cor="Cerejeira Claro" id="Cerejeira Claro">Cerejeira Claro</button>
+        <button data-cor="Cerejeira Escuro" id="Cerejeira Escuro">Cerejeira Escuro</button>
+        <button data-cor="Cinza Claro" id="Cinza Claro">Cinza Claro</button>
+        <button data-cor="Cinza Escuro" id="Cinza Escuro">Cinza Escuro</button>
+        <button data-cor="Imbuia" id="Imbuia">Imbuia</button>
+        <button data-cor="Mogno" id="Mogno">Mogno</button>
+        <button data-cor="Cru ou Natural" id="Cru ou Natural">Cru ou Natural</button>
+        <button data-cor="Por do Sôl" id="Por do sôl">Por do Sôl</button>
+        <button data-cor="Preto" id="Preto">Preto</button>
+        <button data-cor="Caramelo" id="Caramelo">Caramelo</button>
+        <button data-cor="Pastel" id="Pastel">Pastel</button>
+        <button data-cor="Rosê" id="Rosê">Rosê</button>
+        <button data-cor="Safari" id="Safari">Safari</button>
+    </div>
+
+    <div id="galeriaGrid" class="galeria"></div>
+</main>
+
+<div id="lightbox" class="lightbox">
+    <button id="lightboxFechar">×</button>
+    <img id="lightboxImg" src="" alt="Foto ampliada">
+</div>
+
+<script src="Galeria.js"></script>
+<script src="service-worker.js"></script>
+<script src="../../../../Extras Gerais/Proteção-Imagens.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+        .then(() => {
+            console.log("Cache da galeria ativado!");
+        })
+        .catch(erro => {
+            console.error("Erro ao ativar o cache:", erro);
+        });
+}
+</script>
+
+</body>
+</html>
