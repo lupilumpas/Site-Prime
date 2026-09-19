@@ -34,7 +34,7 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   background:
     radial-gradient(circle at 50% 45%, rgba(110, 77, 44, .16), transparent 34%),
-    radial-gradient(circle at 20% 80%, rgba(197, 151, 79, .08), transparent 28%),
+    radial-gradient(circle at 20% 80%, rgba(197, 151, 79, .08), transparent 28%)
     #16110d;
   overflow: hidden;
   display: flex;
@@ -132,6 +132,7 @@ button {
   height: 100%;
   object-fit: fill;
   z-index: 0;
+  background: transparent !important;
 }
 
 .page-content {
