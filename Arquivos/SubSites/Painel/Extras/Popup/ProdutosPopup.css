@@ -1,0 +1,683 @@
+:root {
+    --padding-tonalidade: 5px 12px;
+}
+/* ========================================= */
+/* FUNDO DO POPUP */
+/* ========================================= */
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url("../../../../Fontes/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Poppins-ExtraBold";
+    src: url("../../../../Fontes/Poppins/Poppins-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url("../../../../Fontes/Poppins/Poppins-Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("../../../../Fontes/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url("../../../../Fontes/Poppins/Poppins-SemiBold.ttf") format("truetype");
+}
+
+.popup-fundo {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.popup-fundo.ativo {
+    display: flex;
+
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* ========================================= */
+/* POPUP */
+/* ========================================= */
+
+.popup-produto {
+
+    position: relative;
+
+    width: 1189px;
+
+    height: 100%;
+
+    background: transparent;
+    overflow: hidden;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ========================================= */
+/* BOTÃO FECHAR */
+/* ========================================= */
+
+.popup-fechar {
+    position: absolute;
+
+    top: 5px;
+    right: 25px;
+
+    font-size: 30px;
+
+    color: #33291f;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+
+/* ========================================= */
+/* ÁREA DAS IMAGENS */
+/* ========================================= */
+
+.popup-imagens {
+    position: relative;
+
+    width: 700px;
+    max-width: 100%;
+
+    height: 360px;
+
+    margin: -20px -30px 20px;
+
+    overflow: hidden;
+}
+
+
+/* ========================================= */
+/* TODAS AS IMAGENS */
+/* ========================================= */
+
+.popup-imagens img {
+
+    position: absolute;
+
+    top: 50%;
+
+    object-fit: cover;
+
+    display: block;
+
+    cursor: pointer;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* ========================================= */
+/* IMAGEM MAIS À ESQUERDA */
+/* ========================================= */
+
+.popup-imagens .Imagem-Anterior-2 {
+
+    left: -5%;
+
+    width: 120px;
+    height: 140px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.55);
+
+    opacity: 0.15;
+
+    z-index: 1;
+}
+
+
+/* ========================================= */
+/* IMAGEM DA ESQUERDA */
+/* ========================================= */
+
+.popup-imagens .Imagem-Anterior {
+
+    left: 20%;
+
+    width: 150px;
+    height: 170px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.65);
+
+    opacity: 0.35;
+
+    z-index: 2;
+}
+
+
+/* ========================================= */
+/* IMAGEM CENTRAL */
+/* ========================================= */
+
+.popup-imagens .Imagem-central {
+
+    left: 50%;
+
+    width: 300px;
+    height: 340px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    opacity: 1;
+
+    z-index: 3;
+}
+
+
+/* ========================================= */
+/* IMAGEM DA DIREITA */
+/* ========================================= */
+
+.popup-imagens .Imagem-Seguinte {
+
+    left: 80%;
+
+    width: 150px;
+    height: 170px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.65);
+
+    opacity: 0.35;
+
+    z-index: 2;
+}
+
+
+/* ========================================= */
+/* IMAGEM MAIS À DIREITA */
+/* ========================================= */
+
+.popup-imagens .Imagem-Seguinte-2 {
+
+    left: 105%;
+
+    width: 120px;
+    height: 140px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.55);
+
+    opacity: 0.15;
+
+    z-index: 1;
+}
+
+
+/* ========================================= */
+/* NOME */
+/* ========================================= */
+
+.popup-produto h2 {
+
+    color: #0F492D;
+
+    font-size: 40px;
+    text-align: left;
+
+    transform: translate(650px, -330px);
+}
+
+
+/* ========================================= */
+/* DESCRIÇÃO */
+/* ========================================= */
+
+.popup-descricao {
+    position: absolute;
+    top: 47%;
+    left: 2%;
+    width: 96%;
+
+    color: #6d6258;
+
+    font-size: 19px;
+
+    height: 489px;
+
+    overflow-y: auto;
+    text-align: left;
+    overflow-x: hidden;
+}
+
+/* ========================================= */
+/* PREÇO */
+/* ========================================= */
+
+.popup-preco {
+
+background: linear-gradient(90deg, #00bb14, #315F4B);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+    font-size: 60px;
+
+    text-align: left;
+
+    margin-bottom: 5px;
+
+    transform: translate(650px, -355px);
+}
+
+
+/* ========================================= */
+/* BOTÃO COMPRAR */
+/* ========================================= */
+
+.popup-comprar {
+
+    display: inline-block;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transform: translate(323px, -374px);
+    transition: filter 0.2s ease;
+}
+
+.popup-comprar:hover {
+    filter: brightness(1.3);
+}
+
+.popup-descricao p {
+    margin: 0 0 -5px;
+    line-height: 1.6;
+}
+
+.popup-descricao p1 {
+    font-size: 25px;
+    margin: 0 0 0px;
+    line-height: 1.6;
+}
+
+.popup-descricao a {
+    margin: 0 0 35px;
+    line-height: 1.6;
+}
+.popup-descricao p,
+.popup-descricao h1,
+.popup-descricao h3 {
+    width: fit-content;
+}
+
+/* ====================================================================== */
+/* Aqui vai ter a parte das fontes, cor das fontes e a largura das fontes */
+/* ====================================================================== */
+.PB{
+    font-family: Poppins-Bold;
+    color: #123F28;
+    font-weight: 700;
+}
+.PEB{
+    font-family: Poppins-ExtraBold;
+    color: #0B3B25;
+    font-weight: 800;
+}
+.PM{
+    font-family: Poppins-Medium;
+    color: #174B2D;
+    font-weight: 500;
+}
+.PR {
+    font-family: Poppins-Regular;
+    color: #315F4B;
+    font-weight: 400;
+}
+.PSB{
+    font-family: Poppins-SemiBold;
+    color: #123F28;
+    font-weight: 600;
+}
+
+/* ====================================================================== */
+/* Aqui vai ter a parte das fontes, cor das fontes e a largura das fontes */
+/* ====================================================================== */
+.linha-1 {
+    transform: translate(375px, 85px);
+    font-size: 19px;
+    position: absolute;
+}
+.linha-2 {
+    transform: translate(78px, 35px);
+    position: absolute;
+}
+.l3 {
+    transform: translate(85px, 79px);
+    font-size: 22px !important;
+    position: absolute;
+}
+.l3-2{
+    position: absolute;
+    transform: translate(0px, 5px);
+}
+.linha-3a{
+    font-size: 24px !important;
+    position: absolute;
+    transform: translate(0px, 0px);
+    white-space: nowrap;
+}
+.linha-3b{
+position: absolute;
+transform: translate(0px, 25px);
+white-space: nowrap;
+}
+.linha-3c{
+position: absolute;
+transform: translate(0px, 50px);
+white-space: nowrap;
+}
+
+.l6{
+    font-size: 22px !important;
+    transform: translate(80px, 220px);
+    position: absolute;
+    white-space: nowrap;
+}
+.l6-2{
+    position: absolute;
+    transform: translate(0px, 5px);
+}
+.l62-2{
+    position: absolute;
+    transform: translate(-73px, 40px);
+}
+.linha-6a {
+    font-size: 21px !important;
+    position: absolute;
+    transform: translate(0px, 0px);
+    white-space: nowrap;
+}
+.linha-62a {
+    font-size: 21px !important;
+    position: absolute;
+    transform: translate(0px, 24px);
+    white-space: nowrap;
+}
+.linha-6b {
+    position: absolute;
+    transform: translate(0px, 20px);
+    white-space: nowrap;
+}
+.linha-6c {
+    position: absolute;
+    transform: translate(0px, 45px);
+    white-space: nowrap;
+}
+.linha-6d {
+    position: absolute;
+    transform: translate(295px, 83px);
+    white-space: nowrap;
+}
+.linha-6e {
+    position: absolute;
+    transform: translate(275px, 104px);
+    white-space: nowrap;
+}
+
+
+.linha-8 {
+    transform: translate(375px, 230px);
+    width: 800px !important;
+    max-width: 750px !important;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    position: absolute;
+}
+
+.linha-9 {
+    position: absolute !important;
+    transform: translate(320px, 353px) scale(0.9) !important;position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 40px;
+    width: max-content;
+}
+.linha-9-2{
+    display: inline-block;
+    top: 34px;
+    left: -200px;
+    position: absolute;
+}
+strong.linha-9-2a{
+    display: inline-block;
+    transform: translate(0px, 0px)!important;
+}
+strong.linha-9-2b{
+    display: inline-block;
+    transform: translate(0px, 0px)!important;
+}
+strong.linha-9-2c{
+    display: inline-block;
+    transform: translate(0px, 0px)!important;
+}
+.linha-9a {
+transform: translate(0px, 62px);
+}
+.linha-9b {
+transform: translate(-591px, 25px);
+}
+.linha-9c {
+transform: translate(-1096px, -12px);
+}
+/* .linha-9-3a {
+transform: translate(-55px, 24px);
+}
+.linha-9-3b {
+transform: translate(-55px, 24px);
+}
+.linha-9-3c {
+transform: translate(-55px, 24px);
+} */
+
+.l10-11 {
+    transform: translate(375px, 110px);
+    width: 800px !important;
+    max-width: 750px !important;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    position: absolute;
+}
+.linha-10 {
+    position: absolute;
+    top: 60px;
+}
+.linha-11 {
+    position: absolute;
+    top: 0px;
+}
+
+
+/* ========================================= */
+/* Tonalidades da ovais da descrição         */
+/* ========================================= */
+.tonalidades {
+    /* display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    user-select: none; */
+    display: inline-block;
+    transform: translate(-5px, 26px);
+}
+.tonalidades span {
+    display: inline-block;
+    padding: 7px 10px;
+    border-radius: 50px;
+    font-size: 18px;
+    line-height: 1;
+    color: #33291f;
+}
+.tonalidades .branco {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Branco.png");
+    background-size: cover;
+    background-position: center;
+    user-select: none;
+}
+.tonalidades .camurca {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Camurça.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none; 
+}
+.tonalidades .envelhecido {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Envelhecido.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .cerejeira-claro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cerejeira\ Claro.png");
+    background-size: cover;
+    background-position: center;
+    user-select: none;
+}
+.tonalidades .cerejeira-escuro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cerejeira\ Escuro.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .cinza-claro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Claro.png");
+    background-size: cover;
+    background-position: center;
+    user-select: none;
+}
+.tonalidades .cinza-escuro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Escuro.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .imbuia {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Imbuia.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .caramelo {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Caramelo.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .rose {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Rosê.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .por-do-sol {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Por\ do\ sôl.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .safari {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Safari.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .pastel {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Pastel.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .mogno {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Mogno.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .preto {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Preto.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .cinza-claro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Claro.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+.tonalidades .cinza-escuro {
+    background-image: url("../../../../Extras\ Gerais/Texturas/Cinza\ Escuro.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    user-select: none;
+}
+
+.popup-imagem-fundo {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 0;
+}

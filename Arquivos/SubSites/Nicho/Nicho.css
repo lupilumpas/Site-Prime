@@ -1,0 +1,621 @@
+/* ================================
+   VARIÁVEIS E RESET
+   ================================ */
+:root {
+    --white: #ffffff;
+    --dark: #33291f;
+    --gray: #6d6258;
+    --whatsapp: #25D366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #f8f5f1;
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ================================
+   HERO
+   ================================ */
+.hero {
+    width: 100%;
+    height: 70vh;
+    min-height: 420px;
+    background: #e8e0d5;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    top: 455px;
+    left: 29%;
+}
+.hero-description {
+    max-width: 570px;
+    margin: 25px 0 32px;
+    color: rgba(255,255,255,.88);
+    font-size: 1.08rem;
+    text-align: center;
+    transform: translateX(70px);
+}
+.hero h1 {
+    color: var(--white);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3rem, 7vw, 5.7rem);
+    font-weight: 500;
+    line-height: .96;
+    letter-spacing: -.04em;
+    text-align: center;
+}
+/* ================================
+   SEÇÃO PRINCIPAL DO NICHO
+   ================================ */
+.secao-nicho {
+    position: relative;
+    width: 100%;
+    min-height: 900px;          /* ajuste conforme o design */
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;         /* espaço controlado, sem margins enormes */
+}
+
+/* Fundo do nicho */
+.fundo-nicho {
+    position: absolute;
+    inset: 0;
+    background-size: 60% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.70;
+    z-index: 0;
+    transition: background-image 0.8s ease;
+}
+
+/* Conteúdo principal */
+.conteudo-nicho {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    width: 100%;
+    height: 100%;               /* ocupa a altura da seção */
+    display: flex;              /* ou grid se preferir */
+    align-items: center;
+    justify-content: center;
+    gap: 40px;                  /* controle o espaçamento aqui */
+}
+
+/* Wrapper da churrasqueira – SEM top/left enormes */
+.churrasqueira-wrapper {
+    position: relative;
+    width: 425px;
+    height: 750px;              
+    left: 241px;
+    top: 12px;
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(145deg, #3a3229, #2a221c);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.img-churrasqueira {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.img-nicho {
+    position: absolute;
+    z-index: 2;
+    width: 80%;
+    height: 36%;
+    object-fit: cover;
+    left: 10%;
+    top: 31.5%;
+    transition: opacity 0.8s ease;
+}
+
+.img-nicho-interno {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bloco do círculo (nome + preço + botão) */
+.bloco-info {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bloco de info (círculo) */
+.circulo-produto {
+    position: relative;
+    width: 433px;
+    height: 323px;
+    top: -204px;
+    left: 249px;
+    border-radius: 15%;
+    background: linear-gradient(145deg, #ffffff, #f0ebe3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.circulo-produto h2 {
+    position: relative;
+    font-size: 2.35rem;
+    font-weight: 500;
+    color: var(--dark);
+    line-height: 1.25;
+}
+
+.preco-label {
+    font-size: 2.05rem;
+    color: var(--gray);
+}
+
+#valorPreco {
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 2.25rem;
+}
+
+.botao-comprar {
+    display: inline-block;
+    position: relative;
+    top: 80px;
+    left: 0px;
+    padding: 12px 22px;
+    background: var(--whatsapp);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+.botao-comprar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+}
+
+/* Triângulo / descrição */
+.bloco-descricao {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+}
+
+/* Descrição */
+.triangulo-descricao {
+    position: relative;
+    width: 437px;
+    top: 188px;
+    left: -224px;
+    height: 388px;               /* deixe a altura se ajustar ao conteúdo */
+    background: #fff;
+    padding: 0 0 5px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.triangulo-descricao p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--gray);
+    text-align: center;
+}
+
+/* ================================
+   BOTÕES FLUTUANTES WHATS / INSTA
+   ================================ */
+.hero-left-link {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    z-index: 10;
+    text-decoration: none;
+}
+
+.hero-left-content {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+.WhatsApp-icon {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+.WhatsApp-expand {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.8);
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.hero-image-left {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.hero-left-text {
+    margin-top: 8px;
+    padding: 5px 10px;
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    background: #25D366;
+    border-radius: 5px;
+}
+
+.hero-left-link:hover .hero-left-content {
+    width: 190px;
+    height: 220px;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+.hero-left-link:hover .WhatsApp-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+.hero-left-link:hover .WhatsApp-expand {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* Instagram */
+.hero-right-link {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    z-index: 10;
+    text-decoration: none;
+}
+
+.hero-right-content {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        height .45s cubic-bezier(.22, 1, .36, 1),
+        border-radius .45s ease,
+        box-shadow .3s ease;
+}
+
+.instagram-icon {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    transition:
+        opacity .2s ease,
+        transform .35s ease;
+}
+
+.instagram-expand {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.8);
+    transition:
+        opacity .3s ease .1s,
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.hero-image-right {
+    width: 150px;
+    height: 160px;
+    object-fit: contain;
+}
+
+.hero-right-text {
+    margin-top: 8px;
+    padding: 5px 10px;
+    color: var(--white);
+    font-family: "Inter", Arial, sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    background-image: url("Img/Fundo\ instagram.png");
+    background-size: cover;
+    background-position: center;
+    background-color: #E1306C;
+    border-radius: 5px;
+}
+
+.hero-right-link:hover .hero-right-content {
+    width: 190px;
+    height: 220px;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+}
+
+.hero-right-link:hover .instagram-icon {
+    opacity: 0;
+    transform: scale(.7);
+}
+
+.hero-right-link:hover .instagram-expand {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* ================================
+   GALERIA
+   ================================ */
+.galeria {
+    padding: 80px 20px 100px;
+    text-align: center;
+    background: #fff;
+}
+
+.galeria h2 {
+    color: var(--dark);
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+
+.galeria-item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: scale(1.03);
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.6s ease;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox.ativo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    transform: scale(0.3);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 8px;
+}
+
+.lightbox.ativo img {
+    transform: scale(1);
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10000;
+    transition: transform 0.2s ease;
+}
+
+.lightbox-fechar:hover {
+    transform: scale(1.2);
+}
+
+.botao-galeria {
+    padding: 14px 36px;
+    background: var(--dark);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.botao-galeria:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ================================
+   RESPONSIVO
+   ================================ */
+@media (max-width: 900px) {
+    .conteudo-nicho {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .bloco-churrasqueira {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .bloco-info {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .bloco-descricao {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .circulo-produto {
+        width: 240px;
+        height: 240px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-left-link,
+    .hero-right-link {
+        bottom: 15px;
+    }
+
+    .hero-left-link {
+        left: 15px;
+    }
+
+    .hero-right-link {
+        right: 15px;
+    }
+}
+
+.setas-nicho {
+    position: relative;
+    display: flex;
+    left: -1.5%;
+    top: -60px;
+    gap: 310px;
+}
+
+.setas-nicho button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: var(--dark);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.setas-nicho button:hover {
+    transform: scale(1.1);
+    background: #514337;
+}
