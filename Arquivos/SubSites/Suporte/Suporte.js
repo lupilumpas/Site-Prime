@@ -17,30 +17,30 @@ const skusIndice2 = [
 
 const imagensPorProduto = { //por enquanto vou deixar todos com 1 pq, as imagens tão bem merda, eu acho que pelo menos 5 de cada um seria bem legal, fazer umas 10 fotos e pegar as mais bonitas, seria uma boa ideia
     [numeroSku[1]]: 9,
-    [numeroSku[2]]: 1,
-    [numeroSku[3]]: 1,
-    [numeroSku[4]]: 1,
-    [numeroSku[5]]: 1,
-    [numeroSku[6]]: 1,
-    [numeroSku[7]]: 1,
-    [numeroSku[8]]: 1,
-    [numeroSku[9]]: 1,
-    [numeroSku[10]]: 1,
+    [numeroSku[2]]: 11,
+    [numeroSku[3]]: 11,
+    [numeroSku[4]]: 11,
+    [numeroSku[5]]: 10, //33
+    [numeroSku[6]]: 9,
+    [numeroSku[7]]: 9,
+    [numeroSku[8]]: 10,
+    [numeroSku[9]]: 7,
+    [numeroSku[10]]: 9,
     [numeroSku[11]]: 1,
-    [numeroSku[12]]: 1,
-    [numeroSku[13]]: 1,
-    [numeroSku[14]]: 1,
-    [numeroSku[15]]: 1,
-    [numeroSku[16]]: 1,
-    [numeroSku[17]]: 1,
-    [numeroSku[18]]: 1,
-    [numeroSku[19]]: 1,
-    [numeroSku[20]]: 1,
-    [numeroSku[21]]: 1,
-    [numeroSku[22]]: 1,
-    [numeroSku[23]]: 1,
-    [numeroSku[24]]: 1,
-    [numeroSku[25]]: 1,
+    [numeroSku[12]]: 9,
+    [numeroSku[13]]: 2,
+    [numeroSku[14]]: 10,
+    [numeroSku[15]]: 2,
+    [numeroSku[16]]: 11,
+    [numeroSku[17]]: 2,
+    [numeroSku[18]]: 2,
+    [numeroSku[19]]: 2,
+    [numeroSku[20]]: 6,
+    [numeroSku[21]]: 9,
+    [numeroSku[22]]: 2,
+    [numeroSku[23]]: 2,
+    [numeroSku[24]]: 7,
+    [numeroSku[25]]: 9,
 };
 
 const book = document.getElementById("book");
@@ -62,6 +62,56 @@ function setPageContent(element, html) {
   element.innerHTML = html || "";
 }
 
+function iniciarComparador(galeria) {
+
+    const comparador = document.createElement("div");
+    comparador.className = "comparador-produto";
+
+    comparador.innerHTML = `
+        <img class="comparador-antes"
+             src="Img/Produtos/104/03.png"
+             alt="">
+
+        <div class="comparador-depois">
+            <img src="Img/Produtos/104/02.png" alt="">
+        </div>
+
+        <div class="comparador-barra">
+            <div class="comparador-botao">↔</div>
+        </div>
+    `;
+galeria.appendChild(comparador);
+
+    const depois = comparador.querySelector(".comparador-depois");
+    const barra = comparador.querySelector(".comparador-barra");
+
+    let arrastando = false;
+
+    function mover(x) {
+        const rect = comparador.getBoundingClientRect();
+
+        let porcentagem =
+            ((x - rect.left) / rect.width) * 100;
+
+        porcentagem = Math.max(0, Math.min(100, porcentagem));
+
+        depois.style.width = `${porcentagem}%`;
+        barra.style.left = `${porcentagem}%`;
+    }
+
+    barra.addEventListener("mousedown", () => {
+        arrastando = true;
+    });
+
+    document.addEventListener("mousemove", event => {
+        if (arrastando) mover(event.clientX);
+    });
+
+    document.addEventListener("mouseup", () => {
+        arrastando = false;
+    });
+}
+
 function iniciarGaleria() {
   const galerias = document.querySelectorAll(".galeria-produto");
 
@@ -69,6 +119,15 @@ function iniciarGaleria() {
 const indice = Number(galeria.dataset.indice);
 const nomePasta = numeroSku[indice];
     const imagem = galeria.querySelector(".galeria-imagem");
+    let mascara = galeria.querySelector(".galeria-mascara");
+
+if (!mascara) {
+  mascara = document.createElement("img");
+  mascara.src = "Img/Livro/MascaraEsquerda.png";
+  mascara.alt = "";
+  mascara.className = "galeria-mascara";
+  galeria.appendChild(mascara);
+}
     const anterior = galeria.querySelector(".galeria-anterior");
     const proxima = galeria.querySelector(".galeria-proxima");
     const contador = galeria.querySelector(".galeria-contador");
@@ -86,7 +145,23 @@ const nomePasta = numeroSku[indice];
     function atualizarGaleria() {
       if (imagens.length === 0) return;
 
-      imagem.src = imagens[indiceAtual];
+      if (galeria.dataset.indice === "18" && indiceAtual === 1) {
+    imagem.style.display = "none";
+
+    if (!galeria.querySelector(".comparador-produto")) {
+        iniciarComparador(galeria);
+    }
+} else {
+    imagem.style.display = "";
+    
+    const comparadorExistente = galeria.querySelector(".comparador-produto");
+
+    if (comparadorExistente) {
+        comparadorExistente.remove();
+    }
+
+    imagem.src = imagens[indiceAtual];
+}
       contador.textContent = `${indiceAtual + 1} / ${imagens.length}`;
 
       anterior.disabled = indiceAtual === 0;

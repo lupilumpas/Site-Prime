@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Soluções em madeira para construção, reformas e projetos.">
     <title>JDM Madeiras</title>
+    <link rel="stylesheet" href="Extras/Avaliações.css">
     <link rel="stylesheet" href="Central.css">
     <link rel="stylesheet" href="Extras/Hero.css">
     <link rel="stylesheet" href="../Extras Gerais/Ajustador.css">
@@ -22,13 +23,12 @@
     </a>
 </div>
 
-    <nav class="main-nav">
-        <a href="#inicio">Início</a>
-        <a href="#produtos">Produtos</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#sobre">Sobre nós</a>
-        <a href="#orcamento">Orçamento</a>
-        <a href="#contato">Contato</a>
+        <nav class="main-nav">
+            <a href="#inicio">Início</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#Avaliacoes">Avaliações</a>
+            <a href="#Pergunta">Perguntas frequentes</a>
+            <a href="#contato">Contato</a>
         </nav>
 
     </header>
@@ -124,7 +124,7 @@
     class="product-card"
     target="_blank"
     rel="noopener noreferrer"
-    data-local="file:///C:/Users/sonho/Pictures/Projeto%20Meu%20Site/Arquivos/SubSites/Escadinha/Escadinha.html">
+    data-local="Arquivos/SubSites/Escadinha/Escadinha.html">
                         <div class="product-image">
                             <span class="product-tag">Beleza</span>
                                 <img src="img/Escadinha.jpeg" alt="Tampa para churrasqueira e lareiras" class="produto-img">
@@ -142,7 +142,7 @@
    class="product-card"
    target="_blank"
    rel="noopener noreferrer"
-   data-local="file:///C:/Users/sonho/Pictures/Projeto%20Meu%20Site/Arquivos/SubSites/Painel/Painel.html">
+   data-local="Arquivos/SubSites/Painel/Painel.html">
                         <div class="product-image">
                             <span class="product-tag">Bom gosto</span>
                             <img src="img/Painel.jpeg" alt="Tampa para churrasqueira e lareiras" class="produto-img">
@@ -157,7 +157,7 @@
     class="product-card"
     target="_blank"
     rel="noopener noreferrer"
-    data-local="file:///C:/Users/sonho/Pictures/Projeto%20Meu%20Site/Arquivos/SubSites/Nicho/Nicho.html">
+    data-local="Arquivos/SubSites/Nicho/Nicho.html">
                         <div class="product-image">
                             <span class="product-tag">Um charme p/ sua casa</span>
                             <img src="img/Nicho.jpeg" alt="Tampa para churrasqueira e lareiras" class="produto-img">
@@ -172,7 +172,7 @@
     class="product-card"
     target="_blank"
     rel="noopener noreferrer"
-    data-local="file:///C:/Users/sonho/Pictures/Projeto%20Meu%20Site/Arquivos/SubSites/Suporte/Suporte.html">
+    data-local="Arquivos/SubSites/Suporte/Suporte.html">
                         <div class="product-image">
                             <span class="product-tag">Praticidade</span>
                             <img src="img/Suporte.jpeg" alt="Suporte" class="produto-img">
@@ -262,7 +262,7 @@
 
 <!-- -->
 
-     <!--   <section id="projetos" class="projects-section">
+       <!-- <section id="projetos" class="projects-section">
             <div class="container">
                 <div class="section-heading centered">
                     <p class="eyebrow">INSPIRAÇÃO</p>
@@ -299,69 +299,81 @@
                     <a href="#contato" class="button button-primary">Conheça nosso trabalho</a>
                 </div>
             </div>
-        </section>
+        </section>-->
 
-        <section class="reviews-section">
-            <div class="container">
-                <div class="section-heading centered">
-                    <p class="eyebrow">AVALIAÇÕES</p>
-                    <h2>O que nossos clientes dizem</h2>
-                </div>
+<section id="Avaliacoes" class="reviews-section">
+    <div class="container">
 
-                <div class="reviews-grid">
-                    <article class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p>“Excelente atendimento e produtos de ótima qualidade. Recomendo!”</p>
-                        <strong>Cliente 01</strong>
-                        <span>Curitiba – PR</span>
-                    </article>
-                    <article class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p>“Fui muito bem atendido e consegui encontrar uma solução para meu projeto.”</p>
-                        <strong>Cliente 02</strong>
-                        <span>Região Metropolitana – PR</span>
-                    </article>
-                    <article class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p>“Gostei muito do resultado. Atendimento rápido e equipe prestativa.”</p>
-                        <strong>Cliente 03</strong>
-                        <span>Paraná</span>
-                    </article>
-                </div>
+        <div class="section-heading centered">
+            <p class="eyebrow">AVALIAÇÕES</p>
+            <h2>O que nossos clientes dizem</h2>
+        </div>
+
+        <div class="reviews-slider">
+
+            <button
+                class="reviews-arrow reviews-arrow-left"
+                id="reviews-prev"
+                type="button"
+                aria-label="Avaliações anteriores"
+            >
+                ‹
+            </button>
+
+            <div class="reviews-grid" id="reviews-container">
+                <!-- Os cards serão criados pelo JavaScript -->
             </div>
-        </section> -->
 
-        <section class="faq-section">
+            <button
+                class="reviews-arrow reviews-arrow-right"
+                id="reviews-next"
+                type="button"
+                aria-label="Próximas avaliações"
+            >
+                ›
+            </button>
+
+        </div>
+
+<button
+    class="botao-avaliacao"
+    id="botaoAvaliacao"
+    data-local="./Extras/Avaliações/index.html"
+    href="/Avaliações/"
+    type="button"
+>
+    Ver mais Avaliações
+</button>
+
+    </div>
+</section>
+
+        <section id="Pergunta" class="faq-section">
             <div class="container faq-container">
                 <div class="section-heading">
-                    <p class="eyebrow">DÚVIDAS</p>
                     <h2>Perguntas frequentes</h2>
                 </div>
 
                 <div class="faq-list">
                     <details>
                         <summary>Como posso solicitar um orçamento?</summary>
-                        <p>Ao clicar no botão "Comprar" o Sr(a) será redireciona para para o WhatsApp aonde faremos o orçamento</p>
+                        <p>Dentro dos subsites, cada produto conterá um botão de comprar. Dentro dos subsites, cada produto conterá um botão de comprar, ou pode ser acessado na seção abaixo "FALE CONOSCO".</p>
                     </details>
                     <details>
                         <summary>Vocês entregam?</summary>
-                        <p>Consulte nossa equipe para verificar disponibilidade e condições de entrega para sua região.</p>
+                        <p>Entregamos por Uber na região ou por transportadora para casos mais longes.</p>
                     </details>
                     <details>
                         <summary>Posso solicitar medidas diferentes?</summary>
-                        <p>Alguns produtos podem possuir opções de medidas ou fabricação sob consulta.</p>
+                        <p>Com certeza, quase 100% de nossos produtos podem ter um tamanho diferente do que é especificado na descrição, para todos os gostos. :)</p>
                     </details>
                     <details>
                         <summary>Como funciona o atendimento?</summary>
-                        <p>Nossa equipe analisa sua necessidade e ajuda a encontrar a solução mais adequada.</p>
+                        <p>Atendemos principalmente por WhatsApp, porém também atendemos por outros lugares, caso necessário.</p>
                     </details>
                 </div>
             </div>
         </section>
-
-<section id="orcamento"></section>
-
-<section id="contato" class="contact-section">
 
         <section id="contato" class="contact-section">
             <div class="container contact-grid">
@@ -398,12 +410,11 @@
 
             <div>
                 <h3>Navegação</h3>
-        <a href="#inicio">Início</a>
-        <a href="#produtos">Produtos</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#sobre">Sobre nós</a>
-        <a href="#orcamento">Orçamento</a>
-        <a href="#contato">Contato</a>
+            <a href="#inicio">Início</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#Avaliacoes">Avaliações</a>
+            <a href="#Pergunta">Perguntas frequentes</a>
+            <a href="#contato">Contato</a>
             </div>
 
             <div>
@@ -421,10 +432,38 @@
 
         <div class="container footer-bottom">
             <span>© 2026 Jardins de Madeira. Todos os direitos reservados à JDM Madeiras 43.389.993/0001-48</span>
-            <span>Site e Subsites · Feito por Lucas Tuleski<br>Caso tenha interesse, Meu WhatsApp: 41+ 99641-2404</span>
+            <span>Site e Subsites · Feito por Lucas Tuleski<br>Caso tenha interesse, Meu WhatsApp: 41 99641-2404</span>
         </div>
     </footer>
 
+
+    <!-- =========================================================
+     LIGHTBOX DAS AVALIAÇÕES
+     ========================================================= -->
+
+<div
+    id="lightboxAvaliacao"
+    class="lightbox-avaliacao"
+    aria-hidden="true"
+>
+    <button
+        id="fecharLightboxAvaliacao"
+        class="lightbox-avaliacao-fechar"
+        type="button"
+        aria-label="Fechar imagem"
+    >
+        ×
+    </button>
+
+    <img
+        id="lightboxAvaliacaoImg"
+        src=""
+        alt="Imagem ampliada da avaliação"
+    >
+</div>
+
+    <script src="Extras/avaliacoes.js"></script>
+    <script src="Extras/Avaliações.js"></script>
     <script src="Central.js"></script>
     <script src="Extras/Hero.js"></script>
     <script src="../Extras Gerais/Proteção-Imagens.js"></script>

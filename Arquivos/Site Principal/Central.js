@@ -1,5 +1,3 @@
-
-
 /* =========================================================
    JARDINS DE MADEIRA — SCRIPT.JS
    ========================================================= */
@@ -17,11 +15,21 @@ document.addEventListener("click", function (event) {
     const caminhoLocal = card.dataset.local;
     const caminhoOnline = card.getAttribute("href");
 
-    const caminho = window.location.protocol === "file:"
-        ? caminhoLocal
-        : caminhoOnline;
+    let caminho;
 
-    // Cria um link temporário
+    if (window.location.protocol === "file:") {
+
+        caminho = new URL(
+            "../../" + caminhoLocal,
+            window.location.href
+        ).href;
+
+    } else {
+
+        caminho = caminhoOnline;
+
+    }
+
     const novoLink = document.createElement("a");
 
     novoLink.href = caminho;
@@ -79,39 +87,51 @@ document.addEventListener("click", function (event) {
     });
 
 
-    /* ---------------------------------------------------------
-       2. NAVEGAÇÃO SUAVE
-       --------------------------------------------------------- */
+/* ---------------------------------------------------------
+   2. NAVEGAÇÃO SUAVE
+   --------------------------------------------------------- */
 
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener("click", event => {
-            const targetId = link.getAttribute("href");
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", event => {
+        const targetId = link.getAttribute("href");
 
-            if (!targetId || targetId === "#") {
-                event.preventDefault();
-                return;
-            }
+        if (!targetId || targetId === "#") {
+            event.preventDefault();
+            return;
+        }
 
-            const target = document.querySelector(targetId);
+        const target = document.querySelector(targetId);
 
-            if (target) {
-                event.preventDefault();
+        if (target) {
+            event.preventDefault();
 
-                const header = document.querySelector(".site-header");
-                const headerHeight = header ? header.offsetHeight : 0;
+            const header = document.querySelector(".site-header");
+            const headerHeight = header ? header.offsetHeight : 0;
 
-                const targetPosition =
-                    target.getBoundingClientRect().top +
-                    window.scrollY -
-                    headerHeight;
+            /* Deslocamento extra por seção */
+            const deslocamentos = {
+                "#Avaliacoes": 120,
+                "#produtos": 200,
+                "#Pergunta": -300,
+                "#contato": 0,
+                "#inicio": 0
+            };
 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: "smooth"
-                });
-            }
-        });
+            const deslocamentoExtra = deslocamentos[targetId] ?? 0;
+
+            const targetPosition =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                headerHeight +
+                deslocamentoExtra;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+            });
+        }
     });
+});
 
 
     /* ---------------------------------------------------------
@@ -247,8 +267,6 @@ document.addEventListener("click", function (event) {
             });
         });
     }
-
-
     /* ---------------------------------------------------------
        4. ANIMAÇÃO AO ENTRAR NA TELA
        --------------------------------------------------------- */
@@ -375,5 +393,4 @@ document.addEventListener("click", function (event) {
             .replaceAll('"', "&quot;")
             .replaceAll("'", "&#039;");
     }
-
 });

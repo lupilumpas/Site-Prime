@@ -254,10 +254,10 @@
 
     color: #0F492D;
 
-    font-size: 40px;
-    text-align: left;
+    font-size: 32px;
+    text-align: center;
 
-    transform: translate(650px, -330px);
+    transform: translate(312px, -315px);
 }
 
 
@@ -293,13 +293,13 @@ background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 
-    font-size: 60px;
+    font-size: 40px;
 
     text-align: left;
 
     margin-bottom: 5px;
 
-    transform: translate(650px, -355px);
+    transform: translate(773px, -310px);
 }
 
 
@@ -315,7 +315,7 @@ background-clip: text;
 
     cursor: pointer;
 
-    transform: translate(323px, -374px);
+    transform: translate(323px, -309px);
     transition: filter 0.2s ease;
 }
 
@@ -505,16 +505,6 @@ transform: translate(-591px, 25px);
 .linha-9c {
 transform: translate(-1096px, -12px);
 }
-/* .linha-9-3a {
-transform: translate(-55px, 24px);
-}
-.linha-9-3b {
-transform: translate(-55px, 24px);
-}
-.linha-9-3c {
-transform: translate(-55px, 24px);
-} */
-
 .l10-11 {
     transform: translate(375px, 110px);
     width: 800px !important;
@@ -532,8 +522,6 @@ transform: translate(-55px, 24px);
     position: absolute;
     top: 0px;
 }
-
-
 /* ========================================= */
 /* Tonalidades da ovais da descrição         */
 /* ========================================= */

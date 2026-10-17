@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JDM Madeiras | Avaliações</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <a
+        href="/Avaliações"
+        data-local="../../Central.html"
+        class="voltar"
+    >
+        ← Voltar
+    </a>
+
+    <h1>Todas as avaliações</h1>
+
+</header>
+
+
+<main>
+
+<main>
+
+<div class="filtros-avaliacoes">
+
+    <button
+        type="button"
+        data-nota="todas"
+        class="filtro-avaliacao ativo"
+    >
+        Todas (<span class="filtro-quantidade">0</span>)
+    </button>
+
+    <button
+        type="button"
+        data-nota="5"
+        class="filtro-avaliacao"
+    >
+        ★★★★★ (<span class="filtro-quantidade">0</span>)
+    </button>
+
+    <button
+        type="button"
+        data-nota="4"
+        class="filtro-avaliacao"
+    >
+        ★★★★☆ (<span class="filtro-quantidade">0</span>)
+    </button>
+
+    <button
+        type="button"
+        data-nota="3"
+        class="filtro-avaliacao"
+    >
+        ★★★☆☆ (<span class="filtro-quantidade">0</span>)
+    </button>
+
+    <button
+        type="button"
+        data-nota="2"
+        class="filtro-avaliacao"
+    >
+        ★★☆☆☆ (<span class="filtro-quantidade">0</span>)
+    </button>
+
+    <button
+        type="button"
+        data-nota="1"
+        class="filtro-avaliacao"
+    >
+        ★☆☆☆☆ (<span class="filtro-quantidade">0</span>)
+    </button>
+
+</div>
+
+
+    <div
+        class="reviews-grid"
+        id="reviews-container"
+    >
+        <!-- Os cards serão criados pelo JavaScript -->
+    </div>
+
+</main>
+
+    <div class="reviews-grid" id="reviews-container">
+        <!-- Os cards serão criados pelo JavaScript -->
+    </div>
+
+</main>
+
+<div id="lightboxAvaliacao" class="lightbox-avaliacao">
+    <button
+        id="fecharLightboxAvaliacao"
+        class="lightbox-avaliacao-fechar"
+        type="button"
+        aria-label="Fechar imagem"
+    >
+        ×
+    </button>
+
+    <img
+        id="lightboxAvaliacaoImg"
+        src=""
+        alt="Imagem ampliada da avaliação"
+    >
+</div>
+
+<script src="../avaliacoes.js"></script>
+<script src="script.js"></script>
+
+<script src="../../../Extras Gerais/Proteção-Imagens.js"></script>
+
+</body>
+</html>

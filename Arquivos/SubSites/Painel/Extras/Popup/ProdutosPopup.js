@@ -49,7 +49,7 @@ const imagensProdutos = {
     "sku 89": 5, //
     "sku 90": 5, //
     "sku 99": 7, //
-    "sku 110": 10, //
+    "sku 110": 9, //
     "sku 71": 6
 };
 

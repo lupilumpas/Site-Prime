@@ -1032,3 +1032,118 @@ p4.indice-text {
     overflow-x: hidden;
     padding-right: 7px;
 }
+
+.galeria-mascara {
+    position: absolute;
+
+    width: 562px !important;
+    height: 736px !important;
+
+    top: 55px !important;
+    left: 61.5px !important;
+
+    object-fit: fill !important;
+
+    z-index: 2;
+    pointer-events: none;
+}
+.comparador-produto {
+    position: absolute;
+
+    width: 562px;
+    height: 736px;
+
+    top: 55px;
+    left: 61.5px;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+.comparador-antes,
+.comparador-depois img {
+    position: absolute;
+
+    width: 562px;
+    height: 736px;
+
+    object-fit: contain;
+    user-select: none;
+}
+
+.comparador-antes {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    user-select: none;
+}
+
+.comparador-depois {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 50%;
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 2;
+    user-select: none;
+}
+
+.comparador-depois img {
+    top: 0;
+    left: 0;
+    user-select: none;
+}
+
+.comparador-barra {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 4px;
+    height: 100%;
+
+    transform: translateX(-50%);
+
+    background: white;
+
+    z-index: 3;
+
+    cursor: ew-resize;
+    user-select: none;
+}
+
+.comparador-botao {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 42px;
+    height: 42px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #333;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    cursor: ew-resize;
+    user-select: none;
+}

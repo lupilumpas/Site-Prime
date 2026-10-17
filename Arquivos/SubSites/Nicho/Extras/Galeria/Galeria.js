@@ -27,7 +27,7 @@ for (const [cor, quantidade] of Object.entries(quantidadeFotos)) {
     for (let i = 1; i <= quantidade; i++) {
         todasAsFotos.push({
             cor: cor,
-            src: `../../Img/Produtos/Galeria/${cor}/ (${i}).png`
+            src: `../../Img/Produtos/Galeria/${cor}/(${i}).png`
         });
     }
 }

@@ -175,7 +175,7 @@ const fotosGaleria = [];
 for (const [cor, quantidade] of Object.entries(quantidadeFotos)) {
     for (let i = 1; i <= quantidade; i++) {
         fotosGaleria.push(
-            `Img/Produtos/Galeria/${cor}/ (${i}).png`
+            `Img/Produtos/Galeria/${cor}/(${i}).png`
         );
     }
 }
